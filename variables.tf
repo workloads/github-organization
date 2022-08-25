@@ -26,6 +26,7 @@ variable "organization_members" {
 
   default = [
     "drewmullen",    # Drew Mullen (AWS)
+    "im2nguyen",     # Tu Nguyen (HashiCorp)
     "joatmon08",     # Rosemary Wang (HashiCorp)
     "justinretzolk", # Justin Retzolk (HashiCorp)
     "lhaig",         # Lance Haig (HashiCorp)
