@@ -12,6 +12,11 @@ output "github_urls" {
     "${local.org_url}/repositories",
     "${local.org_url}/teams",
     "${local.org_url}/people",
+    "${local.org_url}/people/pending_invitations",
     "${local.org_url}/settings/profile",
   ]
+}
+output "workspace_url" {
+  description = "Terraform Cloud Workspace URL."
+  value       = "https://app.terraform.io/app/${var.github_owner}/workspaces/repositories"
 }
