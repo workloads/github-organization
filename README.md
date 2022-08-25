@@ -17,5 +17,7 @@ This directory manages the lifecycle of the [workloads](https://github.com/workl
 
 | Name | Description |
 |------|-------------|
+| github_repository_slugs | GitHub repository slugs. |
 | github_urls | GitHub URLs. |
+| workspace_url | Terraform Cloud Workspace URL. |
 <!-- END_TF_DOCS -->
