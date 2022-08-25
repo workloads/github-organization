@@ -25,6 +25,7 @@ variable "organization_members" {
   description = "User Names of GitHub Organization Members."
 
   default = [
+    "drewmullen",    # Drew Mullen (AWS)
     "joatmon08",     # Rosemary Wang (HashiCorp)
     "justinretzolk", # Justin Retzolk (HashiCorp)
     "lhaig",         # Lance Haig (HashiCorp)
