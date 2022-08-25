@@ -30,6 +30,7 @@ variable "organization_members" {
     "joatmon08",     # Rosemary Wang (HashiCorp)
     "justinretzolk", # Justin Retzolk (HashiCorp)
     "lhaig",         # Lance Haig (HashiCorp)
+    "lomar92",       # Amar Lojo (HashiCorp)
     "straubt1",      # Tom Straub (HashiCorp)
   ]
 }
