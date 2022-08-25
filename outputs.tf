@@ -3,6 +3,15 @@ locals {
   org_url  = "${local.base_url}/orgs/${var.github_owner}"
 }
 
+output "github_repository_slugs" {
+  description = "GitHub repository slugs."
+
+  # iterate over Repository Objects and assign `full_name` as value
+  value = {
+    for identifier, repository in module.repositories : identifier => repository.github_repository.full_name
+  }
+}
+
 output "github_urls" {
   description = "GitHub URLs."
 
@@ -16,6 +25,7 @@ output "github_urls" {
     "${local.org_url}/settings/profile",
   ]
 }
+
 output "workspace_url" {
   description = "Terraform Cloud Workspace URL."
   value       = "https://app.terraform.io/app/${var.github_owner}/workspaces/repositories"
