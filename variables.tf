@@ -53,7 +53,7 @@ variable "repositories" {
 
   default = [{
     name         = ".github"
-    description  = ":octocat: Default Community Health files for @workloads."
+    description  = "Community Health files and assets."
     homepage_url = "https://github.com/workloads"
     visibility   = "public"
     has_issues   = true
@@ -61,9 +61,6 @@ variable "repositories" {
 
     topics = [
       "github",
-      "github-organization",
-      "community",
-      "community-health",
     ]
 
     allow_merge_commit     = false
@@ -73,7 +70,7 @@ variable "repositories" {
     },
     {
       name         = "assets"
-      description  = ":card_index_dividers: Design and Content Assets."
+      description  = "(non-public) Design and Content Assets."
       homepage_url = "https://github.com/workloads"
       visibility   = "private"
       has_issues   = true
@@ -87,18 +84,16 @@ variable "repositories" {
 
     },
     {
-      name         = "workspaces"
-      description  = ":building_construction: Terraform Cloud Workspaces."
-      homepage_url = "https://app.terraform.io/app/workloads/workspaces"
+      name         = "github-organization"
+      description  = "Terraform-managed GitHub resources."
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/repositories"
       visibility   = "public"
       has_issues   = true
       has_wiki     = false
 
       topics = [
-        "hashicorp-terraform",
-        "terraform-cloud",
-        "terraform-enterprise",
-        "terraform-workspaces",
+        "github",
+        "terraform",
       ]
 
       allow_merge_commit     = false
