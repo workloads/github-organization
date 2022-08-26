@@ -101,19 +101,49 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
-      name         = "github-organization"
-      description  = ":octocat: Terraform-managed GitHub Resources."
-      homepage_url = "https://app.terraform.io/app/workloads/workspaces/repositories"
+      name         = "networking"
+      description  = "Terraform-managed networking resources."
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/networking"
       visibility   = "public"
       has_issues   = true
       has_wiki     = false
 
       topics = [
-        "hashicorp-terraform",
-        "terraform-cloud",
-        "terraform-enterprise",
-        "terraform-workspaces",
-        "terraform-github-provider",
+        "aws",
+        "terraform",
+      ]
+
+      allow_merge_commit     = false
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
+      name         = "website"
+      description  = "Terraform-rendered, GitHub-infused website."
+      homepage_url = "https://workloads.io"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "aws",
+        "terraform",
+      ]
+
+      allow_merge_commit     = false
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
+      name         = "workspaces"
+      description  = "Terraform-managed Terraform Cloud (TFC) Workspaces."
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "terraform",
       ]
 
       allow_merge_commit     = false
