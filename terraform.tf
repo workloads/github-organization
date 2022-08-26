@@ -15,10 +15,10 @@ terraform {
     # see https://registry.terraform.io/providers/integrations/github/4.29.0/
     github = {
       source  = "integrations/github"
-      version = "4.29.0"
+      version = ">= 4.29.0, < 5.0.0"
     }
   }
 
   # see https://www.terraform.io/docs/language/settings/index.html#specifying-a-required-terraform-version
-  required_version = ">= 1.2.7"
+  required_version = ">= 1.2.8"
 }
