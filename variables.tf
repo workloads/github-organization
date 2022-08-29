@@ -127,6 +127,7 @@ variable "repositories" {
 
       topics = [
         "aws",
+        "html",
         "terraform",
       ]
 
