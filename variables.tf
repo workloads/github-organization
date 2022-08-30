@@ -216,6 +216,26 @@ locals {
   # list of files to manage for the GitHub Repository.
   repository_files = [
     {
+      file                = ".github/workflows/superlinter.yml",
+      content             = file("./templates/workflows/superlinter.yml"),
+      overwrite_on_create = "test"
+    },
+    {
+      file                = ".github/workflows/terraform.yml",
+      content             = file("./templates/workflows/terraform.yml"),
+      overwrite_on_create = "test"
+    },
+    {
+      file                = ".github/workflows/terraform-docs.yml",
+      content             = file("./templates/workflows/terraform-docs.yml"),
+      overwrite_on_create = "test"
+    },
+    {
+      file                = ".github/workflows/tflint.yml",
+      content             = file("./templates/workflows/tflint.yml"),
+      overwrite_on_create = "test"
+    },
+    {
       file                = ".gitignore",
       content             = file("./templates/.gitignore"),
       overwrite_on_create = "test"
