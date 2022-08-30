@@ -31,8 +31,8 @@ module "repositories" {
   # TODO: update to new slug when 4.0.x has been released
   source = "git@github.com:operatehappy/terraform-github-repository.git?ref=updates-and-upgrades"
 
-  name        = each.value.name
-  description = each.value.description
+  name         = each.value.name
+  description  = each.value.description
   files        = local.repository_files
   homepage_url = each.value.homepage_url
   visibility   = each.value.visibility
