@@ -102,7 +102,7 @@ variable "repositories" {
     },
     {
       name         = "networking"
-      description  = "Terraform-managed networking resources."
+      description  = "Terraform-managed networking components."
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/networking"
       visibility   = "public"
       has_issues   = true
@@ -110,6 +110,24 @@ variable "repositories" {
 
       topics = [
         "aws",
+        "terraform",
+      ]
+
+      allow_merge_commit     = false
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
+      name         = "dns"
+      description  = "Terraform-managed DNS resources."
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/dns"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "aws",
+        "gandi",
         "terraform",
       ]
 
