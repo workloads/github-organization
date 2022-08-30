@@ -12,6 +12,15 @@ output "github_repository_slugs" {
   }
 }
 
+output "github_special_repository_slugs" {
+  description = "special GitHub repository slugs."
+
+  # iterate over Repository Objects and assign `full_name` as value
+  value = {
+    for identifier, repository in module.special_repositories : identifier => repository.github_repository.full_name
+  }
+}
+
 output "github_urls" {
   description = "GitHub URLs."
 

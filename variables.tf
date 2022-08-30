@@ -35,6 +35,56 @@ variable "organization_members" {
   ]
 }
 
+variable "special_repositories" {
+  type = list(object({
+    name                   = string
+    description            = string
+    homepage_url           = string
+    visibility             = string
+    topics                 = list(string)
+    has_issues             = bool # TODO: mark as optional when 1.3.0 is out
+    has_wiki               = bool # TODO: mark as optional when 1.3.0 is out
+    allow_merge_commit     = bool
+    allow_rebase_merge     = bool
+    delete_branch_on_merge = bool
+  }))
+
+  description = "List of non-Terraform-based GitHub Repositories."
+
+  default = [{
+    name         = ".github"
+    description  = "Community Health files and assets."
+    homepage_url = "https://github.com/workloads"
+    visibility   = "public"
+    has_issues   = true
+    has_wiki     = false
+
+    topics = [
+      "github",
+    ]
+
+    allow_merge_commit     = true
+    allow_rebase_merge     = false
+    delete_branch_on_merge = true
+    },
+    {
+      name         = "assets"
+      description  = "(non-public) Design and Content Assets."
+      homepage_url = "https://github.com/workloads"
+      visibility   = "private"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = []
+
+      allow_merge_commit     = false
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+
+    }
+  ]
+}
+
 variable "repositories" {
   type = list(object({
     name                   = string
@@ -51,37 +101,24 @@ variable "repositories" {
 
   description = "List of GitHub Repositories."
 
-  default = [{
-    name         = ".github"
-    description  = "Community Health files and assets."
-    homepage_url = "https://github.com/workloads"
-    visibility   = "public"
-    has_issues   = true
-    has_wiki     = false
-
-    topics = [
-      "github",
-    ]
-
-    allow_merge_commit     = false
-    allow_rebase_merge     = false
-    delete_branch_on_merge = true
-
-    },
+  default = [
     {
-      name         = "assets"
-      description  = "(non-public) Design and Content Assets."
-      homepage_url = "https://github.com/workloads"
-      visibility   = "private"
+      name         = "dns"
+      description  = "Terraform-managed DNS resources."
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/dns"
+      visibility   = "public"
       has_issues   = true
       has_wiki     = false
 
-      topics = []
+      topics = [
+        "aws",
+        "gandi",
+        "terraform",
+      ]
 
       allow_merge_commit     = false
       allow_rebase_merge     = false
       delete_branch_on_merge = true
-
     },
     {
       name         = "github-organization"
@@ -118,23 +155,26 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
-      name         = "dns"
-      description  = "Terraform-managed DNS resources."
-      homepage_url = "https://app.terraform.io/app/workloads/workspaces/dns"
+      name         = "service-deployments"
+      description  = "Terraform-managed HCP resources."
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/service-deployments"
       visibility   = "public"
       has_issues   = true
       has_wiki     = false
 
       topics = [
         "aws",
-        "gandi",
+        "consul",
+        "hcp",
         "terraform",
+        "vault"
       ]
 
       allow_merge_commit     = false
       allow_rebase_merge     = false
       delete_branch_on_merge = true
     },
+
     {
       name         = "website"
       description  = "Terraform-rendered, GitHub-infused website."
