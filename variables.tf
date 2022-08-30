@@ -211,3 +211,29 @@ variable "repositories" {
     },
   ]
 }
+
+locals {
+  # list of files to manage for the GitHub Repository.
+  repository_files = [
+    {
+      file                = ".gitignore",
+      content             = file("./templates/.gitignore"),
+      overwrite_on_create = "test"
+    },
+    {
+      file                = ".terraform-docs.yml",
+      content             = file("./templates/.terraform-docs.yml"),
+      overwrite_on_create = true
+    },
+    {
+      file                = ".tflint.hcl",
+      content             = file("./templates/.tflint.hcl"),
+      overwrite_on_create = true
+    },
+    {
+      file                = "LICENSE",
+      content             = file("./templates/LICENSE"),
+      overwrite_on_create = true
+    },
+  ]
+}
