@@ -1,6 +1,6 @@
 # Terraform Cloud Workspace: `repositories`
 
-This directory manages the lifecycle of the [workloads](https://github.com/workloads/) GitHub Organization.
+> This directory manages the lifecycle of the GitHub Configuration for [@workloads](https://github.com/workloads).
 
 <!-- BEGIN_TF_DOCS -->
 ### Inputs
