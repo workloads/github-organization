@@ -2,6 +2,17 @@
 
 > This directory manages the lifecycle of the GitHub Configuration for [@workloads](https://github.com/workloads).
 
+## Table of Contents
+
+<!-- TOC -->
+* [Terraform Cloud Workspace: `repositories`](#terraform-cloud-workspace--repositories)
+  * [Table of Contents](#table-of-contents)
+    * [Inputs](#inputs)
+    * [Outputs](#outputs)
+  * [Author Information](#author-information)
+  * [License](#license)
+<!-- TOC -->
+
 <!-- BEGIN_TF_DOCS -->
 ### Inputs
 
