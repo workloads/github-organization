@@ -155,7 +155,7 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
-      name         = "service-deployments"
+      name         = "services-deployment"
       description  = "Terraform-managed HCP resources."
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/service-deployments"
       visibility   = "public"
