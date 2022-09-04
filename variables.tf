@@ -266,6 +266,11 @@ locals {
       overwrite_on_create = true
     },
     {
+      file                = ".yaml-lint.yml",
+      content             = file("./templates/.yaml-lint.yml"),
+      overwrite_on_create = true
+    },
+    {
       file                = "LICENSE",
       content             = file("./templates/LICENSE"),
       overwrite_on_create = true
