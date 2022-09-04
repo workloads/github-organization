@@ -155,6 +155,25 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "packer-images"
+      description  = "Packer Templates for multiple Cloud Providers."
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/packer-images"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "aws",
+        "azure",
+        "google",
+        "packer",
+      ]
+
+      allow_merge_commit     = false
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "services-deployment"
       description  = "Terraform-managed HCP resources."
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/service-deployments"
