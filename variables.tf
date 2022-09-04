@@ -217,33 +217,43 @@ locals {
   repository_files = [
     {
       file                = ".github/workflows/markdown.yml",
-      content             = file("./templates/workflows/superlinter.yml"),
-      overwrite_on_create = "test"
+      content             = file("./templates/workflows/markdown.yml"),
+      overwrite_on_create = true
     },
     {
       file                = ".github/workflows/superlinter.yml",
       content             = file("./templates/workflows/superlinter.yml"),
-      overwrite_on_create = "test"
+      overwrite_on_create = true
     },
     {
       file                = ".github/workflows/terraform.yml",
       content             = file("./templates/workflows/terraform.yml"),
-      overwrite_on_create = "test"
+      overwrite_on_create = true
     },
     {
       file                = ".github/workflows/terraform-docs.yml",
       content             = file("./templates/workflows/terraform-docs.yml"),
-      overwrite_on_create = "test"
+      overwrite_on_create = true
     },
     {
       file                = ".github/workflows/tflint.yml",
       content             = file("./templates/workflows/tflint.yml"),
-      overwrite_on_create = "test"
+      overwrite_on_create = true
     },
     {
       file                = ".gitignore",
       content             = file("./templates/.gitignore"),
-      overwrite_on_create = "test"
+      overwrite_on_create = true
+    },
+    {
+      file                = ".markdown-link-check.json",
+      content             = file("./templates/.markdown-link-check.json"),
+      overwrite_on_create = true
+    },
+    {
+      file                = ".markdown-lint.yml",
+      content             = file("./templates/.markdown-lint.yml"),
+      overwrite_on_create = true
     },
     {
       file                = ".terraform-docs.yml",
