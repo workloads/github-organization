@@ -24,6 +24,7 @@ jobs:
           CSS_FILE_NAME: ".stylelintrc.json"
           DEFAULT_BRANCH: "main"
           DISABLE_ERRORS: false
+          MARKDOWN_CONFIG_FILE: ".markdown-lint.yml"
           MULTI_STATUS: true
           SUPPRESS_POSSUM: true
           TERRAFORM_TFLINT_CONFIG_FILE: ".tflint.hcl"

@@ -216,6 +216,11 @@ locals {
   # list of files to manage for the GitHub Repository.
   repository_files = [
     {
+      file                = ".github/workflows/markdown.yml",
+      content             = file("./templates/workflows/superlinter.yml"),
+      overwrite_on_create = "test"
+    },
+    {
       file                = ".github/workflows/superlinter.yml",
       content             = file("./templates/workflows/superlinter.yml"),
       overwrite_on_create = "test"
