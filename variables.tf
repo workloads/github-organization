@@ -165,7 +165,7 @@ variable "repositories" {
       topics = [
         "aws",
         "azure",
-        "google",
+        "google-cloud",
         "packer",
       ]
 
