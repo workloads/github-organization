@@ -9,6 +9,17 @@ variable "github_token" {
   sensitive   = true
 }
 
+# tflint-ignore: terraform_unused_declarations
+variable "hvn_id_aws" {
+  type        = string
+  description = "AWS-specific HashiCorp HVN Identifier."
+}
+
+variable "management_region_aws" {
+  type        = string
+  description = "AWS-specific `Management` Region Identifier."
+}
+
 variable "organization_owners" {
   type        = list(string)
   description = "User Names of GitHub Organization Owners."
@@ -35,6 +46,67 @@ variable "organization_members" {
   ]
 }
 
+# tflint-ignore: terraform_unused_declarations
+variable "project_identifier" {
+  type        = string
+  description = "Human-readable Project Identifier."
+}
+
+variable "repositories" {
+  type = list(object({
+    name                   = string
+    description            = string
+    homepage_url           = string
+    visibility             = string
+    topics                 = list(string)
+    has_issues             = bool # TODO: mark as optional when 1.3.0 is out
+    has_wiki               = bool # TODO: mark as optional when 1.3.0 is out
+    allow_merge_commit     = bool
+    allow_rebase_merge     = bool
+    delete_branch_on_merge = bool
+  }))
+
+  description = "List of GitHub Repositories."
+
+  default = [
+    {
+      name         = "nomad-pack-registry"
+      description  = "Nomad Pack Registry."
+      homepage_url = ""
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "nomad",
+      ]
+
+      allow_merge_commit     = false
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
+      name         = "packer-images"
+      description  = "Packer Templates for common providers."
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/packer-images"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "aws",
+        "azure",
+        "google-cloud",
+        "packer",
+      ]
+
+      allow_merge_commit     = false
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+  ]
+}
+
 variable "special_repositories" {
   type = list(object({
     name                   = string
@@ -53,7 +125,7 @@ variable "special_repositories" {
 
   default = [{
     name         = ".github"
-    description  = "Community Health files and assets."
+    description  = ":octocat: Community Health files and assets."
     homepage_url = "https://github.com/workloads"
     visibility   = "public"
     has_issues   = true
@@ -85,7 +157,7 @@ variable "special_repositories" {
   ]
 }
 
-variable "repositories" {
+variable "terraform_repositories" {
   type = list(object({
     name                   = string
     description            = string
@@ -155,28 +227,9 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
-      name         = "packer-images"
-      description  = "Packer Templates for multiple Cloud Providers."
-      homepage_url = "https://app.terraform.io/app/workloads/workspaces/packer-images"
-      visibility   = "public"
-      has_issues   = true
-      has_wiki     = false
-
-      topics = [
-        "aws",
-        "azure",
-        "google-cloud",
-        "packer",
-      ]
-
-      allow_merge_commit     = false
-      allow_rebase_merge     = false
-      delete_branch_on_merge = true
-    },
-    {
       name         = "services-deployment"
-      description  = "Terraform-managed HCP resources."
-      homepage_url = "https://app.terraform.io/app/workloads/workspaces/service-deployments"
+      description  = "Terraform-managed services deployment."
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/services-deployment"
       visibility   = "public"
       has_issues   = true
       has_wiki     = false
@@ -231,6 +284,12 @@ variable "repositories" {
   ]
 }
 
+# tflint-ignore: terraform_unused_declarations
+variable "tfe_organization" {
+  type        = string
+  description = "Name of the Terraform Cloud Organization."
+}
+
 locals {
   # list of files to manage for the GitHub Repository.
   repository_files = [
@@ -242,21 +301,6 @@ locals {
     {
       file                = ".github/workflows/superlinter.yml",
       content             = file("./templates/workflows/superlinter.yml"),
-      overwrite_on_create = true
-    },
-    {
-      file                = ".github/workflows/terraform.yml",
-      content             = file("./templates/workflows/terraform.yml"),
-      overwrite_on_create = true
-    },
-    {
-      file                = ".github/workflows/terraform-docs.yml",
-      content             = file("./templates/workflows/terraform-docs.yml"),
-      overwrite_on_create = true
-    },
-    {
-      file                = ".github/workflows/tflint.yml",
-      content             = file("./templates/workflows/tflint.yml"),
       overwrite_on_create = true
     },
     {
@@ -275,16 +319,6 @@ locals {
       overwrite_on_create = true
     },
     {
-      file                = ".terraform-docs.yml",
-      content             = file("./templates/.terraform-docs.yml"),
-      overwrite_on_create = true
-    },
-    {
-      file                = ".tflint.hcl",
-      content             = file("./templates/.tflint.hcl"),
-      overwrite_on_create = true
-    },
-    {
       file                = ".yaml-lint.yml",
       content             = file("./templates/.yaml-lint.yml"),
       overwrite_on_create = true
@@ -295,4 +329,32 @@ locals {
       overwrite_on_create = true
     },
   ]
+
+  terraform_repository_files = concat(local.repository_files, [
+    {
+      file                = ".github/workflows/terraform.yml",
+      content             = file("./templates/workflows/terraform.yml"),
+      overwrite_on_create = true
+    },
+    {
+      file                = ".github/workflows/terraform-docs.yml",
+      content             = file("./templates/workflows/terraform-docs.yml"),
+      overwrite_on_create = true
+    },
+    {
+      file                = ".github/workflows/tflint.yml",
+      content             = file("./templates/workflows/tflint.yml"),
+      overwrite_on_create = true
+    },
+    {
+      file                = ".terraform-docs.yml",
+      content             = file("./templates/.terraform-docs.yml"),
+      overwrite_on_create = true
+    },
+    {
+      file                = ".tflint.hcl",
+      content             = file("./templates/.tflint.hcl"),
+      overwrite_on_create = true
+    },
+  ])
 }
