@@ -342,11 +342,6 @@ locals {
       overwrite_on_create = true
     },
     {
-      file                = ".github/workflows/tflint.yml",
-      content             = file("./templates/workflows/tflint.yml"),
-      overwrite_on_create = true
-    },
-    {
       file                = ".terraform-docs.yml",
       content             = file("./templates/.terraform-docs.yml"),
       overwrite_on_create = true
