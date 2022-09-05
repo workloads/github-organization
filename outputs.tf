@@ -1,6 +1,9 @@
 locals {
-  base_url = "https://github.com"
-  org_url  = "${local.base_url}/orgs/${var.github_owner}"
+  base_url                     = "https://github.com"
+  pack_registry_repository_url = "github.com/${module.repositories["nomad-pack-registry"].github_repository.full_name}"
+  org_url                      = "${local.base_url}/orgs/${var.github_owner}"
+
+  github_repository_slugs = merge(module.repositories, module.special_repositories, module.terraform_repositories)
 }
 
 output "github_repository_slugs" {
@@ -8,16 +11,7 @@ output "github_repository_slugs" {
 
   # iterate over Repository Objects and assign `full_name` as value
   value = {
-    for identifier, repository in module.repositories : identifier => repository.github_repository.full_name
-  }
-}
-
-output "github_special_repository_slugs" {
-  description = "special GitHub repository slugs."
-
-  # iterate over Repository Objects and assign `full_name` as value
-  value = {
-    for identifier, repository in module.special_repositories : identifier => repository.github_repository.full_name
+    for identifier, repository in local.github_repository_slugs : identifier => repository.github_repository.full_name
   }
 }
 
@@ -38,4 +32,11 @@ output "github_urls" {
 output "workspace_url" {
   description = "Terraform Cloud Workspace URL."
   value       = "https://app.terraform.io/app/${var.github_owner}/workspaces/repositories"
+}
+
+output "nomad_pack_registry_commands" {
+  description = "Nomad Pack CLI Commands for Registry operations"
+  value = {
+    add_registry = "nomad-pack registry add ${var.github_owner} ${local.pack_registry_repository_url}"
+  }
 }
