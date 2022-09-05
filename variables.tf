@@ -304,11 +304,6 @@ locals {
       overwrite_on_create = true
     },
     {
-      file                = ".gitignore",
-      content             = file("./templates/.gitignore"),
-      overwrite_on_create = true
-    },
-    {
       file                = ".markdown-link-check.json",
       content             = file("./templates/.markdown-link-check.json"),
       overwrite_on_create = true
@@ -331,6 +326,11 @@ locals {
   ]
 
   terraform_repository_files = concat(local.repository_files, [
+    {
+      file                = ".gitignore",
+      content             = file("./templates/gitignores/terraform.gitignore"),
+      overwrite_on_create = true
+    },
     {
       file                = ".github/workflows/terraform.yml",
       content             = file("./templates/workflows/terraform.yml"),
