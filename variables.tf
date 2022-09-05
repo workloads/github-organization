@@ -86,7 +86,7 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
-      name         = "packer-images"
+      name         = "packer-templates"
       description  = "Packer Templates for common providers."
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/packer-images"
       visibility   = "public"
