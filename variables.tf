@@ -15,17 +15,6 @@ variable "github_token" {
   sensitive   = true
 }
 
-# tflint-ignore: terraform_unused_declarations
-variable "hvn_id_aws" {
-  type        = string
-  description = "AWS-specific HashiCorp HVN Identifier."
-}
-
-variable "management_region_aws" {
-  type        = string
-  description = "AWS-specific `Management` Region Identifier."
-}
-
 variable "organization_owners" {
   type        = list(string)
   description = "User Names of GitHub Organization Owners."
@@ -51,12 +40,6 @@ variable "organization_members" {
     "lomar92",       # Amar Lojo (HashiCorp)
     "straubt1",      # Tom Straub (HashiCorp)
   ]
-}
-
-# tflint-ignore: terraform_unused_declarations
-variable "project_identifier" {
-  type        = string
-  description = "Human-readable Project Identifier."
 }
 
 variable "repositories" {
@@ -289,12 +272,6 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
   ]
-}
-
-# tflint-ignore: terraform_unused_declarations
-variable "tfe_organization" {
-  type        = string
-  description = "Name of the Terraform Cloud Organization."
 }
 
 locals {

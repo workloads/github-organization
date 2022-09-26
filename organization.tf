@@ -7,7 +7,7 @@ resource "github_organization_settings" "main" {
   email            = var.github_organization_email
   location         = "At the Computed Edge."
   name             = "workloads.io"
-  twitter_username = "@wrklds"
+  twitter_username = "wrklds"
 
   # GitHub Pages settings:
   members_can_create_pages         = false
