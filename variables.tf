@@ -3,6 +3,12 @@ variable "github_owner" {
   description = "This is the target GitHub organization or individual user account to manage."
 }
 
+variable "github_organization_email" {
+  type        = string
+  description = "E-mail address to use for GitHub Organization."
+  default     = "team@workloads.io"
+}
+
 variable "github_token" {
   type        = string
   description = "A GitHub OAuth / Personal Access Token."
