@@ -1,5 +1,5 @@
 module "repositories" {
-  # see https://www.terraform.io/docs/language/meta-arguments/for_each.html
+  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
   for_each = {
     for repository in var.repositories :
     repository.name => repository
@@ -22,7 +22,7 @@ module "repositories" {
 }
 
 module "special_repositories" {
-  # see https://www.terraform.io/docs/language/meta-arguments/for_each.html
+  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
   for_each = {
     for repository in var.special_repositories :
     repository.name => repository
@@ -44,7 +44,7 @@ module "special_repositories" {
 }
 
 module "terraform_repositories" {
-  # see https://www.terraform.io/docs/language/meta-arguments/for_each.html
+  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
   for_each = {
     for repository in var.terraform_repositories :
     repository.name => repository

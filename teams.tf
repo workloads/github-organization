@@ -9,7 +9,7 @@ resource "github_team" "contributors" {
 # add all members of `var.github_organization_members` to the `contributors` team
 # see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_membership
 resource "github_team_membership" "contributors" {
-  # see https://www.terraform.io/docs/language/meta-arguments/for_each.html
+  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
   for_each = {
     for member in github_membership.members :
     member.username => member
