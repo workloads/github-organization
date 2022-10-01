@@ -115,7 +115,7 @@ variable "special_repositories" {
 
   default = [{
     name         = ".github"
-    description  = ":octocat: Community Health files and assets."
+    description  = "Community Health files and assets."
     homepage_url = "https://github.com/workloads"
     visibility   = "public"
     has_issues   = true
