@@ -86,6 +86,7 @@ variable "repositories" {
       topics = [
         "aws",
         "azure",
+        "digital-ocean",
         "google-cloud",
         "packer",
       ]
@@ -191,6 +192,7 @@ variable "terraform_repositories" {
       has_wiki     = false
 
       topics = [
+        "1password-cli",
         "github",
         "terraform",
       ]
