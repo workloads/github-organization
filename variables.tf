@@ -226,10 +226,11 @@ variable "terraform_repositories" {
 
       topics = [
         "aws",
+        "boundary",
         "consul",
         "hcp",
         "terraform",
-        "vault"
+        "vault",
       ]
 
       allow_merge_commit     = false
