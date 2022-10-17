@@ -1,0 +1,27 @@
+---
+
+name: "Code Quality: actionlint"
+
+# yamllint disable-line rule:truthy
+on:
+  push:
+
+jobs:
+  actionlint:
+    name: actionlint
+    runs-on: ubuntu-latest
+
+    steps:
+      # see https://github.com/actions/checkout
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      # see https://github.com/reviewdog/action-actionlint
+      # and https://github.com/rhysd/actionlint
+      - name: Lint GitHub Action Workflows
+        uses: reviewdog/action-actionlint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workdir: "templates/workflows"
