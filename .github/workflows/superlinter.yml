@@ -34,6 +34,7 @@ jobs:
           TERRAFORM_TFLINT_CONFIG_FILE: ".tflint.hcl"
           VALIDATE_BASH: true
           VALIDATE_CSS: true
+          VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_HTML: true
           VALIDATE_JSON: true
           VALIDATE_MARKDOWN: true
