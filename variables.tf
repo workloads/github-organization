@@ -20,9 +20,8 @@ variable "organization_owners" {
   description = "User Names of GitHub Organization Owners."
 
   default = [
-    "DerekStrickland", # Derek Strickland
-    "ksatirli",        # Kerim Satirli
-    "workloads-bot",   # service account
+    "ksatirli",      # Kerim Satirli
+    "workloads-bot", # service account
   ]
 }
 
@@ -31,14 +30,15 @@ variable "organization_members" {
   description = "User Names of GitHub Organization Members."
 
   default = [
-    "davemay99",     # Dave May (HashiCorp)
-    "drewmullen",    # Drew Mullen (AWS)
-    "im2nguyen",     # Tu Nguyen (HashiCorp)
-    "joatmon08",     # Rosemary Wang (HashiCorp)
-    "justinretzolk", # Justin Retzolk (HashiCorp)
-    "lhaig",         # Lance Haig (HashiCorp)
-    "lomar92",       # Amar Lojo (HashiCorp)
-    "straubt1",      # Tom Straub (HashiCorp)
+    #"davemay99",     # Dave May (HashiCorp)
+    "DerekStrickland", # Derek Strickland (Aquia)
+    "drewmullen",      # Drew Mullen (AWS)
+    "im2nguyen",       # Tu Nguyen (HashiCorp)
+    "joatmon08",       # Rosemary Wang (HashiCorp)
+    "justinretzolk",   # Justin Retzolk (HashiCorp)
+    "lhaig",           # Lance Haig (HashiCorp)
+    "lomar92",         # Amar Lojo (HashiCorp)
+    "straubt1",        # Tom Straub (HashiCorp)
   ]
 }
 
@@ -129,7 +129,7 @@ variable "special_repositories" {
     allow_merge_commit     = true
     allow_rebase_merge     = false
     delete_branch_on_merge = true
-    },
+  },
     {
       name         = "assets"
       description  = "(non-public) Design and Content Assets."
@@ -218,6 +218,7 @@ variable "terraform_repositories" {
       allow_rebase_merge     = false
       delete_branch_on_merge = true
     },
+
     {
       name         = "services-deployment"
       description  = "Terraform-managed services deployment."
