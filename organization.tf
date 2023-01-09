@@ -5,7 +5,7 @@ resource "github_organization_settings" "main" {
   blog             = "https://workloads.io/"
   description      = "Multi-Cloud, Multi-Content Job Orchestration."
   email            = var.github_organization_email
-  location         = "At the Computed Edge."
+  location         = "Netherlands"
   name             = "workloads.io"
   twitter_username = "wrklds"
 
