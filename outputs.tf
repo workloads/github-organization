@@ -26,6 +26,9 @@ output "github_urls" {
     "${local.org_url}/people",
     "${local.org_url}/people/pending_invitations",
     "${local.org_url}/settings/profile",
+    "${local.org_url}/settings/security_analysis",
+    "${local.org_url}/settings/domains",
+    "${local.org_url}/settings/secrets/actions",
   ]
 }
 
