@@ -31,5 +31,5 @@ resource "github_organization_settings" "main" {
   dependabot_security_updates_enabled_for_new_repositories     = true
   dependency_graph_enabled_for_new_repositories                = true
   secret_scanning_enabled_for_new_repositories                 = true
-  secret_scanning_push_protection_enabled_for_new_repositories = true
+  secret_scanning_push_protection_enabled_for_new_repositories = false
 }
