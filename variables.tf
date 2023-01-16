@@ -129,7 +129,7 @@ variable "special_repositories" {
     allow_merge_commit     = true
     allow_rebase_merge     = false
     delete_branch_on_merge = true
-  },
+    },
     {
       name         = "assets"
       description  = "(non-public) Design and Content Assets."
