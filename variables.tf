@@ -39,6 +39,7 @@ variable "organization_members" {
     "lhaig",           # Lance Haig (HashiCorp)
     "lomar92",         # Amar Lojo (HashiCorp)
     "straubt1",        # Tom Straub (HashiCorp)
+    "rizkybiz",        # Justin DeFrank (HashiCorp)
   ]
 }
 
