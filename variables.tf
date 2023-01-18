@@ -219,7 +219,23 @@ variable "terraform_repositories" {
       allow_rebase_merge     = false
       delete_branch_on_merge = true
     },
+    {
+      name         = "regional-aws-deployment"
+      description  = "Regional Deployment of AWS-specific Resources."
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces?tag=regional-provider%3Aaws"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
 
+      topics = [
+        "aws",
+        "terraform",
+      ]
+
+      allow_merge_commit     = false
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
     {
       name         = "services-deployment"
       description  = "Terraform-managed services deployment."
