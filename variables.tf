@@ -237,6 +237,23 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "regional-workspaces"
+      description  = "Terraform-managed Regional Terraform Cloud (TFC) Workspaces."
+      homepage_url = "https://app.terraform.io/app/workloads/regional-workspaces"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "terraform",
+        "aws",
+      ]
+
+      allow_merge_commit     = false
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "services-deployment"
       description  = "Terraform-managed services deployment."
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/services-deployment"
