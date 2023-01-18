@@ -5,9 +5,9 @@ module "repositories" {
     repository.name => repository
   }
 
-  # see https://registry.terraform.io/modules/ksatirli/repository/github/4.0.1
+  # see https://registry.terraform.io/modules/ksatirli/repository/github/4.1.0
   source  = "ksatirli/repository/github"
-  version = "4.0.1"
+  version = "4.1.0"
 
   name         = each.value.name
   description  = each.value.description
@@ -29,9 +29,9 @@ module "special_repositories" {
     repository.name => repository
   }
 
-  # see https://registry.terraform.io/modules/ksatirli/repository/github/4.0.1
+  # see https://registry.terraform.io/modules/ksatirli/repository/github/4.1.0
   source  = "ksatirli/repository/github"
-  version = "4.0.1"
+  version = "4.1.0"
 
   name         = each.value.name
   description  = each.value.description
@@ -52,9 +52,9 @@ module "terraform_repositories" {
     repository.name => repository
   }
 
-  # see https://registry.terraform.io/modules/ksatirli/repository/github/4.0.1
+  # see https://registry.terraform.io/modules/ksatirli/repository/github/4.1.0
   source  = "ksatirli/repository/github"
-  version = "4.0.1"
+  version = "4.1.0"
 
   name         = each.value.name
   description  = each.value.description
