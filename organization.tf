@@ -15,7 +15,7 @@ resource "github_organization_settings" "main" {
   members_can_create_public_pages  = false
 
   # GitHub Projects settings:
-  has_organization_projects = false
+  has_organization_projects = true
   has_repository_projects   = false
 
   # GitHub Repository settings:
