@@ -78,7 +78,7 @@ variable "repositories" {
     },
     {
       name         = "packer-templates"
-      description  = "Packer Templates for common providers."
+      description  = "Packer Templates for common Cloud Providers."
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/packer-images"
       visibility   = "public"
       has_issues   = true
@@ -168,7 +168,7 @@ variable "terraform_repositories" {
   default = [
     {
       name         = "dns"
-      description  = "Terraform-managed DNS resources."
+      description  = "Terraform-managed DNS Resources."
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/dns"
       visibility   = "public"
       has_issues   = true
@@ -186,7 +186,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "github-organization"
-      description  = "Terraform-managed GitHub resources."
+      description  = "Terraform-managed GitHub Resources."
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/repositories"
       visibility   = "public"
       has_issues   = true
@@ -204,7 +204,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "networking"
-      description  = "Terraform-managed networking components."
+      description  = "Terraform-managed Networking Components."
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/networking"
       visibility   = "public"
       has_issues   = true
@@ -255,7 +255,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "services-deployment"
-      description  = "Terraform-managed services deployment."
+      description  = "Terraform-managed Services Deployment."
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/services-deployment"
       visibility   = "public"
       has_issues   = true
@@ -277,7 +277,7 @@ variable "terraform_repositories" {
 
     {
       name         = "website"
-      description  = "Terraform-rendered, GitHub-infused website."
+      description  = "Terraform-rendered, GitHub-infused Project Website."
       homepage_url = "https://workloads.io"
       visibility   = "public"
       has_issues   = true
