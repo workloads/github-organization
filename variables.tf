@@ -354,7 +354,7 @@ locals {
       overwrite_on_create = true
     },
     {
-      file                = "./github/dependabot.yml",
+      file                = ".github/dependabot.yml",
       content             = file("./templates/dependabot/terraform.yml"),
       overwrite_on_create = true
     },
