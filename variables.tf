@@ -135,7 +135,7 @@ variable "special_repositories" {
 
   default = [{
     name         = ".github"
-    description  = "Community Health files and assets."
+    description  = "Community Health Files and Assets."
     homepage_url = "https://github.com/workloads"
     visibility   = "public"
     has_issues   = true
