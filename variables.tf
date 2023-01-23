@@ -271,6 +271,23 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "services-configuration"
+      description  = "Terraform-managed Services Configuration."
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/services-configuration"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "terraform",
+        "vault",
+      ]
+
+      allow_merge_commit     = false
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "services-deployment"
       description  = "Terraform-managed Services Deployment."
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/services-deployment"
@@ -291,7 +308,6 @@ variable "terraform_repositories" {
       allow_rebase_merge     = false
       delete_branch_on_merge = true
     },
-
     {
       name         = "website"
       description  = "Terraform-rendered, GitHub-infused Project Website."
