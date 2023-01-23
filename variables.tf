@@ -61,6 +61,24 @@ variable "repositories" {
 
   default = [
     {
+      name         = "edge-case"
+      description  = "Docs and Diagrams for the Edge Case."
+      homepage_url = "https://github.com/workloads/edge-case"
+      visibility   = "private"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "raspberry-pi",
+        "seeedstudio",
+        "turing-pi",
+      ]
+
+      allow_merge_commit     = false
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "nomad-pack-registry"
       description  = "Nomad Pack Registry."
       homepage_url = ""
