@@ -69,6 +69,7 @@ variable "repositories" {
       has_wiki     = false
 
       topics = [
+        "cyberdeck",
         "raspberry-pi",
         "seeedstudio",
         "turing-pi",
