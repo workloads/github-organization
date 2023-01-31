@@ -33,14 +33,15 @@ variable "organization_members" {
     #"davemay99",     # Dave May (HashiCorp)
     "DerekStrickland", # Derek Strickland (Aquia)
     "drewmullen",      # Drew Mullen (AWS)
+    "ericreeves",      # Eric Reeves (HashiCorp)
     "devopswithcobra", # Greg Thomas (HashiCorp)
     "im2nguyen",       # Tu Nguyen (HashiCorp)
     "joatmon08",       # Rosemary Wang (HashiCorp)
     "justinretzolk",   # Justin Retzolk (HashiCorp)
     "lhaig",           # Lance Haig (HashiCorp)
     "lomar92",         # Amar Lojo (HashiCorp)
-    "straubt1", # Tom Straub (HashiCorp)
-    "rizkybiz", # Justin DeFrank (HashiCorp)
+    "straubt1",        # Tom Straub (HashiCorp)
+    "rizkybiz",        # Justin DeFrank (HashiCorp)
   ]
 }
 
