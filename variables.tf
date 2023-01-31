@@ -52,8 +52,8 @@ variable "repositories" {
     homepage_url           = string
     visibility             = string
     topics                 = list(string)
-    has_issues             = bool # TODO: mark as optional when 1.3.0 is out
-    has_wiki               = bool # TODO: mark as optional when 1.3.0 is out
+    has_issues             = bool # TODO: mark as optional
+    has_wiki               = bool # TODO: mark as optional
     allow_merge_commit     = bool
     allow_rebase_merge     = bool
     delete_branch_on_merge = bool
@@ -154,7 +154,7 @@ variable "special_repositories" {
     },
     {
       name         = "assets"
-      description  = "(non-public) Design and Content Assets."
+      description  = "🔒 (non-public) Design and Content Assets."
       homepage_url = "https://github.com/workloads"
       visibility   = "private"
       has_issues   = true
