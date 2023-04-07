@@ -425,12 +425,12 @@ locals {
   repository_files = [
     {
       file                = ".github/workflows/markdown.yml",
-      content             = file("./templates/workflows/markdown.yml"),
+      content             = templatefile("./templates/workflows/markdown.tftpl.yml", var.actions_config)
       overwrite_on_create = true
     },
     {
-      file                = ".github/workflows/superlinter.yml",
-      content             = file("./templates/workflows/superlinter.yml"),
+      file                = ".github/workflows/superlinter.yml"
+      content             = templatefile("./templates/workflows/superlinter.tftpl.yml", var.actions_config)
       overwrite_on_create = true
     },
     {
@@ -467,13 +467,13 @@ locals {
       overwrite_on_create = true
     },
     {
-      file                = ".github/workflows/terraform.yml",
-      content             = file("./templates/workflows/terraform.yml"),
+      file                = ".github/workflows/terraform.yml"
+      content             = templatefile("./templates/workflows/terraform.tftpl.yml", var.actions_config)
       overwrite_on_create = true
     },
     {
-      file                = ".github/workflows/terraform-docs.yml",
-      content             = file("./templates/workflows/terraform-docs.yml"),
+      file                = ".github/workflows/terraform-docs.yml"
+      content             = templatefile("./templates/workflows/terraform-docs.tftpl.yml", var.actions_config)
       overwrite_on_create = true
     },
     {
