@@ -15,6 +15,59 @@ variable "github_token" {
   sensitive   = true
 }
 
+variable "actions_config" {
+  type = map(object({
+    url     = string
+    version = string
+  }))
+
+  description = "Complex Object of GitHub Actions Configuration."
+
+  default = {
+    # see https://github.com/actions/checkout
+    checkout = {
+      url     = "actions/checkout"
+      version = "v3"
+    }
+
+    # see https://github.com/github/codeql-action/tree/main/upload-sarif
+    codeql-upload = {
+      url     = "github/codeql-action/upload-sarif"
+      version = "v2"
+    }
+
+    # see https://github.com/gaurav-nelson/github-action-markdown-link-check
+    markdown = {
+      url     = "gaurav-nelson/github-action-markdown-link-check"
+      version = "v1"
+    }
+
+    # see # see https://github.com/snyk/actions/tree/master/iac
+    snyk-iac = {
+      url     = "snyk/actions/iac"
+      version = "master"
+    }
+
+    # see https://github.com/github/super-linter#slim-image
+    superlinter = {
+      url     = "github/super-linter/slim"
+      version = "v4"
+    }
+
+    # see https://github.com/hashicorp/setup-terraform
+    terraform = {
+      url     = "hashicorp/setup-terraform"
+      version = "v2"
+    }
+
+    # see https://github.com/terraform-docs/gh-actions
+    terraform-docs = {
+      url     = "terraform-docs/gh-actions"
+      version = "v1.0.0"
+    }
+  }
+}
+
 variable "organization_owners" {
   type        = list(string)
   description = "User Names of GitHub Organization Owners."
