@@ -434,36 +434,36 @@ locals {
       overwrite_on_create = true
     },
     {
-      file                = ".markdown-link-check.json",
-      content             = file("./templates/.markdown-link-check.json"),
+      file                = ".markdown-link-check.json"
+      content             = file("./templates/.markdown-link-check.json")
       overwrite_on_create = true
     },
     {
-      file                = ".markdown-lint.yml",
-      content             = file("./templates/.markdown-lint.yml"),
+      file                = ".markdown-lint.yml"
+      content             = file("./templates/.markdown-lint.yml")
       overwrite_on_create = true
     },
     {
       file                = ".yaml-lint.yml",
-      content             = file("./templates/.yaml-lint.yml"),
+      content             = file("./templates/.yaml-lint.yml")
       overwrite_on_create = true
     },
     {
       file                = "LICENSE",
-      content             = file("./templates/LICENSE"),
+      content             = file("./templates/LICENSE")
       overwrite_on_create = true
     },
   ]
 
   terraform_repository_files = concat(local.repository_files, [
     {
-      file                = ".gitignore",
-      content             = file("./templates/gitignores/terraform.gitignore"),
+      file                = ".gitignore"
+      content             = file("./templates/gitignores/terraform.gitignore")
       overwrite_on_create = true
     },
     {
-      file                = ".github/dependabot.yml",
-      content             = file("./templates/dependabot/terraform.yml"),
+      file                = ".github/dependabot.yml"
+      content             = file("./templates/dependabot/terraform.yml")
       overwrite_on_create = true
     },
     {
@@ -477,13 +477,13 @@ locals {
       overwrite_on_create = true
     },
     {
-      file                = ".terraform-docs.yml",
-      content             = file("./templates/.terraform-docs.yml"),
+      file                = ".terraform-docs.yml"
+      content             = file("./templates/.terraform-docs.yml")
       overwrite_on_create = true
     },
     {
-      file                = ".tflint.hcl",
-      content             = file("./templates/.tflint.hcl"),
+      file                = ".tflint.hcl"
+      content             = file("./templates/.tflint.hcl")
       overwrite_on_create = true
     },
   ])

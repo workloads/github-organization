@@ -4,7 +4,9 @@ locals {
     github_org = var.github_owner
 
     # flatten Terraform-based GitHub repository names to allow for consumption in Bash scripts
-    github_repos = join(" ", [for repo in var.terraform_repositories : repo.name])
+    github_repos = join(" ", [
+      for repo in var.terraform_repositories : repo.name
+    ])
   })
 }
 
