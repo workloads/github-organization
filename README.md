@@ -20,6 +20,7 @@
 |------|-------------|------|:--------:|
 | github_owner | This is the target GitHub organization or individual user account to manage. | `string` | yes |
 | github_token | A GitHub OAuth / Personal Access Token. | `string` | yes |
+| actions_config | Complex Object of GitHub Actions Configuration. | <pre>map(object({<br>    url     = string<br>    version = string<br>  }))</pre> | no |
 | github_organization_email | E-mail address to use for GitHub Organization. | `string` | no |
 | organization_members | User Names of GitHub Organization Members. | `list(string)` | no |
 | organization_owners | User Names of GitHub Organization Owners. | `list(string)` | no |
