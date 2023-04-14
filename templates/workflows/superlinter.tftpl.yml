@@ -13,16 +13,16 @@ jobs:
     name: Super-Linter
     runs-on: ubuntu-latest
     steps:
-      # see https://github.com/actions/checkout
+      # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "${checkout.url}@${checkout.version}"
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.version}" # ${checkout.version}
         with:
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
 
-      # see https://github.com/github/super-linter#slim-image
+      # see https://github.com/${superlinter.owner}/${superlinter.repository}/releases/tag/${superlinter.version}
       - name: Lint Code with Super-Linter
-        uses: "${superlinter.url}@${superlinter.version}"
+        uses: "${superlinter.owner}/${superlinter.repository}@${superlinter.version}" # ${superlinter.version}
         env:
           # see https://github.com/github/super-linter#environment-variables
           VALIDATE_ALL_CODEBASE: true

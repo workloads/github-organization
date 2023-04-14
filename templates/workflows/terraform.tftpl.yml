@@ -14,15 +14,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # see https://github.com/actions/checkout
+      # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "${checkout.url}@${checkout.version}"
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.version}" # ${checkout.version}
         with:
           fetch-depth: 1
 
-      # see https://github.com/hashicorp/setup-terraform
+      # see https://github.com/${terraform.owner}/${terraform.repository}/releases/tag/${terraform.version}
       - name: Set up Terraform
-        uses: "${terraform.url}@${terraform.version}"
+        uses: "${terraform.owner}/${terraform.repository}@${terraform.version}" # ${terraform.version}
         with:
           terraform_wrapper: false
           terraform_version: "$${{ vars.TERRAFORM_VERSION }}"

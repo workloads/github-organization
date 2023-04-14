@@ -6,6 +6,20 @@ locals {
   github_repository_slugs = merge(module.repositories, module.special_repositories, module.terraform_repositories)
 }
 
+output "github_actions_releases" {
+  description = "GitHub Actions releases."
+
+  # iterate over GitHub Actions Release Objects and assign `full_name` as value
+  value = {
+    for identifier, action in data.github_release.actions : identifier => {
+      id         = action.id
+      tag        = action.release_tag
+      created_at = action.created_at
+      commitish  = action.target_commitish
+    }
+  }
+}
+
 output "github_repository_slugs" {
   description = "GitHub repository slugs."
 

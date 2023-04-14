@@ -17,53 +17,69 @@ variable "github_token" {
 
 variable "actions_config" {
   type = map(object({
-    url     = string
+    owner      = string
+    repository = string
+
+    # support GitHub Actions that share a repository and are stored in a sub-directory
+    # value is optional and must be supplied without leading slash
+    path = optional(string)
+
     version = string
   }))
 
   description = "Complex Object of GitHub Actions Configuration."
 
   default = {
-    # see https://github.com/actions/checkout
+    # see https://github.com/actions/checkout/releases
     checkout = {
-      url     = "actions/checkout"
-      version = "v3"
+      owner      = "actions"
+      repository = "checkout"
+      version    = "v3.5.2"
     }
 
-    # see https://github.com/github/codeql-action/tree/main/upload-sarif
-    codeql-upload = {
-      url     = "github/codeql-action/upload-sarif"
-      version = "v2"
+    # see https://github.com/github/codeql-action/releases
+    codeql_upload = {
+      owner      = "github"
+      repository = "codeql-action"
+      path       = "upload-sarif"
+      version    = "codeql-bundle-20230403"
     }
 
-    # see https://github.com/gaurav-nelson/github-action-markdown-link-check
+    # see https://github.com/gaurav-nelson/github-action-markdown-link-check/releases
     markdown = {
-      url     = "gaurav-nelson/github-action-markdown-link-check"
-      version = "v1"
+      owner      = "gaurav-nelson"
+      repository = "github-action-markdown-link-check"
+      version    = "1.0.15"
     }
 
-    # see # see https://github.com/snyk/actions/tree/master/iac
-    snyk-iac = {
-      url     = "snyk/actions/iac"
-      version = "master"
-    }
+    #    # see # https://github.com/snyk/actions/releases
+    #    snyk_iac = {
+    #      owner      = "snyk"
+    #      repository = "actions"
+    #      path       = "iac"
+    #      version    = "master"
+    #    }
 
-    # see https://github.com/github/super-linter#slim-image
+    # see https://github.com/github/super-linter/releases
     superlinter = {
-      url     = "github/super-linter/slim"
-      version = "v4"
+      owner      = "github"
+      repository = "super-linter"
+      path       = "slim"
+      version    = "v5.0.0"
     }
 
-    # see https://github.com/hashicorp/setup-terraform
+    # see https://github.com/hashicorp/setup-terraform/releases
     terraform = {
-      url     = "hashicorp/setup-terraform"
-      version = "v2"
+      owner      = "hashicorp"
+      repository = "setup-terraform"
+      version    = "v2.0.3"
     }
 
-    # see https://github.com/terraform-docs/gh-actions
-    terraform-docs = {
-      url     = "terraform-docs/gh-actions"
-      version = "v1.0.0"
+    # see https://github.com/terraform-docs/gh-actions/releases
+    terraform_docs = {
+      owner      = "terraform-docs"
+      repository = "gh-actions"
+      version    = "v1.0.0"
     }
   }
 }
@@ -93,6 +109,7 @@ variable "organization_members" {
     "justinretzolk",   # Justin Retzolk (HashiCorp)
     "lhaig",           # Lance Haig (HashiCorp)
     "lomar92",         # Amar Lojo (HashiCorp)
+    "sofixa",          # Adrian Todorov (HashiCorp)
     "straubt1",        # Tom Straub (HashiCorp)
     "rizkybiz",        # Justin DeFrank (HashiCorp)
   ]
@@ -163,6 +180,7 @@ variable "repositories" {
 
       topics = [
         "nomad",
+        "nomad-packs"
       ]
 
       allow_merge_commit     = false
@@ -248,8 +266,8 @@ variable "terraform_repositories" {
     homepage_url           = string
     visibility             = string
     topics                 = list(string)
-    has_issues             = bool # TODO: mark as optional when 1.3.0 is out
-    has_wiki               = bool # TODO: mark as optional when 1.3.0 is out
+    has_issues             = optional(bool)
+    has_wiki               = optional(bool)
     allow_merge_commit     = bool
     allow_rebase_merge     = bool
     delete_branch_on_merge = bool
@@ -425,7 +443,11 @@ locals {
   repository_files = [
     {
       file                = ".github/workflows/markdown.yml",
-      content             = templatefile("./templates/workflows/markdown.tftpl.yml", var.actions_config)
+      content             = templatefile("./templates/workflows/markdown.tftpl.yml", {
+        checkout = var.actions_config.checkout
+        markdown = var.actions_config.markdown
+      })
+
       overwrite_on_create = true
     },
     {

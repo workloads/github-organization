@@ -1,0 +1,52 @@
+# This is a Terraform-managed file; manual changes will be overwritten.
+# see https://github.com/workloads/github-organization/blob/main/templates/workflows/snyk-iac.yml
+
+---
+
+name: "Security Scan: Snyk IaC"
+
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+
+jobs:
+  snyk-iac:
+    runs-on: ubuntu-latest
+
+    strategy:
+      # see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
+      fail-fast: false
+      matrix:
+        # The Snyk IaC GitHub Action currently only supports single files (via the `file` attribute in `with`).
+        # To work around this, a GitHub Actions Strategy is used to provide the files that should be tested.
+        terraform_files:
+          - "./examples/basic/providers.tf"
+          - "./examples/basic/main.tf"
+          - "./examples/basic/variables.tf"
+          - "./examples/basic/terraform.tf"
+          - "./examples/basic/outputs.tf"
+
+    steps:
+      # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
+      - name: Checkout Repository
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.version}" # ${checkout.version}
+        with:
+          fetch-depth: 1
+
+      # see https://github.com/${snyk_iac.owner}/${snyk_iac.repository}/releases/tag/${snyk_iac.version}
+      - name: Lint Code with Snyk
+        uses: "${snyk_iac.owner}/${snyk_iac.repository}@${snyk_iac.version}" # ${snyk_iac.version}
+        env:
+          SNYK_ORG: "$${{ vars.SNYK_ORG }}"
+          SNYK_TOKEN: "$${{ secrets.SNYK_TOKEN }}"
+        with:
+          file: ${{ matrix.terraform_files }}
+          # see https://docs.snyk.io/products/snyk-infrastructure-as-code/snyk-cli-for-infrastructure-as-code/iac-ignores-using-the-.snyk-policy-file#policy-flags-and-policy-file-notes
+          args: "--policy-path='.snyk' --org='$${{ vars.SNYK_ORG }}'"
+          sarif: true
+
+      # see https://github.com/${codeql_upload.owner}/${codeql_upload.repository}/releases/tag/${codeql_upload.version}
+      - name: Upload Snyk IaC results to GitHub Code Scanning
+        uses: "${codeql_upload.owner}/${codeql_upload.repository}@${codeql_upload.version}" # ${codeql_upload.version}
+        with:
+          sarif_file: "snyk.sarif"

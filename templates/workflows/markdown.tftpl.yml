@@ -14,15 +14,15 @@ jobs:
     name: Markdown
     runs-on: ubuntu-latest
     steps:
-      # see https://github.com/actions/checkout
+      # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "${checkout.url}@${checkout.version}"
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.version}" # ${checkout.version}
         with:
           fetch-depth: 1
 
-      # see https://github.com/gaurav-nelson/github-action-markdown-link-check
+      # see https://github.com/${markdown.owner}/${markdown.repository}/releases/tag/${markdown.version}
       - name: Check Links in Markdown files
-        uses: "${markdown.url}@${markdown.version}"
+        uses: "${markdown.owner}/${markdown.repository}@${markdown.version}" # ${markdown.version}
         with:
           check-modified-files-only: no
           config-file: ".markdown-link-check.json"
