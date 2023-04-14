@@ -442,8 +442,8 @@ locals {
   # list of files to manage for the GitHub Repository.
   repository_files = [
     {
-      file                = ".github/workflows/markdown.yml",
-      content             = templatefile("./templates/workflows/markdown.tftpl.yml", {
+      file = ".github/workflows/markdown.yml",
+      content = templatefile("./templates/workflows/markdown.tftpl.yml", {
         checkout = var.actions_config.checkout
         markdown = var.actions_config.markdown
       })
