@@ -1,17 +1,24 @@
-# Terraform Cloud Workspace: `repositories`
+# Terraform Cloud Workspace `repositories`
 
 > This directory manages the lifecycle of the GitHub Configuration for [@workloads](https://github.com/workloads).
 
 ## Table of Contents
 
 <!-- TOC -->
-* [Terraform Cloud Workspace: `repositories`](#terraform-cloud-workspace--repositories)
+* [Terraform Cloud Workspace `repositories`](#terraform-cloud-workspace-repositories)
   * [Table of Contents](#table-of-contents)
+  * [Usage](#usage)
     * [Inputs](#inputs)
     * [Outputs](#outputs)
   * [Author Information](#author-information)
   * [License](#license)
 <!-- TOC -->
+
+## Usage
+
+This repository uses a standard Terraform workflow (`init`, `plan`, `apply`).
+
+For more information, including detailed usage guidelines, see the [Terraform documentation](https://developer.hashicorp.com/terraform/cli/commands).
 
 <!-- BEGIN_TF_DOCS -->
 ### Inputs
