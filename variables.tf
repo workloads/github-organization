@@ -402,6 +402,24 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "users"
+      description  = "Terraform-managed User Directory Management."
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/users"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "okta",
+        "terraform",
+        "vault"
+      ]
+
+      allow_merge_commit     = false
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "website"
       description  = "Terraform-rendered, GitHub-infused Project Website."
       homepage_url = "https://workloads.io"
