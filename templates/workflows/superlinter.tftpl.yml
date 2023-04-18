@@ -22,7 +22,7 @@ jobs:
 
       # see https://github.com/${superlinter.owner}/${superlinter.repository}/releases/tag/${superlinter.version}
       - name: Lint Code with Super-Linter
-        uses: "${superlinter.owner}/${superlinter.repository}@${superlinter.version}" # ${superlinter.version}
+        uses: "${superlinter.owner}/${superlinter.repository}/${superlinter.path}@${superlinter.version}" # ${superlinter.version}
         env:
           # see https://github.com/github/super-linter#environment-variables
           VALIDATE_ALL_CODEBASE: true
