@@ -13,19 +13,6 @@ jobs:
   snyk-iac:
     runs-on: ubuntu-latest
 
-    strategy:
-      # see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast
-      fail-fast: false
-      matrix:
-        # The Snyk IaC GitHub Action currently only supports single files (via the `file` attribute in `with`).
-        # To work around this, a GitHub Actions Strategy is used to provide the files that should be tested.
-        terraform_files:
-          - "./examples/basic/providers.tf"
-          - "./examples/basic/main.tf"
-          - "./examples/basic/variables.tf"
-          - "./examples/basic/terraform.tf"
-          - "./examples/basic/outputs.tf"
-
     steps:
       # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
@@ -40,9 +27,10 @@ jobs:
           SNYK_ORG: "$${{ vars.SNYK_ORG }}"
           SNYK_TOKEN: "$${{ secrets.SNYK_TOKEN }}"
         with:
-          file: ${{ matrix.terraform_files }}
+          # scan all code in the root of the repository
+          file: "./"
           # see https://docs.snyk.io/products/snyk-infrastructure-as-code/snyk-cli-for-infrastructure-as-code/iac-ignores-using-the-.snyk-policy-file#policy-flags-and-policy-file-notes
-          args: "--policy-path='.snyk' --org='$${{ vars.SNYK_ORG }}'"
+          args: "--policy-path='.snyk'"
           sarif: true
 
       # see https://github.com/${codeql_upload.owner}/${codeql_upload.repository}/releases/tag/${codeql_upload.version}
