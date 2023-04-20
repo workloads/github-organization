@@ -1,5 +1,5 @@
 # This is a Terraform-managed file; manual changes will be overwritten.
-# see https://github.com/workloads/github-organization/blob/main/templates/workflows/superlinter.yml
+# see https://github.com/workloads/github-organization/blob/main/templates/workflows/superlinter.tftpl.yml
 
 ---
 name: "Code Quality: Super-Linter"
@@ -24,6 +24,7 @@ jobs:
       - name: Lint Code with Super-Linter
         uses: "${superlinter.owner}/${superlinter.repository}/${superlinter.path}@${superlinter.version}" # ${superlinter.version}
         env:
+          # see https://github.com/github/super-linter#environment-variables
           # see https://github.com/github/super-linter#environment-variables
           VALIDATE_ALL_CODEBASE: true
           CSS_FILE_NAME: ".stylelintrc.json"
