@@ -44,7 +44,9 @@ jobs:
           VALIDATE_JSON: true
           VALIDATE_MARKDOWN: true
           VALIDATE_SHELL_SHFMT: true
-          VALIDATE_TERRAFORM_FMT: true
+
+          # `terraform` binary checks are run through the `terraform.yml` workflow
+          VALIDATE_TERRAFORM_FMT: false
           VALIDATE_TERRAFORM_TFLINT: true
           VALIDATE_YAML: true
           VALIDATE_XML: true
