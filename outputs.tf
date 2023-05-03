@@ -7,7 +7,7 @@ locals {
 }
 
 output "github_actions_releases" {
-  description = "GitHub Actions releases."
+  description = "GitHub Actions Releases."
 
   # iterate over GitHub Actions Release Objects and assign `full_name` as value
   value = {
@@ -21,7 +21,7 @@ output "github_actions_releases" {
 }
 
 output "github_repository_slugs" {
-  description = "GitHub repository slugs."
+  description = "GitHub Repository slugs."
 
   # iterate over Repository Objects and assign `full_name` as value
   value = {

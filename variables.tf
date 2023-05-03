@@ -42,7 +42,7 @@ variable "actions_config" {
       owner      = "github"
       repository = "codeql-action"
       path       = "upload-sarif"
-      version    = "codeql-bundle-20230403"
+      version    = "codeql-bundle-20230428"
     }
 
     # see https://github.com/gaurav-nelson/github-action-markdown-link-check/releases
@@ -60,9 +60,16 @@ variable "actions_config" {
     #      version    = "master"
     #    }
 
-    # see https://github.com/github/super-linter/releases
+    # see https://github.com/hashicorp/setup-packer/releases
+    packer = {
+      owner      = "hashicorp"
+      repository = "setup-packer"
+      version    = "v2.0.0"
+    }
+
+    # see https://github.com/super-linter/super-linter/releases
     superlinter = {
-      owner      = "github"
+      owner      = "super-linter"
       repository = "super-linter"
       path       = "slim"
       version    = "v5.0.0"

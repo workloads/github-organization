@@ -1,6 +1,6 @@
 locals {
   # see https://developer.hashicorp.com/terraform/language/functions/templatefile
-  assets_script_config = templatefile("templates/scripts/_config.sh", {
+  assets_script_config = templatefile("templates/scripts/_config.mk", {
     github_org = var.github_owner
 
     # flatten Terraform-based GitHub repository names to allow for consumption in Bash scripts
@@ -15,7 +15,7 @@ locals {
 resource "github_repository_file" "assets_scripts_config" {
   repository          = module.special_repositories["assets"].github_repository.id
   branch              = "main"
-  file                = "scripts/_config.sh"
+  file                = "scripts/_config.mk"
   content             = local.assets_script_config
   overwrite_on_create = true
 }

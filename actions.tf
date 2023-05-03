@@ -37,17 +37,15 @@ resource "github_actions_organization_permissions" "main" {
   }
 }
 
-
-# get SHA checksums for GitHub Action repositories by polling the Releases Data Source:
+# get GitHub Release Tag Identifiers by polling the Releases Data Source:
 # see https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/release
 data "github_release" "actions" {
+  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
   for_each = {
-    for action in var.actions_config :
-
     # URL may contain special characters and don't make user-friendly identifiers for Terraform State operations
     # so replace parts and then append the version to make the resulting string much clearer and user-friendly.
     # see https://developer.hashicorp.com/terraform/language/functions/replace
-    "${action.repository}-${action.version}" => action
+    for identifier, action in var.actions_config : identifier => action
   }
 
   repository  = each.value.repository
