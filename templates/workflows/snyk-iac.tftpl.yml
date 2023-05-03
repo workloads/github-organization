@@ -16,13 +16,13 @@ jobs:
     steps:
       # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "${checkout.owner}/${checkout.repository}@${checkout.version}" # ${checkout.version}
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}" # ref: `${checkout.ref}`
         with:
           fetch-depth: 1
 
       # see https://github.com/${snyk_iac.owner}/${snyk_iac.repository}/releases/tag/${snyk_iac.version}
       - name: Lint Code with Snyk
-        uses: "${snyk_iac.owner}/${snyk_iac.repository}@${snyk_iac.version}" # ${snyk_iac.version}
+        uses: "${snyk_iac.owner}/${snyk_iac.repository}@${snyk_iac.sha}" # ref: `${snyk_iac.ref}`
         env:
           SNYK_ORG: "$${{ vars.SNYK_ORG }}"
           SNYK_TOKEN: "$${{ secrets.SNYK_TOKEN }}"
@@ -35,6 +35,6 @@ jobs:
 
       # see https://github.com/${codeql_upload.owner}/${codeql_upload.repository}/releases/tag/${codeql_upload.version}
       - name: Upload Snyk IaC results to GitHub Code Scanning
-        uses: "${codeql_upload.owner}/${codeql_upload.repository}@${codeql_upload.version}" # ${codeql_upload.version}
+        uses: "${codeql_upload.owner}/${codeql_upload.repository}@${codeql_upload.sha}" # ref: `${codeql_upload.ref}`
         with:
           sarif_file: "snyk.sarif"

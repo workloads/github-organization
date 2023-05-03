@@ -11,11 +11,10 @@ output "github_actions_releases" {
 
   # iterate over GitHub Actions Release Objects and assign `full_name` as value
   value = {
-    for identifier, action in data.github_release.actions : identifier => {
-      id         = action.id
-      tag        = action.release_tag
-      created_at = action.created_at
-      commitish  = action.target_commitish
+    for identifier, action in local.actions_config : identifier => {
+      repository = "${action.owner}/${action.repository}"
+      version    = action.version
+      sha        = action.sha
     }
   }
 }

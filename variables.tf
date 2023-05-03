@@ -464,20 +464,24 @@ variable "terraform_repositories" {
 }
 
 locals {
-  # list of files to manage for the GitHub Repository.
+  # list of files to manage for ALL GitHub Repositories.
   repository_files = [
     {
       file = ".github/workflows/markdown.yml",
       content = templatefile("./templates/workflows/markdown.tftpl.yml", {
-        checkout = var.actions_config.checkout
-        markdown = var.actions_config.markdown
+        checkout = local.actions_config["checkout"]
+        markdown = local.actions_config["markdown"]
       })
 
       overwrite_on_create = true
     },
     {
-      file                = ".github/workflows/superlinter.yml"
-      content             = templatefile("./templates/workflows/superlinter.tftpl.yml", var.actions_config)
+      file = ".github/workflows/superlinter.yml"
+      content = templatefile("./templates/workflows/superlinter.tftpl.yml", {
+        checkout    = local.actions_config["checkout"]
+        superlinter = local.actions_config["superlinter"]
+      })
+
       overwrite_on_create = true
     },
     {
@@ -502,6 +506,7 @@ locals {
     },
   ]
 
+  # list of files to manage for Terraform-specific GitHub Repositories.
   terraform_repository_files = concat(local.repository_files, [
     {
       file                = ".gitignore"
@@ -514,13 +519,21 @@ locals {
       overwrite_on_create = true
     },
     {
-      file                = ".github/workflows/terraform.yml"
-      content             = templatefile("./templates/workflows/terraform.tftpl.yml", var.actions_config)
+      file = ".github/workflows/terraform.yml"
+      content = templatefile("./templates/workflows/terraform.tftpl.yml", {
+        checkout  = local.actions_config["checkout"]
+        terraform = local.actions_config["terraform"]
+      })
+
       overwrite_on_create = true
     },
     {
-      file                = ".github/workflows/terraform-docs.yml"
-      content             = templatefile("./templates/workflows/terraform-docs.tftpl.yml", var.actions_config)
+      file = ".github/workflows/terraform-docs.yml"
+      content = templatefile("./templates/workflows/terraform-docs.tftpl.yml", {
+        checkout       = local.actions_config["checkout"]
+        terraform_docs = local.actions_config["terraform_docs"]
+      })
+
       overwrite_on_create = true
     },
     {

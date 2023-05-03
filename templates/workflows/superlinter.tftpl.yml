@@ -15,14 +15,14 @@ jobs:
     steps:
       # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "${checkout.owner}/${checkout.repository}@${checkout.version}" # ${checkout.version}
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}" # ref: `${checkout.ref}`
         with:
-          # Full git history is needed to get a proper list of changed files within `super-linter`
+          # full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
 
       # see https://github.com/${superlinter.owner}/${superlinter.repository}/releases/tag/${superlinter.version}
       - name: Lint Code with Super-Linter
-        uses: "${superlinter.owner}/${superlinter.repository}/${superlinter.path}@${superlinter.version}" # ${superlinter.version}
+        uses: "${superlinter.owner}/${superlinter.repository}/${superlinter.path}@${superlinter.sha}" # ref: `${superlinter.ref}`
         env:
           # see https://github.com/github/super-linter#environment-variables
           # see https://github.com/github/super-linter#environment-variables

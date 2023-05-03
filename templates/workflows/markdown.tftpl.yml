@@ -16,13 +16,13 @@ jobs:
     steps:
       # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "${checkout.owner}/${checkout.repository}@${checkout.version}" # ${checkout.version}
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}" # ref: `${checkout.ref}`
         with:
           fetch-depth: 1
 
       # see https://github.com/${markdown.owner}/${markdown.repository}/releases/tag/${markdown.version}
       - name: Check Links in Markdown files
-        uses: "${markdown.owner}/${markdown.repository}@${markdown.version}" # ${markdown.version}
+        uses: "${markdown.owner}/${markdown.repository}@${markdown.sha}" # ref: `${markdown.ref}`
         with:
           check-modified-files-only: no
           config-file: ".markdown-link-check.json"

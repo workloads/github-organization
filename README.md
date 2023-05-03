@@ -39,8 +39,8 @@ For more information, including detailed usage guidelines, see the [Terraform do
 
 | Name | Description |
 |------|-------------|
-| github_actions_releases | GitHub Actions releases. |
-| github_repository_slugs | GitHub repository slugs. |
+| github_actions_releases | GitHub Actions Releases. |
+| github_repository_slugs | GitHub Repository slugs. |
 | github_urls | GitHub URLs. |
 | nomad_pack_registry_commands | Nomad Pack CLI Commands for Registry operations |
 | workspace_url | Terraform Cloud Workspace URL. |

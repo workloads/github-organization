@@ -1,42 +1,3 @@
-# see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_permissions
-resource "github_actions_organization_permissions" "main" {
-  # use a permissions policy that only allows selected GHAs to run
-  allowed_actions = "selected"
-
-  # require all repositories to abide by this policy
-  enabled_repositories = "all"
-
-  allowed_actions_config {
-    # allow GitHub owned GHA to be used
-    github_owned_allowed = true
-
-    # allow verified GitHub Marketplace Actions to be run
-    verified_allowed = true
-
-    # define patterns for allowed GitHub Actions
-    # TODO: find better way of expressing this
-    patterns_allowed = [
-      # see https://github.com/actions/checkout
-      "${var.actions_config.checkout.owner}/${var.actions_config.checkout.repository}@${var.actions_config.checkout.version}",
-
-      # see https://github.com/github/codeql-action
-      "${var.actions_config.codeql_upload.owner}/${var.actions_config.codeql_upload.repository}@${var.actions_config.codeql_upload.version}",
-
-      # see https://github.com/github/super-linter#slim-image
-      "${var.actions_config.superlinter.owner}/${var.actions_config.superlinter.repository}@${var.actions_config.superlinter.version}",
-
-      # allow specific HashiCorp Actions
-      "${var.actions_config.terraform.owner}/${var.actions_config.terraform.repository}@${var.actions_config.terraform.version}",
-
-      # see https://github.com/terraform-docs/gh-actions
-      "${var.actions_config.terraform_docs.owner}/${var.actions_config.terraform_docs.repository}@${var.actions_config.terraform_docs.version}",
-
-      # see https://github.com/gaurav-nelson/github-action-markdown-link-check
-      "${var.actions_config.markdown.owner}/${var.actions_config.markdown.repository}@${var.actions_config.markdown.version}",
-    ]
-  }
-}
-
 # get GitHub Release Tag Identifiers by polling the Releases Data Source:
 # see https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/release
 data "github_release" "actions" {
@@ -54,4 +15,55 @@ data "github_release" "actions" {
   release_tag = each.value.version
 }
 
-# TODO: add `target_commitish` retrieval when https://github.com/integrations/terraform-provider-github/pull/1651 lands
+# get GitHub Commitish by polling the Ref data source with the GitHub Release Tag Name
+# see https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/ref
+data "github_ref" "actions" {
+  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
+  for_each = data.github_release.actions
+
+  repository = each.value.repository
+  owner      = each.value.owner
+
+  # TODO: make `ref` more dynamic
+  ref = "tags/${each.value.release_tag}"
+}
+
+locals {
+  # enhance locally available GitHub Actions configuration with data retrieved from the GitHub Releases and Ref data sources
+  actions_config = {
+    # This place is not a place of honor...
+    # no highly esteemed deed is commemorated here...
+    # (but we needed these values)
+    for action in tolist(keys(var.actions_config)) : action => {
+      owner      = var.actions_config[action].owner
+      path       = var.actions_config[action].path
+      ref        = data.github_ref.actions[action].ref
+      repository = var.actions_config[action].repository
+      sha        = data.github_ref.actions[action].sha
+      version    = var.actions_config[action].version
+    }
+  }
+}
+
+# see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_permissions
+resource "github_actions_organization_permissions" "main" {
+  # use a permissions policy that only allows selected GHAs to run
+  allowed_actions = "selected"
+
+  # require all repositories to abide by this policy
+  enabled_repositories = "all"
+
+  allowed_actions_config {
+    # allow GitHub owned GHA to be used
+    github_owned_allowed = true
+
+    # allow verified GitHub Marketplace Actions to be run
+    verified_allowed = true
+
+    # define patterns for allowed GitHub Actions
+    patterns_allowed = [
+      for action in local.actions_config :
+      "${action.owner}/${action.repository}@${action.sha}"
+    ]
+  }
+}
