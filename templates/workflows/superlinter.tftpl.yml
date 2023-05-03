@@ -25,7 +25,6 @@ jobs:
         uses: "${superlinter.owner}/${superlinter.repository}/${superlinter.path}@${superlinter.sha}" # ref: `${superlinter.ref}`
         env:
           # see https://github.com/github/super-linter#environment-variables
-          # see https://github.com/github/super-linter#environment-variables
           VALIDATE_ALL_CODEBASE: true
           CSS_FILE_NAME: ".stylelintrc.json"
           DEFAULT_BRANCH: "main"
