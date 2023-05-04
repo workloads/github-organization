@@ -362,7 +362,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "regional-workspaces"
-      description  = "Terraform-managed Regional Terraform Cloud (TFC) Workspaces."
+      description  = "Terraform-managed Regional Terraform Cloud Workspaces."
       homepage_url = "https://app.terraform.io/app/workloads/regional-workspaces"
       visibility   = "public"
       has_issues   = true
@@ -453,7 +453,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "workspaces"
-      description  = "Terraform-managed Terraform Cloud (TFC) Workspaces."
+      description  = "Terraform-managed Terraform Cloud Workspaces."
       homepage_url = "https://app.terraform.io/app/workloads/workspaces"
       visibility   = "public"
       has_issues   = true
