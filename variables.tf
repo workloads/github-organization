@@ -30,6 +30,13 @@ variable "actions_config" {
   description = "Complex Object of GitHub Actions Configuration."
 
   default = {
+    # see https://github.com/reviewdog/action-actionlint/releases
+    actionlint = {
+      owner      = "reviewdog"
+      repository = "action-actionlint"
+      version    = "v1.37.0"
+    }
+
     # see https://github.com/actions/checkout/releases
     checkout = {
       owner      = "actions"
