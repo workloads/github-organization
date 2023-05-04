@@ -7,7 +7,7 @@ name: "Security Scan: Snyk IaC"
 
 # yamllint disable-line rule:truthy
 on:
-  pull_request:
+  push:
 
 jobs:
   snyk-iac:
