@@ -521,8 +521,11 @@ locals {
       overwrite_on_create = true
     },
     {
-      file                = ".github/dependabot.yml"
-      content             = file("./templates/dependabot/terraform.yml")
+      file = ".github/dependabot.yml"
+      content = templatefile("./templates/dependabot/terraform.tftpl.yml", {
+        assignee = "${var.github_owner}/${github_team.maintainers.slug}"
+      })
+
       overwrite_on_create = true
     },
     {
