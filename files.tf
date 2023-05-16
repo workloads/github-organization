@@ -10,6 +10,16 @@ locals {
   })
 }
 
+# automatically update `workloads/assets/.gitattributes`
+# see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file
+resource "github_repository_file" "assets_gitattributes" {
+  repository          = module.special_repositories["assets"].github_repository.id
+  branch              = "main"
+  file                = ".gitattributes"
+  content             = file("./templates/gitattributes/assets.gitattributes")
+  overwrite_on_create = true
+}
+
 # automatically update `workloads/assets/scripts/_config.sh` when new Terraform-based GitHub repositories are added
 # see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file
 resource "github_repository_file" "assets_scripts_config" {
