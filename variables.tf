@@ -516,6 +516,11 @@ locals {
   # list of files to manage for Terraform-specific GitHub Repositories.
   terraform_repository_files = concat(local.repository_files, [
     {
+      file                = ".gitattributes"
+      content             = file("./templates/gitattributes/terraform.gitattributes")
+      overwrite_on_create = true
+    },
+    {
       file                = ".gitignore"
       content             = file("./templates/gitignores/terraform.gitignore")
       overwrite_on_create = true
