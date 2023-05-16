@@ -3,7 +3,7 @@
 
 ---
 
-name: "Security Scan: Snyk IaC"
+name: "Security: Snyk IaC"
 
 # yamllint disable-line rule:truthy
 on:
@@ -11,6 +11,11 @@ on:
 
 jobs:
   snyk-iac:
+    name: Snyk IaC
+
+    # only run if workflows are enabled
+    if: $${{ vars.ENABLE_WORKFLOWS == 'true' }}
+
     runs-on: ubuntu-latest
 
     steps:

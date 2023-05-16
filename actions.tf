@@ -1,3 +1,17 @@
+# see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_variable
+resource "github_actions_variable" "enable_workflows" {
+  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
+  for_each = merge(
+    module.repositories,
+    module.special_repositories,
+    module.terraform_repositories
+  )
+
+  repository       = each.key
+  variable_name    = "ENABLE_WORKFLOWS"
+  value            = "true"
+}
+
 # get GitHub Release Tag Identifiers by polling the Releases Data Source:
 # see https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/release
 data "github_release" "actions" {
