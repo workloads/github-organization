@@ -7,9 +7,9 @@ resource "github_actions_variable" "enable_workflows" {
     module.terraform_repositories
   )
 
-  repository       = each.key
-  variable_name    = "ENABLE_WORKFLOWS"
-  value            = "true"
+  repository    = each.key
+  variable_name = "ENABLE_WORKFLOWS"
+  value         = "true"
 }
 
 # get GitHub Release Tag Identifiers by polling the Releases Data Source:
@@ -77,7 +77,8 @@ resource "github_actions_organization_permissions" "main" {
     # define patterns for allowed GitHub Actions
     patterns_allowed = [
       for action in local.actions_config :
-      "${action.owner}/${action.repository}@${action.sha}"
+      # if `action.path` is set, adjust syntax for Action to include path, else default to global syntax
+      action.path != null ? "${action.owner}/${action.repository}/${action.path}@${action.sha}" : "${action.owner}/${action.repository}@${action.sha}"
     ]
   }
 }

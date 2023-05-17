@@ -3,7 +3,11 @@ locals {
   pack_registry_repository_url = "github.com/${module.repositories["nomad-pack-registry"].github_repository.full_name}"
   org_url                      = "${local.base_url}/orgs/${var.github_owner}"
 
-  github_repository_slugs = merge(module.repositories, module.special_repositories, module.terraform_repositories)
+  github_repository_slugs = merge(
+    module.repositories,
+    module.special_repositories,
+    module.terraform_repositories
+  )
 }
 
 output "github_actions_releases" {

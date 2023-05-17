@@ -538,6 +538,7 @@ locals {
   # list of files to manage for Terraform-specific GitHub Repositories.
   terraform_repository_files = concat(local.repository_files, [
     {
+      # see https://git-scm.com/docs/gitattributes
       file                = ".gitattributes"
       content             = file("./templates/gitattributes/terraform.gitattributes")
       overwrite_on_create = true
@@ -549,6 +550,7 @@ locals {
     },
     {
       file = ".github/dependabot.yml"
+
       content = templatefile("./templates/dependabot/terraform.tftpl.yml", {
         assignee = "${var.github_owner}/${github_team.maintainers.slug}"
       })
@@ -574,11 +576,13 @@ locals {
       overwrite_on_create = true
     },
     {
+      # see https://terraform-docs.io/user-guide/configuration/
       file                = ".terraform-docs.yml"
       content             = file("./templates/.terraform-docs.yml")
       overwrite_on_create = true
     },
     {
+      # see https://github.com/terraform-linters/tflint/blob/master/docs/user-guide/plugins.md
       file                = ".tflint.hcl"
       content             = file("./templates/.tflint.hcl")
       overwrite_on_create = true
