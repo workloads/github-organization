@@ -1,0 +1,46 @@
+---
+
+plugin:
+  # see https://github.com/iwamatsu0430/textlint-rule-doubled-spaces
+  - id: "textlint-rule-doubled-spaces"
+
+  # see https://github.com/AhmedElwerdany/textlint-rule-no-empty-element
+  - id: "textlint-rule-no-empty-element"
+
+  # see https://github.com/azu/textlint-rule-no-empty-section
+  - id: "textlint-rule-no-empty-section"
+
+  # see https://github.com/textlint-rule/textlint-rule-no-start-duplicated-conjunction
+  - id: "textlint-rule-no-start-duplicated-conjunction"
+
+  # see https://github.com/textlint-rule/textlint-rule-period-in-list-item
+  - id: "textlint-rule-period-in-list-item"
+rules:
+  # see https://github.com/iwamatsu0430/textlint-rule-doubled-spaces
+  doubled-spaces: true
+
+  # see https://github.com/textlint-rule/textlint-rule-max-comma
+  max-comma:
+    max: 3
+
+  # see https://github.com/azu/textlint-rule-no-empty-section#usage
+  no-empty-section: true
+
+  # see https://github.com/textlint-rule/textlint-rule-no-todo#usage
+  no-todo: true
+
+  # see https://github.com/AhmedElwerdany/textlint-rule-no-empty-element#usage
+  textlint-rule-no-empty-element: true
+
+  # see https://github.com/textlint-rule/textlint-rule-no-start-duplicated-conjunction#config
+  textlint-rule-no-start-duplicated-conjunction:
+    interval: 2
+
+  # see https://github.com/textlint-rule/textlint-rule-period-in-list-item#usage
+  period-in-list-item:
+    periodMarks:
+      - "."
+      - "．"
+    ignoreLinkEnd: true
+    allowEmoji: false
+    forceAppendPeriod: false
