@@ -9,12 +9,19 @@ name: "Documentation: terraform-docs"
 on:
   push:
 
+# see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
+permissions: read-all
+
 jobs:
   docs:
     name: Terraform Docs
 
     # only run if workflows are enabled
     if: $${{ vars.ENABLE_WORKFLOWS == 'true' }}
+
+    # see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
+    permissions:
+      contents: write
 
     runs-on: ubuntu-latest
 

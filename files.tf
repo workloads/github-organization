@@ -7,6 +7,8 @@ locals {
     github_repos = join(" ", [
       for repo in var.terraform_repositories : repo.name
     ])
+
+    scorecard_checks = var.scorecard_checks
   })
 }
 

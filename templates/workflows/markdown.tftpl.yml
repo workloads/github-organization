@@ -9,6 +9,9 @@ name: "Documentation: Link Checker"
 on:
   push:
 
+# see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
+permissions: read-all
+
 jobs:
   markdown:
     name: Markdown

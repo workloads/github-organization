@@ -6,3 +6,6 @@ GITHUB_ORG = ${github_org}
 
 # local directories (= GitHub Repositories) to consider
 GITHUB_REPOSITORIES = ${github_repos}
+
+# OpenSSF Scorecard Checks to execute
+SCORECARD_CHECKS = ${scorecard_checks}

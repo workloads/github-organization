@@ -44,6 +44,13 @@ variable "actions_config" {
       version    = "v3.5.2"
     }
 
+    # see https://github.com/actions/upload-artifact/releases
+    upload_artifact = {
+      owner      = "actions"
+      repository = "upload-artifact"
+      version    = "v3.1.2"
+    }
+
     # see https://github.com/github/codeql-action/releases
     codeql_upload = {
       owner      = "github"
@@ -72,6 +79,13 @@ variable "actions_config" {
       owner      = "hashicorp"
       repository = "setup-packer"
       version    = "v2.0.0"
+    }
+
+    # see https://github.com/ossf/scorecard-action/releases
+    scorecard = {
+      owner      = "ossf"
+      repository = "scorecard-action"
+      version    = "v2.1.3"
     }
 
     # see https://github.com/super-linter/super-linter/releases
@@ -468,6 +482,14 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
   ]
+}
+
+variable "scorecard_checks" {
+  type        = string
+  description = "OpenSSF Scorecard Checks."
+
+  # see https://github.com/ossf/scorecard/blob/main/docs/checks.md
+  default = "Binary-Artifacts,Branch-Protection,CI-Tests,Code-Review,Contributors,Dangerous-Workflow,Dependency-Update-Tool,License,Maintained,Pinned-Dependencies,SAST,Security-Policy,Token-Permissions,Vulnerabilities"
 }
 
 locals {
