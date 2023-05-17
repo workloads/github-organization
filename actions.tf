@@ -69,10 +69,10 @@ resource "github_actions_organization_permissions" "main" {
 
   allowed_actions_config {
     # allow GitHub owned GHA to be used
-    github_owned_allowed = true
+    github_owned_allowed = false
 
     # allow verified GitHub Marketplace Actions to be run
-    verified_allowed = true
+    verified_allowed = false
 
     # define patterns for allowed GitHub Actions
     patterns_allowed = [

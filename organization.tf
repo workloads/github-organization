@@ -3,6 +3,7 @@ resource "github_organization_settings" "main" {
   # GitHub Organization settings:
   billing_email    = var.github_organization_email
   blog             = "https://workloads.io/"
+  company          = "workloads.io"
   description      = "Multi-Cloud, Multi-Content Job Orchestration."
   email            = var.github_organization_email
   location         = "Netherlands"
@@ -22,8 +23,9 @@ resource "github_organization_settings" "main" {
   default_repository_permission            = "write"
   members_can_create_internal_repositories = false
   members_can_create_private_repositories  = true
-  members_can_create_public_repositories   = true
+  members_can_create_public_repositories   = false
   members_can_create_repositories          = true
+  members_can_fork_private_repositories    = false
 
   # GitHub Security settings:
   advanced_security_enabled_for_new_repositories               = false
