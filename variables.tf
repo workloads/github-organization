@@ -549,6 +549,17 @@ locals {
       overwrite_on_create = true
     },
     {
+      # see https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#about-code-owners
+      file = "CODEOWNERS"
+
+      content = templatefile("./templates/codeowners.tftpl.yml", {
+        codeowner = "@${var.github_owner}/${github_team.maintainers.slug}"
+      })
+
+      overwrite_on_create = true
+    },
+    {
+      # see https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#about-the-dependabotyml-file
       file = ".github/dependabot.yml"
 
       content = templatefile("./templates/dependabot/terraform.tftpl.yml", {
