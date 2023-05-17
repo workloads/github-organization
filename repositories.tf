@@ -20,6 +20,14 @@ module "repositories" {
   allow_merge_commit     = each.value.allow_merge_commit
   allow_rebase_merge     = each.value.allow_rebase_merge
   delete_branch_on_merge = each.value.delete_branch_on_merge
+
+  team_repository_teams = [{
+    team_id    = github_team.maintainers.id
+    permission = "admin"
+    }, {
+    team_id    = github_team.contributors.id
+    permission = "pull"
+  }]
 }
 
 module "special_repositories" {
@@ -44,6 +52,14 @@ module "special_repositories" {
   allow_merge_commit     = each.value.allow_merge_commit
   allow_rebase_merge     = each.value.allow_rebase_merge
   delete_branch_on_merge = each.value.delete_branch_on_merge
+
+  team_repository_teams = [{
+    team_id    = github_team.maintainers.id
+    permission = "admin"
+    }, {
+    team_id    = github_team.contributors.id
+    permission = "pull"
+  }]
 }
 
 module "terraform_repositories" {
@@ -68,4 +84,12 @@ module "terraform_repositories" {
   allow_merge_commit     = each.value.allow_merge_commit
   allow_rebase_merge     = each.value.allow_rebase_merge
   delete_branch_on_merge = each.value.delete_branch_on_merge
+
+  team_repository_teams = [{
+    team_id    = github_team.maintainers.id
+    permission = "admin"
+    }, {
+    team_id    = github_team.contributors.id
+    permission = "push"
+  }]
 }
