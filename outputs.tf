@@ -56,6 +56,7 @@ output "workspace_url" {
 
 output "nomad_pack_registry_commands" {
   description = "Nomad Pack CLI Commands for Registry operations"
+
   value = {
     add_registry = "nomad-pack registry add ${var.github_owner} ${local.pack_registry_repository_url}"
   }
