@@ -23,7 +23,7 @@ resource "github_organization_settings" "main" {
   default_repository_permission            = "write"
   members_can_create_internal_repositories = false
   members_can_create_private_repositories  = true
-  members_can_create_public_repositories   = false
+  members_can_create_public_repositories   = true
   members_can_create_repositories          = true
   members_can_fork_private_repositories    = false
 

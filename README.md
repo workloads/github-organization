@@ -10,6 +10,8 @@
   * [Usage](#usage)
     * [Inputs](#inputs)
     * [Outputs](#outputs)
+  * [Notes](#notes)
+    * [API Rate Limits](#api-rate-limits)
   * [Author Information](#author-information)
   * [License](#license)
 <!-- TOC -->
@@ -43,13 +45,21 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | github_actions_releases | GitHub Actions Releases. |
 | github_repository_slugs | GitHub Repository slugs. |
 | github_urls | GitHub URLs. |
-| nomad_pack_registry_commands | Nomad Pack CLI Commands for Registry operations |
+| nomad_pack_registry_commands | Nomad Pack CLI Commands for Registry operations. |
 | workspace_url | Terraform Cloud Workspace URL. |
 <!-- END_TF_DOCS -->
 
+## Notes
+
+### API Rate Limits
+
+GitHub API interactions for non-Enterprise accounts are [limited](https://docs.github.com/en/rest/rate-limit?apiVersion=2022-11-28) to _1000_ requests per hour per repository.
+
+The large number of resources in the `@workloads/github-organization` repository may result in rate exhaustion when `plan` and `apply` runs are carried out repeatedly and in short succession.
+
 ## Author Information
 
-This module is maintained by the contributors listed on [GitHub](https://github.com/workloads/github-organization/graphs/contributors).
+This repository is maintained by the contributors listed on [GitHub](https://github.com/workloads/github-organization/graphs/contributors).
 
 ## License
 
