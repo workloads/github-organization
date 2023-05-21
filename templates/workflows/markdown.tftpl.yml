@@ -20,6 +20,8 @@ jobs:
     name: Markdown
 
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
       # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
@@ -41,8 +43,8 @@ jobs:
     if: $${{ vars.ENABLE_WORKFLOWS != 'true' }}
 
     name: Workflow Status
-
     runs-on: ubuntu-latest
+    timeout-minutes: 1
 
     steps:
       - name: Display Workflow Status

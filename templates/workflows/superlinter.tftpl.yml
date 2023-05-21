@@ -24,6 +24,7 @@ jobs:
       statuses: write
 
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
@@ -129,6 +130,7 @@ jobs:
 
     name: Workflow Status
     runs-on: ubuntu-latest
+    timeout-minutes: 1
 
     steps:
       - name: Display Workflow Status
