@@ -450,7 +450,7 @@ variable "terraform_repositories" {
     {
       name         = "web-assets"
       description  = "CloudFront-hosted Public Assets."
-      homepage_url = "https://assets.workloads.io/"
+      homepage_url = "https://assets.workloads.io"
       visibility   = "public"
       has_issues   = false
       has_wiki     = false
@@ -467,7 +467,7 @@ variable "terraform_repositories" {
     {
       name         = "web-redirects"
       description  = "URL Redirects."
-      homepage_url = "https://go.workloads.io/"
+      homepage_url = "https://go.workloads.io"
       visibility   = "public"
       has_issues   = false
       has_wiki     = false

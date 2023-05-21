@@ -128,7 +128,6 @@ jobs:
     if: $${{ vars.ENABLE_WORKFLOWS != 'true' }}
 
     name: Workflow Status
-
     runs-on: ubuntu-latest
 
     steps:

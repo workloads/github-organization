@@ -57,6 +57,9 @@ GitHub API interactions for non-Enterprise accounts are [limited](https://docs.g
 
 The large number of resources in the `@workloads/github-organization` repository may result in rate exhaustion when `plan` and `apply` runs are carried out repeatedly and in short succession.
 
+> **Note**
+> For `@workloads/maintainers`: The [Makefile](https://github.com/workloads/assets/blob/main/scripts/Makefile) in `workloads/assets` provides a target to retrieve the current API usage with `make get-gh-rate-limits`
+
 ## Author Information
 
 This repository is maintained by the contributors listed on [GitHub](https://github.com/workloads/github-organization/graphs/contributors).
