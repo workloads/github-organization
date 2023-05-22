@@ -17,6 +17,11 @@ jobs:
     # only run if workflows are enabled
     if: $${{ vars.ENABLE_WORKFLOWS == 'true' }}
 
+    # see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
+    concurrency:
+      group: "$${{ github.workflow }}-$${{ github.ref }}"
+      cancel-in-progress: true
+
     name: OpenSSF Scorecard
 
     # see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
