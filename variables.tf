@@ -161,6 +161,38 @@ variable "repositories" {
 
   default = [
     {
+      name         = ".github"
+      description  = "Community Health Files and Assets."
+      homepage_url = "https://github.com/workloads"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "github",
+      ]
+
+      allow_merge_commit     = true
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
+      name         = "assets"
+      description  = "🔒 (non-public) Design and Content Assets."
+      homepage_url = "https://github.com/workloads"
+      visibility   = "private"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = []
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "edge-case"
       description  = "Docs and Diagrams for the Edge Case."
       homepage_url = "https://github.com/workloads/edge-case"
@@ -235,55 +267,23 @@ variable "repositories" {
       allow_rebase_merge     = false
       delete_branch_on_merge = true
     },
-  ]
-}
-
-variable "special_repositories" {
-  type = list(object({
-    name                   = string
-    description            = string
-    homepage_url           = string
-    visibility             = string
-    topics                 = list(string)
-    has_issues             = bool # TODO: mark as optional when 1.3.0 is out
-    has_wiki               = bool # TODO: mark as optional when 1.3.0 is out
-    allow_merge_commit     = bool
-    allow_rebase_merge     = bool
-    delete_branch_on_merge = bool
-  }))
-
-  description = "List of non-Terraform-based GitHub Repositories."
-
-  default = [{
-    name         = ".github"
-    description  = "Community Health Files and Assets."
-    homepage_url = "https://github.com/workloads"
-    visibility   = "public"
-    has_issues   = true
-    has_wiki     = false
-
-    topics = [
-      "github",
-    ]
-
-    allow_merge_commit     = true
-    allow_rebase_merge     = false
-    delete_branch_on_merge = true
-    },
     {
-      name         = "assets"
-      description  = "🔒 (non-public) Design and Content Assets."
-      homepage_url = "https://github.com/workloads"
-      visibility   = "private"
+      name         = "tooling"
+      description  = "Common Tooling."
+      homepage_url = ""
+      visibility   = "public"
       has_issues   = true
       has_wiki     = false
 
-      topics = []
+      topics = [
+        "makefile",
+      ]
 
       allow_merge_commit     = false
+      allow_squash_merge     = true
       allow_rebase_merge     = false
       delete_branch_on_merge = true
-    }
+    },
   ]
 }
 

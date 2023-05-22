@@ -1,6 +1,6 @@
 locals {
   # see https://developer.hashicorp.com/terraform/language/functions/templatefile
-  assets_script_config = templatefile("templates/scripts/_config.mk", {
+  tooling_make_configs_github = templatefile("templates/scripts/config_github.tftpl.mk", {
     github_org = var.github_owner
 
     # flatten Terraform-based GitHub repository names to allow for consumption in Bash scripts
@@ -14,20 +14,20 @@ locals {
 
 # automatically update `workloads/assets/.gitattributes`
 # see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file
-resource "github_repository_file" "assets_gitattributes" {
-  repository          = module.special_repositories["assets"].github_repository.id
+resource "github_repository_file" "tooling_gitattributes" {
+  repository          = module.repositories["tooling"].github_repository.id
   branch              = "main"
   file                = ".gitattributes"
-  content             = file("./templates/gitattributes/assets.gitattributes")
+  content             = file("./templates/gitattributes/tooling.gitattributes")
   overwrite_on_create = true
 }
 
 # automatically update `workloads/assets/scripts/_config.sh` when new Terraform-based GitHub repositories are added
 # see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file
-resource "github_repository_file" "assets_scripts_config" {
-  repository          = module.special_repositories["assets"].github_repository.id
+resource "github_repository_file" "tooling_make_configs_github" {
+  repository          = module.repositories["tooling"].github_repository.id
   branch              = "main"
-  file                = "scripts/_config.mk"
-  content             = local.assets_script_config
+  file                = "make/config/github.mk"
+  content             = local.tooling_make_configs_github
   overwrite_on_create = true
 }

@@ -3,7 +3,6 @@ resource "github_actions_variable" "enable_workflows" {
   # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
   for_each = merge(
     module.repositories,
-    module.special_repositories,
     module.terraform_repositories
   )
 

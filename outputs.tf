@@ -5,7 +5,6 @@ locals {
 
   github_repository_slugs = merge(
     module.repositories,
-    module.special_repositories,
     module.terraform_repositories
   )
 }

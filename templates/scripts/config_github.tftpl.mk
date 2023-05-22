@@ -1,5 +1,5 @@
 # This is a Terraform-managed file; manual changes will be overwritten.
-# see https://github.com/workloads/github-organization/blob/main/templates/scripts/_config.mk
+# see https://github.com/workloads/github-organization/blob/main/templates/scripts/config_github.tftpl.mk
 
 # GitHub Organization Slug
 GITHUB_ORG = ${github_org}
