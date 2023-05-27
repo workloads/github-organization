@@ -27,7 +27,7 @@ resource "github_repository_file" "tooling_gitattributes" {
 resource "github_repository_file" "tooling_make_configs_github" {
   repository          = module.repositories["tooling"].github_repository.id
   branch              = "main"
-  file                = "make/config/github.mk"
+  file                = "make/configs/github.mk"
   content             = local.tooling_make_configs_github
   overwrite_on_create = true
 }
