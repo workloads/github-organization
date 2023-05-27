@@ -66,13 +66,13 @@ variable "actions_config" {
       version    = "1.0.15"
     }
 
-    #    # see # https://github.com/snyk/actions/releases
-    #    snyk_iac = {
-    #      owner      = "snyk"
-    #      repository = "actions"
-    #      path       = "iac"
-    #      version    = "master"
-    #    }
+    # see # https://github.com/snyk/actions/releases
+    snyk_iac = {
+      owner      = "snyk"
+      repository = "actions"
+      path       = "iac"
+      version    = "0.4.0"
+    }
 
     # see https://github.com/hashicorp/setup-packer/releases
     packer = {
