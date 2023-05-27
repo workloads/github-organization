@@ -56,7 +56,7 @@ variable "actions_config" {
       owner      = "github"
       repository = "codeql-action"
       path       = "upload-sarif"
-      version    = "codeql-bundle-20230428"
+      version    = "codeql-bundle-20230524"
     }
 
     # see https://github.com/gaurav-nelson/github-action-markdown-link-check/releases
