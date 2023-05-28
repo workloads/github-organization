@@ -619,6 +619,16 @@ locals {
       overwrite_on_create = true
     },
     {
+      file = ".github/workflows/snyk-iac.yml"
+      content = templatefile("./templates/workflows/snyk-iac.tftpl.yml", {
+        checkout      = local.actions_config["checkout"]
+        codeql_upload = local.actions_config["codeql_upload"]
+        snyk_iac      = local.actions_config["snyk_iac"]
+      })
+
+      overwrite_on_create = true
+    },
+    {
       file = ".github/workflows/terraform.yml"
       content = templatefile("./templates/workflows/terraform.tftpl.yml", {
         checkout  = local.actions_config["checkout"]
