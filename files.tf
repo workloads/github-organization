@@ -3,8 +3,12 @@ locals {
   tooling_make_configs_github = templatefile("templates/scripts/config_github.tftpl.mk", {
     github_org = var.github_owner
 
-    # flatten Terraform-based GitHub repository names to allow for consumption in Bash scripts
-    github_repos = join(" ", [
+    # flatten GitHub Repository names to allow for consumption in downstream tooling (Make)
+    github_repositories = join(" ", [
+      for repo in var.repositories : repo.name
+    ])
+
+    github_terraform_repositories = join(" ", [
       for repo in var.terraform_repositories : repo.name
     ])
 
