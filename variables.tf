@@ -162,7 +162,7 @@ variable "repositories" {
   default = [
     {
       name         = ".github"
-      description  = "Community Health Files and Assets."
+      description  = "Community Health Files and Assets"
       homepage_url = "https://github.com/workloads"
       visibility   = "public"
       has_issues   = true
@@ -179,7 +179,7 @@ variable "repositories" {
     },
     {
       name         = "assets"
-      description  = "🔒 (non-public) Design and Content Assets."
+      description  = "🔒 (non-public) Design and Content Assets"
       homepage_url = "https://github.com/workloads"
       visibility   = "private"
       has_issues   = true
@@ -194,7 +194,7 @@ variable "repositories" {
     },
     {
       name         = "edge-case"
-      description  = "Docs and Diagrams for the Edge Case."
+      description  = "Docs and Diagrams for the Edge Case"
       homepage_url = "https://github.com/workloads/edge-case"
       visibility   = "private"
       has_issues   = true
@@ -214,7 +214,7 @@ variable "repositories" {
     },
     {
       name         = "edge-case-docs"
-      description  = "🔒 (non-public) Docs for the Edge Case."
+      description  = "🔒 (non-public) Docs for the Edge Case"
       homepage_url = "https://github.com/workloads/edge-case"
       visibility   = "private"
       has_issues   = false
@@ -234,7 +234,7 @@ variable "repositories" {
     },
     {
       name         = "nomad-pack-registry"
-      description  = "Nomad Pack Registry."
+      description  = "Nomad Pack Registry"
       homepage_url = ""
       visibility   = "public"
       has_issues   = true
@@ -252,7 +252,7 @@ variable "repositories" {
     },
     {
       name         = "packer-templates"
-      description  = "Packer Templates for common Cloud Providers."
+      description  = "Packer Templates for commonly used Providers"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/packer-images"
       visibility   = "public"
       has_issues   = true
@@ -273,7 +273,7 @@ variable "repositories" {
     },
     {
       name         = "tooling"
-      description  = "Common Tooling."
+      description  = "Common Tooling for @workloads"
       homepage_url = ""
       visibility   = "public"
       has_issues   = true
@@ -310,7 +310,7 @@ variable "terraform_repositories" {
   default = [
     {
       name         = "dns"
-      description  = "Terraform-managed DNS Resources."
+      description  = "Terraform-managed DNS Resources"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/dns"
       visibility   = "public"
       has_issues   = true
@@ -329,7 +329,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "github-organization"
-      description  = "Terraform-managed GitHub Resources."
+      description  = "Terraform-managed GitHub Resources"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/repositories"
       visibility   = "public"
       has_issues   = true
@@ -348,7 +348,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "networking"
-      description  = "Terraform-managed Networking Components."
+      description  = "Terraform-managed Networking Components"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/networking"
       visibility   = "public"
       has_issues   = true
@@ -366,7 +366,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "regional-aws-deployment"
-      description  = "Regional Deployment of AWS-specific Resources."
+      description  = "Regional Deployment of AWS-specific Resources"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces?tag=regional-provider%3Aaws"
       visibility   = "public"
       has_issues   = true
@@ -384,7 +384,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "regional-workspaces"
-      description  = "Terraform-managed Regional Terraform Cloud Workspaces."
+      description  = "Terraform-managed Regional Terraform Cloud Workspaces"
       homepage_url = "https://app.terraform.io/app/workloads/regional-workspaces"
       visibility   = "public"
       has_issues   = true
@@ -402,7 +402,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "services-configuration"
-      description  = "Terraform-managed Services Configuration."
+      description  = "Terraform-managed Services Configuration"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/services-configuration"
       visibility   = "public"
       has_issues   = true
@@ -420,7 +420,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "services-deployment"
-      description  = "Terraform-managed Services Deployment."
+      description  = "Terraform-managed Services Deployment"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/services-deployment"
       visibility   = "public"
       has_issues   = true
@@ -442,7 +442,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "users"
-      description  = "Terraform-managed User Directory Management."
+      description  = "Terraform-managed User Directory Management"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/users"
       visibility   = "public"
       has_issues   = true
@@ -461,7 +461,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "web-assets"
-      description  = "CloudFront-hosted Public Assets."
+      description  = "CloudFront-hosted Public Assets"
       homepage_url = "https://assets.workloads.io"
       visibility   = "public"
       has_issues   = false
@@ -497,7 +497,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "website"
-      description  = "Terraform-rendered, GitHub-infused Project Website."
+      description  = "Terraform-rendered, GitHub-infused Project Website"
       homepage_url = "https://workloads.io"
       visibility   = "public"
       has_issues   = true
@@ -516,7 +516,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "workspaces"
-      description  = "Terraform-managed Terraform Cloud Workspaces."
+      description  = "Terraform-managed Terraform Cloud Workspaces"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces"
       visibility   = "public"
       has_issues   = true
@@ -539,7 +539,7 @@ variable "scorecard_checks" {
   description = "OpenSSF Scorecard Checks."
 
   # see https://github.com/ossf/scorecard/blob/main/docs/checks.md
-  default = "Binary-Artifacts,Branch-Protection,CI-Tests,Code-Review,Contributors,Dangerous-Workflow,Dependency-Update-Tool,License,Maintained,Pinned-Dependencies,SAST,Security-Policy,Token-Permissions,Vulnerabilities"
+  default = "Binary-Artifacts,Branch-Protection,Code-Review,Dangerous-Workflow,Dependency-Update-Tool,License,Maintained,Pinned-Dependencies,SAST,Security-Policy,Token-Permissions,Vulnerabilities"
 }
 
 locals {
