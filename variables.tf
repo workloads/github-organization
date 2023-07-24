@@ -235,7 +235,7 @@ variable "repositories" {
     {
       name         = "nomad-pack-registry"
       description  = "Nomad Pack Registry"
-      homepage_url = ""
+      homepage_url = "https://github.com/workloads/nomad-pack-registry"
       visibility   = "public"
       has_issues   = true
       has_wiki     = false
@@ -273,8 +273,8 @@ variable "repositories" {
     },
     {
       name         = "tooling"
-      description  = "Common Tooling for @workloads"
-      homepage_url = ""
+      description  = "Common Tooling for @workloads Projects"
+      homepage_url = "https://github.com/workloads/tooling"
       visibility   = "public"
       has_issues   = true
       has_wiki     = false
