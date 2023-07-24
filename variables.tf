@@ -193,6 +193,24 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "container-images"
+      description  = "Packer Templates for commonly used Providers"
+      homepage_url = "https://github.com/orgs/workloads/packages?repo_name=container-images"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "docker",
+        "packer",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "edge-case"
       description  = "Docs and Diagrams for the Edge Case"
       homepage_url = "https://github.com/workloads/edge-case"
