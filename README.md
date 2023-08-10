@@ -45,6 +45,7 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | github_repository_slugs | GitHub Repository slugs. |
 | github_urls | GitHub URLs. |
 | nomad_pack_registry_commands | Nomad Pack CLI Commands for Registry operations. |
+| non_terraform_repositories | n/a |
 | workspace_url | Terraform Cloud Workspace URL. |
 <!-- END_TF_DOCS -->
 

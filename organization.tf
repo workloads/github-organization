@@ -3,11 +3,11 @@ resource "github_organization_settings" "main" {
   # GitHub Organization settings:
   billing_email    = var.github_organization_email
   blog             = "https://workloads.io/"
-  company          = "workloads.io"
+  company          = "Workloads"
   description      = "Multi-Cloud, Multi-Content Job Orchestration."
   email            = var.github_organization_email
   location         = "Netherlands"
-  name             = "workloads.io"
+  name             = "Workloads"
   twitter_username = "wrklds"
 
   # GitHub Pages settings:
