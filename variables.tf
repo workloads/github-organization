@@ -401,6 +401,43 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "regional-azure-deployment"
+      description  = "Regional Deployment of Azure-specific Resources"
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces?tag=regional-provider%3Aazure"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "azure",
+        "terraform",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
+      name         = "regional-gcp-deployment"
+      description  = "Regional Deployment of GCP-specific Resources"
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces?tag=regional-provider%3Agcp"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "gcp",
+        "google-cloud",
+        "terraform",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "regional-workspaces"
       description  = "Terraform-managed Regional Terraform Cloud Workspaces"
       homepage_url = "https://app.terraform.io/app/workloads/regional-workspaces"
