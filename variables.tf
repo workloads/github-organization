@@ -41,7 +41,7 @@ variable "actions_config" {
     checkout = {
       owner      = "actions"
       repository = "checkout"
-      version    = "v3.5.3"
+      version    = "v3.6.0"
     }
 
     # see https://github.com/actions/upload-artifact/releases
@@ -56,7 +56,7 @@ variable "actions_config" {
       owner      = "github"
       repository = "codeql-action"
       path       = "upload-sarif"
-      version    = "codeql-bundle-v2.14.1"
+      version    = "codeql-bundle-v2.14.3"
     }
 
     # see https://github.com/gaurav-nelson/github-action-markdown-link-check/releases
@@ -93,7 +93,7 @@ variable "actions_config" {
       owner      = "super-linter"
       repository = "super-linter"
       path       = "slim"
-      version    = "v5.2.0"
+      version    = "v5.2.1"
     }
 
     # see https://github.com/hashicorp/setup-terraform/releases
