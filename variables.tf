@@ -327,6 +327,24 @@ variable "terraform_repositories" {
 
   default = [
     {
+      name         = "community"
+      description  = "Terraform-managed Community Resources"
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/community"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "discord",
+        "terraform",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "dns"
       description  = "Terraform-managed DNS Resources"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/dns"
