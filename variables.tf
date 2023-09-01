@@ -403,7 +403,7 @@ variable "terraform_repositories" {
     {
       name         = "regional-aws-deployment"
       description  = "Regional Deployment of AWS-specific Resources"
-      homepage_url = "https://app.terraform.io/app/workloads/workspaces?tag=regional-provider%3Aaws"
+      homepage_url = "https://go.workloads.io/aws-regional"
       visibility   = "public"
       has_issues   = true
       has_wiki     = false
@@ -421,7 +421,7 @@ variable "terraform_repositories" {
     {
       name         = "regional-azure-deployment"
       description  = "Regional Deployment of Azure-specific Resources"
-      homepage_url = "https://app.terraform.io/app/workloads/workspaces?tag=regional-provider%3Aazure"
+      homepage_url = "https://go.workloads.io/azure-regional"
       visibility   = "public"
       has_issues   = true
       has_wiki     = false
@@ -439,7 +439,7 @@ variable "terraform_repositories" {
     {
       name         = "regional-gcp-deployment"
       description  = "Regional Deployment of GCP-specific Resources"
-      homepage_url = "https://app.terraform.io/app/workloads/workspaces?tag=regional-provider%3Agcp"
+      homepage_url = "https://go.workloads.io/gcp-regional"
       visibility   = "public"
       has_issues   = true
       has_wiki     = false
