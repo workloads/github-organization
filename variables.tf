@@ -137,9 +137,10 @@ variable "organization_members" {
     "justinretzolk",   # Justin Retzolk (HashiCorp)
     "lhaig",           # Lance Haig (HashiCorp)
     "lomar92",         # Amar Lojo (HashiCorp)
+    "rizkybiz",        # Justin DeFrank (HashiCorp)
     "sofixa",          # Adrian Todorov (HashiCorp)
     "straubt1",        # Tom Straub (HashiCorp)
-    "rizkybiz",        # Justin DeFrank (HashiCorp)
+    "timothymamo",     # Timothy Mamo (DigitalOcean)
   ]
 }
 
