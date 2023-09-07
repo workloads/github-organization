@@ -438,6 +438,24 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "regional-do-deployment"
+      description  = "Regional Deployment of DigitalOcean-specific Resources"
+      homepage_url = "https://go.workloads.io/do-regional"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "digital-ocean",
+        "terraform",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "regional-gcp-deployment"
       description  = "Regional Deployment of GCP-specific Resources"
       homepage_url = "https://go.workloads.io/gcp-regional"
