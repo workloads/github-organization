@@ -570,6 +570,24 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "web-assets-sync"
+      description  = "Terraform-operated Web Assets Sync"
+      homepage_url = "https://assets.workloads.io"
+      visibility   = "public"
+      has_issues   = false
+      has_wiki     = false
+
+      topics = [
+        "aws",
+        "terraform",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "web-redirects"
       description  = "URL Redirects."
       homepage_url = "https://go.workloads.io"
