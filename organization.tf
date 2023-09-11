@@ -29,7 +29,7 @@ resource "github_organization_settings" "main" {
   web_commit_signoff_required              = true
 
   # GitHub Security settings:
-  advanced_security_enabled_for_new_repositories               = true
+  advanced_security_enabled_for_new_repositories               = false
   dependabot_alerts_enabled_for_new_repositories               = true
   dependabot_security_updates_enabled_for_new_repositories     = true
   dependency_graph_enabled_for_new_repositories                = true

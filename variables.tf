@@ -571,7 +571,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "web-assets-sync"
-      description  = "Terraform-operated Web Assets Sync"
+      description  = "Terraform-managed Public Assets Sync"
       homepage_url = "https://assets.workloads.io"
       visibility   = "public"
       has_issues   = false
