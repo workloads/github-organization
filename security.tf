@@ -10,10 +10,6 @@ locals {
   )
 }
 
-output "non_terraform_repositories" {
-  value = local.non_terraform_repositories
-}
-
 # see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_protection
 resource "github_branch_protection" "main" {
   # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each

@@ -48,6 +48,11 @@ output "github_urls" {
   ]
 }
 
+# enabling this results in _very_ verbose output
+#output "non_terraform_repositories" {
+#  value = local.non_terraform_repositories
+#}
+
 output "workspace_url" {
   description = "Terraform Cloud Workspace URL."
   value       = "https://app.terraform.io/app/${var.github_owner}/workspaces/repositories"

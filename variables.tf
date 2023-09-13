@@ -112,6 +112,52 @@ variable "actions_config" {
   }
 }
 
+variable "issue_labels_hashicorp" {
+  type = list(object({
+    color       = string
+    description = optional(string)
+    name        = string
+  }))
+
+  description = "HashiCorp Product-specific Issue Labels."
+
+  default = [
+    {
+      color       = "EC585D"
+      description = "Issues related to HashiCorp Boundary"
+      name        = "boundary"
+      }, {
+      color       = "DC477D"
+      description = "Issues related to HashiCorp Consul"
+      name        = "consul"
+      }, {
+      color       = "000000"
+      description = "Issues related to HashiCorp Cloud Platform"
+      name        = "hashicorp-cloud-platform"
+      }, {
+      color       = "60DEA9"
+      description = "Issues related to HashiCorp Nomad"
+      name        = "nomad"
+      }, {
+      color       = "63D0FF"
+      description = "Issues related to HashiCorp Packer"
+      name        = "packer"
+      }, {
+      color       = "844FBA"
+      description = "Issues related to HashiCorp Terraform"
+      name        = "terraform"
+      }, {
+      color       = "FFEC6E"
+      description = "Issues related to HashiCorp Vault"
+      name        = "vault"
+      }, {
+      color       = "62D4DC"
+      description = "Issues related to HashiCorp Waypoint"
+      name        = "waypoint"
+    }
+  ]
+}
+
 variable "organization_owners" {
   type        = list(string)
   description = "User Names of GitHub Organization Owners."

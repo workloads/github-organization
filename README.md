@@ -31,6 +31,7 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | github_token | A GitHub OAuth / Personal Access Token. | `string` | yes |
 | actions_config | Complex Object of GitHub Actions Configuration. | <pre>map(object({<br>    owner      = string<br>    repository = string<br><br>    # support GitHub Actions that share a repository and are stored in a sub-directory<br>    # value is optional and must be supplied without leading slash<br>    path = optional(string)<br><br>    version = string<br>  }))</pre> | no |
 | github_organization_email | E-mail address to use for GitHub Organization. | `string` | no |
+| issue_labels_hashicorp | HashiCorp Product-specific Issue Labels. | <pre>list(object({<br>    color       = string<br>    description = optional(string)<br>    name        = string<br>  }))</pre> | no |
 | organization_members | User Names of GitHub Organization Members. | `list(string)` | no |
 | organization_owners | User Names of GitHub Organization Owners. | `list(string)` | no |
 | repositories | List of GitHub Repositories. | <pre>list(object({<br>    name                   = string<br>    description            = string<br>    homepage_url           = string<br>    visibility             = string<br>    topics                 = list(string)<br>    has_issues             = bool # TODO: mark as optional<br>    has_wiki               = bool # TODO: mark as optional<br>    allow_merge_commit     = bool<br>    allow_rebase_merge     = bool<br>    delete_branch_on_merge = bool<br>  }))</pre> | no |
@@ -45,7 +46,6 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | github_repository_slugs | GitHub Repository slugs. |
 | github_urls | GitHub URLs. |
 | nomad_pack_registry_commands | Nomad Pack CLI Commands for Registry operations. |
-| non_terraform_repositories | n/a |
 | workspace_url | Terraform Cloud Workspace URL. |
 <!-- END_TF_DOCS -->
 
