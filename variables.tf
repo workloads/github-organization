@@ -34,21 +34,21 @@ variable "actions_config" {
     actionlint = {
       owner      = "reviewdog"
       repository = "action-actionlint"
-      version    = "v1.37.1"
+      version    = "v1.39.1"
     }
 
     # see https://github.com/actions/checkout/releases
     checkout = {
       owner      = "actions"
       repository = "checkout"
-      version    = "v3.6.0"
+      version    = "v4.1.0"
     }
 
     # see https://github.com/actions/upload-artifact/releases
     upload_artifact = {
       owner      = "actions"
       repository = "upload-artifact"
-      version    = "v3.1.2"
+      version    = "v3.1.3"
     }
 
     # see https://github.com/github/codeql-action/releases
@@ -56,7 +56,7 @@ variable "actions_config" {
       owner      = "github"
       repository = "codeql-action"
       path       = "upload-sarif"
-      version    = "codeql-bundle-v2.14.3"
+      version    = "codeql-bundle-v2.15.0"
     }
 
     # see https://github.com/gaurav-nelson/github-action-markdown-link-check/releases
@@ -85,7 +85,7 @@ variable "actions_config" {
     scorecard = {
       owner      = "ossf"
       repository = "scorecard-action"
-      version    = "v2.2.0"
+      version    = "v2.3.0"
     }
 
     # see https://github.com/super-linter/super-linter/releases
@@ -93,7 +93,7 @@ variable "actions_config" {
       owner      = "super-linter"
       repository = "super-linter"
       path       = "slim"
-      version    = "v5.2.1"
+      version    = "v5.4.0"
     }
 
     # see https://github.com/hashicorp/setup-terraform/releases
