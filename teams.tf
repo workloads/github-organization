@@ -1,5 +1,3 @@
-
-
 # see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team
 resource "github_team" "maintainers" {
   name                      = "maintainers"
@@ -53,4 +51,23 @@ resource "github_team_membership" "contributors" {
   team_id  = github_team.contributors.id
   username = each.value.username
   role     = "member"
+}
+
+# see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team
+resource "github_team" "reviewers_nomad" {
+  name                      = "reviewers-nomad"
+  description               = "Reviewers Nomad and Nomad Packs) 🔎"
+  create_default_maintainer = false
+  privacy                   = "closed"
+}
+
+# see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_settings
+resource "github_team_settings" "reviewers_nomad" {
+  team_id = github_team.reviewers_nomad.id
+
+  review_request_delegation {
+    algorithm    = "LOAD_BALANCE"
+    member_count = 1
+    notify       = true
+  }
 }
