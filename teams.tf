@@ -90,15 +90,15 @@ resource "github_team_settings" "reviewers_children" {
   }
 }
 
-# see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_membership
-resource "github_team_membership" "reviewers" {
-  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
-  for_each = {
-    for member in github_membership.members :
-    member.username => member
-  }
-
-  team_id  = github_team.maintainers.id
-  username = each.value.username
-  role     = "maintainer"
-}
+## see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team_membership
+#resource "github_team_membership" "reviewers" {
+#  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
+#  for_each = {
+#    for member in github_membership.members :
+#    member.username => member
+#  }
+#
+#  team_id  = github_team.maintainers.id
+#  username = each.value.username
+#  role     = "maintainer"
+#}
