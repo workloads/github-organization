@@ -169,24 +169,79 @@ variable "organization_owners" {
 }
 
 variable "organization_members" {
-  type        = list(string)
-  description = "User Names of GitHub Organization Members."
+  type = list(object({
+    username = string
+    teams    = list(string)
+  }))
+
+  description = "User Names and Team Associations of GitHub Organization Members."
 
   default = [
-    #"davemay99",     # Dave May (HashiCorp)
-    "DerekStrickland", # Derek Strickland (Aquia)
-    "drewmullen",      # Drew Mullen (AWS)
-    "ericreeves",      # Eric Reeves (HashiCorp)
-    "devopswithcobra", # Greg Thomas (HashiCorp)
-    "im2nguyen",       # Tu Nguyen (HashiCorp)
-    "joatmon08",       # Rosemary Wang (HashiCorp)
-    "justinretzolk",   # Justin Retzolk (HashiCorp)
-    "lhaig",           # Lance Haig (HashiCorp)
-    "lomar92",         # Amar Lojo (HashiCorp)
-    "rizkybiz",        # Justin DeFrank (HashiCorp)
-    "sofixa",          # Adrian Todorov (HashiCorp)
-    "straubt1",        # Tom Straub (HashiCorp)
-    "timothymamo",     # Timothy Mamo (DigitalOcean)
+    {
+      # Derek Strickland (Aquia)
+      username : "DerekStrickland",
+      teams : []
+      }, {
+      # Drew Mullen (River Point Technology)
+      username : "drewmullen",
+      teams : []
+      }, {
+      # Eric Reeves (HashiCorp)
+      username : "ericreeves",
+      teams : []
+      }, {
+      # Greg Thomas (HashiCorp)
+      username : "devopswithcobra",
+      teams : []
+      }, {
+      # Tu Nguyen (HashiCorp)
+      username : "im2nguyen",
+      teams : []
+      }, {
+      # Rosemary Wang (HashiCorp)
+      username : "joatmon08",
+      teams : []
+      }, {
+      # Justin Retzolk (HashiCorp)
+      username : "justinretzolk",
+      teams : [
+        "terraform",
+      ]
+      }, {
+      # Lance Haig (HashiCorp)
+      username : "lhaig",
+      teams : [
+        "nomad",
+      ]
+      }, {
+      # Amar Lojo (HashiCorp)
+      username : "lomar92",
+      teams : []
+      }, {
+      # Justin DeFrank (HashiCorp)
+      username : "rizkybiz",
+      teams : [
+        "terraform",
+        "boundary",
+      ]
+      }, {
+      # Adrian Todorov (HashiCorp)
+      username : "sofixa",
+      teams : [
+        "terraform",
+        "nomad",
+      ]
+      }, {
+      # Tom Straub (HashiCorp)
+      username : "straubt1",
+      teams : [
+        "terraform",
+      ]
+      }, {
+      # Timothy Mamo (DigitalOcean)
+      username : "timothymamo",
+      teams : []
+    }
   ]
 }
 
@@ -353,6 +408,35 @@ variable "repositories" {
       allow_rebase_merge     = false
       delete_branch_on_merge = true
     },
+  ]
+}
+
+variable "reviewer_teams" {
+  type = list(object({
+    name_suffix = string
+    description = string
+    privacy     = optional(string, "closed")
+  }))
+
+  description = "List of Reviewer Teams."
+
+  default = [
+    {
+      name_suffix = "boundary"
+      description = "Boundary"
+    },
+    {
+      name_suffix = "nomad"
+      description = "Nomad (incl. Nomad Packs)"
+    },
+    {
+      name_suffix = "terraform"
+      description = "Terraform (incl. Modules)"
+    },
+    {
+      name_suffix = "vault"
+      description = "Vault (incl. HCP Vault Secrets)"
+    }
   ]
 }
 
@@ -571,6 +655,24 @@ variable "terraform_repositories" {
         "hcp",
         "terraform",
         "vault",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
+      name         = "terraform-aws-regional-cidrs"
+      description  = "Terraform Module: Regional CIDRs for AWS"
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/dns"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "aws",
+        "terraform",
       ]
 
       allow_merge_commit     = false
