@@ -245,6 +245,17 @@ variable "organization_members" {
   ]
 }
 
+variable "outside_collaborators" {
+  type        = map(list(string))
+  description = "Map of Outside Collaborators."
+
+  default = {
+    "minecraft-bot" : [
+      "LetsChill",
+    ]
+  }
+}
+
 variable "repositories" {
   type = list(object({
     name                   = string

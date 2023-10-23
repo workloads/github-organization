@@ -34,6 +34,7 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | issue_labels_hashicorp | HashiCorp Product-specific Issue Labels. | <pre>list(object({<br>    color       = string<br>    description = optional(string)<br>    name        = string<br>  }))</pre> | no |
 | organization_members | User Names and Team Associations of GitHub Organization Members. | <pre>list(object({<br>    username = string<br>    teams    = list(string)<br>  }))</pre> | no |
 | organization_owners | User Names of GitHub Organization Owners. | `list(string)` | no |
+| outside_collaborators | Map of Outside Collaborators. | `map(list(string))` | no |
 | repositories | List of GitHub Repositories. | <pre>list(object({<br>    name                   = string<br>    description            = string<br>    homepage_url           = string<br>    visibility             = string<br>    topics                 = list(string)<br>    has_issues             = bool # TODO: mark as optional<br>    has_wiki               = bool # TODO: mark as optional<br>    allow_merge_commit     = bool<br>    allow_rebase_merge     = bool<br>    delete_branch_on_merge = bool<br>  }))</pre> | no |
 | reviewer_teams | List of Reviewer Teams. | <pre>list(object({<br>    name_suffix = string<br>    description = string<br>    privacy     = optional(string, "closed")<br>  }))</pre> | no |
 | scorecard_checks | OpenSSF Scorecard Checks. | `string` | no |
