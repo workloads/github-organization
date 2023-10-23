@@ -353,6 +353,26 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "minecraft-bot"
+      description  = "Mineflayer-based Excavation Assistant"
+      homepage_url = "https://github.com/workloads/minecraft-bot"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "minecraft",
+        "minecraft-bot",
+        "mineflayer",
+        "mineflayer-bot",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "nomad-pack-registry"
       description  = "Nomad Pack Registry"
       homepage_url = "https://github.com/workloads/nomad-pack-registry"
