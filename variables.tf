@@ -251,7 +251,7 @@ variable "outside_collaborators" {
 
   default = {
     "minecraft-bot" : [
-      "LetsChill",
+      "LetsChill", # Tahar Ali
     ]
   }
 }
