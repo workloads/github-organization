@@ -696,7 +696,7 @@ variable "terraform_repositories" {
     {
       name         = "terraform-aws-regional-cidrs"
       description  = "Terraform Module: Regional CIDRs for AWS"
-      homepage_url = "https://app.terraform.io/app/workloads/workspaces/dns"
+      homepage_url = "https://registry.terraform.io/modules/workloads/regional-cidrs/aws/latest"
       visibility   = "public"
       has_issues   = true
       has_wiki     = false
@@ -704,6 +704,7 @@ variable "terraform_repositories" {
       topics = [
         "aws",
         "terraform",
+        "terraform-module",
       ]
 
       allow_merge_commit     = false
