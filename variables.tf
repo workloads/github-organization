@@ -85,7 +85,7 @@ variable "actions_config" {
     scorecard = {
       owner      = "ossf"
       repository = "scorecard-action"
-      version    = "v2.3.0"
+      version    = "v2.3.1"
     }
 
     # see https://github.com/super-linter/super-linter/releases
@@ -93,14 +93,14 @@ variable "actions_config" {
       owner      = "super-linter"
       repository = "super-linter"
       path       = "slim"
-      version    = "v5.4.3"
+      version    = "v5.6.1"
     }
 
     # see https://github.com/hashicorp/setup-terraform/releases
     terraform = {
       owner      = "hashicorp"
       repository = "setup-terraform"
-      version    = "v2.0.3"
+      version    = "v3.0.0"
     }
 
     # see https://github.com/terraform-docs/gh-actions/releases
