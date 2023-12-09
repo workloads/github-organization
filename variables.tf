@@ -364,6 +364,24 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "hugo-theme-workloads"
+      description  = "Hugo Theme for @workloads Website"
+      homepage_url = "https://workloads.io"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "hugo",
+        "hugo-theme"
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "minecraft-bot"
       description  = "Mineflayer-based Excavation Assistant"
       homepage_url = "https://github.com/workloads/minecraft-bot"
