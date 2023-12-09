@@ -56,7 +56,7 @@ variable "actions_config" {
       owner      = "github"
       repository = "codeql-action"
       path       = "upload-sarif"
-      version    = "codeql-bundle-v2.15.1"
+      version    = "codeql-bundle-v2.15.3"
     }
 
     # see https://github.com/gaurav-nelson/github-action-markdown-link-check/releases
@@ -78,7 +78,7 @@ variable "actions_config" {
     packer = {
       owner      = "hashicorp"
       repository = "setup-packer"
-      version    = "v2.0.0"
+      version    = "v2.0.1"
     }
 
     # see https://github.com/ossf/scorecard-action/releases
@@ -93,7 +93,7 @@ variable "actions_config" {
       owner      = "super-linter"
       repository = "super-linter"
       path       = "slim"
-      version    = "v5.6.1"
+      version    = "v5.7.2"
     }
 
     # see https://github.com/hashicorp/setup-terraform/releases
