@@ -38,6 +38,9 @@ jobs:
         uses: "${terraform.owner}/${terraform.repository}@${terraform.sha}" # ref: `${terraform.ref}`
         with:
           terraform_wrapper: false
+
+          # `TERRAFORM_VERSION` is a GitHub Actions Organization variable
+          # see https://github.com/organizations/workloads/settings/variables/actions
           terraform_version: "$${{ vars.TERRAFORM_VERSION }}"
 
       - name: Initialize Terraform
