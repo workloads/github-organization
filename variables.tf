@@ -457,6 +457,24 @@ variable "repositories" {
       allow_rebase_merge     = false
       delete_branch_on_merge = true
     },
+    {
+      name         = "website"
+      description  = "Hugo-powered Website"
+      homepage_url = "https://workloads.io"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "aws",
+        "hugo",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
   ]
 }
 
@@ -795,25 +813,6 @@ variable "terraform_repositories" {
 
       topics = [
         "aws",
-        "terraform",
-      ]
-
-      allow_merge_commit     = false
-      allow_squash_merge     = true
-      allow_rebase_merge     = false
-      delete_branch_on_merge = true
-    },
-    {
-      name         = "website"
-      description  = "Terraform-rendered, GitHub-infused Project Website"
-      homepage_url = "https://workloads.io"
-      visibility   = "public"
-      has_issues   = true
-      has_wiki     = false
-
-      topics = [
-        "aws",
-        "html5",
         "terraform",
       ]
 
