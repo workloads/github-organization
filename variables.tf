@@ -98,7 +98,6 @@ variable "actions_config" {
     superlinter = {
       owner      = "super-linter"
       repository = "super-linter"
-      path       = "slim"
       version    = "v5.7.2"
     }
 
