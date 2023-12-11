@@ -822,6 +822,23 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "website-deployment"
+      description  = "Website Deployment for @workloads."
+      homepage_url = "https://github.com/workloads/website"
+      visibility   = "public"
+      has_issues   = false
+      has_wiki     = false
+
+      topics = [
+        "aws",
+        "terraform",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    }, {
       name         = "workspaces"
       description  = "Terraform-managed Terraform Cloud Workspaces"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces"
