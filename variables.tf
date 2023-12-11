@@ -44,13 +44,6 @@ variable "actions_config" {
       version    = "v4.1.1"
     }
 
-    # see https://github.com/actions/upload-artifact/releases
-    upload_artifact = {
-      owner      = "actions"
-      repository = "upload-artifact"
-      version    = "v3.1.3"
-    }
-
     # see https://github.com/github/codeql-action/releases
     codeql_upload = {
       owner      = "github"
@@ -59,19 +52,17 @@ variable "actions_config" {
       version    = "codeql-bundle-v2.15.3"
     }
 
+    hugo = {
+      owner      = "peaceiris"
+      repository = "actions-hugo"
+      version    = "v2.6.0"
+    }
+
     # see https://github.com/gaurav-nelson/github-action-markdown-link-check/releases
     markdown = {
       owner      = "gaurav-nelson"
       repository = "github-action-markdown-link-check"
       version    = "1.0.15"
-    }
-
-    # see # https://github.com/snyk/actions/releases
-    snyk_iac = {
-      owner      = "snyk"
-      repository = "actions"
-      path       = "iac"
-      version    = "0.4.0"
     }
 
     # see https://github.com/hashicorp/setup-packer/releases
@@ -86,6 +77,14 @@ variable "actions_config" {
       owner      = "ossf"
       repository = "scorecard-action"
       version    = "v2.3.1"
+    }
+
+    # see # https://github.com/snyk/actions/releases
+    snyk_iac = {
+      owner      = "snyk"
+      repository = "actions"
+      path       = "iac"
+      version    = "0.4.0"
     }
 
     # see https://github.com/super-linter/super-linter/releases
@@ -108,6 +107,13 @@ variable "actions_config" {
       owner      = "terraform-docs"
       repository = "gh-actions"
       version    = "v1.0.0"
+    }
+
+    # see https://github.com/actions/upload-artifact/releases
+    upload_artifact = {
+      owner      = "actions"
+      repository = "upload-artifact"
+      version    = "v3.1.3"
     }
   }
 }
