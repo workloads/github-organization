@@ -125,6 +125,12 @@ variable "actions_config" {
   }
 }
 
+variable "hugo_version" {
+  type        = string
+  description = "Hugo Version."
+  default     = "0.120.0"
+}
+
 variable "issue_labels_hashicorp" {
   type = list(object({
     color       = string
