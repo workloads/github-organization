@@ -41,7 +41,7 @@ jobs:
 
       # see https://github.com/${superlinter.owner}/${superlinter.repository}/releases/tag/${superlinter.version}
       - name: Lint Code with Super-Linter
-        uses: "${superlinter.owner}/${superlinter.repository}${superlinter.sha}" # ref: `${superlinter.ref}`
+        uses: "${superlinter.owner}/${superlinter.repository}@${superlinter.sha}" # ref: `${superlinter.ref}`
         env:
           # see https://github.com/github/super-linter#environment-variables
           CSS_FILE_NAME: ".stylelintrc.json"
