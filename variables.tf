@@ -37,6 +37,13 @@ variable "actions_config" {
       version    = "v1.39.1"
     }
 
+    # see https://github.com/aws-actions/configure-aws-credentials/releases
+    aws_credentials = {
+      owner      = "aws-actions"
+      repository = "configure-aws-credentials"
+      version    = "v4.0.1"
+    }
+
     # see https://github.com/actions/checkout/releases
     checkout = {
       owner      = "actions"
@@ -844,7 +851,7 @@ variable "terraform_repositories" {
       allow_squash_merge     = true
       allow_rebase_merge     = false
       delete_branch_on_merge = true
-    }, {
+      }, {
       name         = "workspaces"
       description  = "Terraform-managed Terraform Cloud Workspaces"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces"
