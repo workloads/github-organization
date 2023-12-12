@@ -1,0 +1,5 @@
+The purpose behind Workloads is threefold.
+
+1. Provide an opinionated, best-practices oriented workflow for deploying a job orchestration platform to popular Cloud Service Providers (CSPs).
+2. Provide Terraform blueprints that anyone can consume in an "off the shelf" fashion, without an "all or nothing" mindset.
+3. Provide a way to easily test the limits of deploying HashiCorp Nomad everywhere as edge compute resources.
