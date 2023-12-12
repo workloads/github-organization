@@ -15,11 +15,11 @@ permissions: read-all
 jobs:
   workflow:
     # only run if workflows are enabled
-    if: ${{ vars.ENABLE_WORKFLOWS == 'true' }}
+    if: $${{ vars.ENABLE_WORKFLOWS == 'true' }}
 
     # see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
     concurrency:
-      group: "${{ github.workflow }}-${{ github.ref }}"
+      group: "$${{ github.workflow }}-$${{ github.ref }}"
       cancel-in-progress: true
 
     name: Super-Linter
@@ -32,16 +32,16 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      # see https://github.com/actions/checkout/releases/tag/v4.1.1
+      # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11"  # ref: `tags/v4.1.1`
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}"  # ref: `${checkout.ref}`
         with:
           # full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
 
-      # see https://github.com/super-linter/super-linter/releases/tag/v5.7.2
+      # see https://github.com/${superlinter.owner}/${superlinter.repository}/releases/tag/${superlinter.version}
       - name: Lint Code with Super-Linter
-        uses: "super-linter/super-linter@a8150b40c89574adb5f68bf9502b890a236a06b3"  # ref: `tags/v5.7.2`
+        uses: "${superlinter.owner}/${superlinter.repository}@${superlinter.sha}"  # ref: `${superlinter.ref}`
         env:
           # see https://github.com/github/super-linter#environment-variables
           CSS_FILE_NAME: ".stylelintrc.json"
@@ -49,7 +49,7 @@ jobs:
           DISABLE_ERRORS: false
           GITHUB_CUSTOM_API_URL: "https://api.github.com"
           GITHUB_DOMAIN: "github.com"
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "$${{ secrets.GITHUB_TOKEN }}"
           IGNORE_GENERATED_FILES: true
           IGNORE_GITIGNORED_FILES: true
           MARKDOWN_CONFIG_FILE: ".markdown-lint.yml"
@@ -79,7 +79,7 @@ jobs:
 
   workflow-inactive:
     # only run if workflows are disabled
-    if: ${{ vars.ENABLE_WORKFLOWS != 'true' }}
+    if: $${{ vars.ENABLE_WORKFLOWS != 'true' }}
 
     name: Workflow Status
     runs-on: ubuntu-latest

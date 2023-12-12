@@ -15,11 +15,11 @@ permissions: read-all
 jobs:
   workflow:
     # only run if workflows are enabled
-    if: ${{ vars.ENABLE_WORKFLOWS == 'true' }}
+    if: $${{ vars.ENABLE_WORKFLOWS == 'true' }}
 
     # see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
     concurrency:
-      group: "${{ github.workflow }}-${{ github.ref }}"
+      group: "$${{ github.workflow }}-$${{ github.ref }}"
       cancel-in-progress: true
 
     name: Terraform Docs
@@ -32,16 +32,16 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      # see https://github.com/actions/checkout/releases/tag/v4.1.1
+      # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11"  # ref: `tags/v4.1.1`
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}"  # ref: `${checkout.ref}`
         with:
-          ref: "${{ github.event.pull_request.head.ref }}"
+          ref: "$${{ github.event.pull_request.head.ref }}"
           fetch-depth: 1
 
-      # see https://github.com/terraform-docs/gh-actions/releases/tag/v1.0.0
+      # see https://github.com/${terraform_docs.owner}/${terraform_docs.repository}/releases/tag/${terraform_docs.version}
       - name: Render documentation for repository and push changes back to branch
-        uses: "terraform-docs/gh-actions@f6d59f89a280fa0a3febf55ef68f146784b20ba0"  # ref: `tags/v1.0.0`
+        uses: "${terraform_docs.owner}/${terraform_docs.repository}@${terraform_docs.sha}"  # ref: `${terraform_docs.ref}`
         with:
           config-file: ".terraform-docs.yml"
           output-file: "README.md"
@@ -51,7 +51,7 @@ jobs:
 
   workflow-inactive:
     # only run if workflows are disabled
-    if: ${{ vars.ENABLE_WORKFLOWS != 'true' }}
+    if: $${{ vars.ENABLE_WORKFLOWS != 'true' }}
 
     name: Workflow Status
     runs-on: ubuntu-latest

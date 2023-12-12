@@ -137,31 +137,31 @@ variable "issue_labels_hashicorp" {
       color       = "EC585D"
       description = "Issues related to HashiCorp Boundary"
       name        = "boundary"
-    }, {
+      }, {
       color       = "DC477D"
       description = "Issues related to HashiCorp Consul"
       name        = "consul"
-    }, {
+      }, {
       color       = "000000"
       description = "Issues related to HashiCorp Cloud Platform"
       name        = "hashicorp-cloud-platform"
-    }, {
+      }, {
       color       = "60DEA9"
       description = "Issues related to HashiCorp Nomad"
       name        = "nomad"
-    }, {
+      }, {
       color       = "63D0FF"
       description = "Issues related to HashiCorp Packer"
       name        = "packer"
-    }, {
+      }, {
       color       = "844FBA"
       description = "Issues related to HashiCorp Terraform"
       name        = "terraform"
-    }, {
+      }, {
       color       = "FFEC6E"
       description = "Issues related to HashiCorp Vault"
       name        = "vault"
-    }, {
+      }, {
       color       = "62D4DC"
       description = "Issues related to HashiCorp Waypoint"
       name        = "waypoint"
@@ -192,63 +192,63 @@ variable "organization_members" {
       # Derek Strickland (Aquia)
       username : "DerekStrickland",
       teams : []
-    }, {
+      }, {
       # Drew Mullen (River Point Technology)
       username : "drewmullen",
       teams : []
-    }, {
+      }, {
       # Eric Reeves (HashiCorp)
       username : "ericreeves",
       teams : []
-    }, {
+      }, {
       # Greg Thomas (HashiCorp)
       username : "devopswithcobra",
       teams : []
-    }, {
+      }, {
       # Tu Nguyen (HashiCorp)
       username : "im2nguyen",
       teams : []
-    }, {
+      }, {
       # Rosemary Wang (HashiCorp)
       username : "joatmon08",
       teams : []
-    }, {
+      }, {
       # Justin Retzolk (HashiCorp)
       username : "justinretzolk",
       teams : [
         "terraform",
       ]
-    }, {
+      }, {
       # Lance Haig (HashiCorp)
       username : "lhaig",
       teams : [
         "nomad",
       ]
-    }, {
+      }, {
       # Amar Lojo (HashiCorp)
       username : "lomar92",
       teams : []
-    }, {
+      }, {
       # Justin DeFrank (HashiCorp)
       username : "rizkybiz",
       teams : [
         "terraform",
         "boundary",
       ]
-    }, {
+      }, {
       # Adrian Todorov (HashiCorp)
       username : "sofixa",
       teams : [
         "terraform",
         "nomad",
       ]
-    }, {
+      }, {
       # Tom Straub (HashiCorp)
       username : "straubt1",
       teams : [
         "terraform",
       ]
-    }, {
+      }, {
       # Timothy Mamo (DigitalOcean)
       username : "timothymamo",
       teams : []
@@ -849,7 +849,7 @@ variable "terraform_repositories" {
       allow_squash_merge     = true
       allow_rebase_merge     = false
       delete_branch_on_merge = true
-    }, {
+      }, {
       name         = "workspaces"
       description  = "Terraform-managed Terraform Cloud Workspaces"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces"

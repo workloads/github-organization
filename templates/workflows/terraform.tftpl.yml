@@ -15,11 +15,11 @@ permissions: read-all
 jobs:
   workflow:
     # only run if workflows are enabled
-    if: ${{ vars.ENABLE_WORKFLOWS == 'true' }}
+    if: $${{ vars.ENABLE_WORKFLOWS == 'true' }}
 
     # see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
     concurrency:
-      group: "${{ github.workflow }}-${{ github.ref }}"
+      group: "$${{ github.workflow }}-$${{ github.ref }}"
       cancel-in-progress: true
 
     name: Terraform
@@ -27,21 +27,21 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      # see https://github.com/actions/checkout/releases/tag/v4.1.1
+      # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11"  # ref: `tags/v4.1.1`
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}"  # ref: `${checkout.ref}`
         with:
           fetch-depth: 1
 
-      # see https://github.com/hashicorp/setup-terraform/releases/tag/v3.0.0
+      # see https://github.com/${terraform.owner}/${terraform.repository}/releases/tag/${terraform.version}
       - name: Set up Terraform
-        uses: "hashicorp/setup-terraform@a1502cd9e758c50496cc9ac5308c4843bcd56d36"  # ref: `tags/v3.0.0`
+        uses: "${terraform.owner}/${terraform.repository}@${terraform.sha}"  # ref: `${terraform.ref}`
         with:
           terraform_wrapper: false
 
           # `TERRAFORM_VERSION` is a GitHub Actions Organization variable
           # see https://github.com/organizations/workloads/settings/variables/actions
-          terraform_version: "${{ vars.TERRAFORM_VERSION }}"
+          terraform_version: "$${{ vars.TERRAFORM_VERSION }}"
 
       - name: Initialize Terraform
         run: terraform init
@@ -55,7 +55,7 @@ jobs:
 
   workflow-inactive:
     # only run if workflows are disabled
-    if: ${{ vars.ENABLE_WORKFLOWS != 'true' }}
+    if: $${{ vars.ENABLE_WORKFLOWS != 'true' }}
 
     name: Workflow Status
     runs-on: ubuntu-latest

@@ -1,9 +1,9 @@
 # This is a Terraform-managed file; manual changes will be overwritten.
-# see https://github.com/workloads/github-organization/blob/main/templates/workflows/terraform.tftpl.yml
+# see https://github.com/workloads/github-organization/blob/main/templates/workflows/snyk-iac.tftpl.yml
 
 ---
 
-name: "Code Quality: Terraform"
+name: "Security: Snyk IaC"
 
 # yamllint disable-line rule:truthy
 on:
@@ -22,7 +22,12 @@ jobs:
       group: "${{ github.workflow }}-${{ github.ref }}"
       cancel-in-progress: true
 
-    name: Terraform
+    name: Snyk IaC
+
+    # see https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
+    permissions:
+      security-events: write
+
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -33,25 +38,24 @@ jobs:
         with:
           fetch-depth: 1
 
-      # see https://github.com/hashicorp/setup-terraform/releases/tag/v3.0.0
-      - name: Set up Terraform
-        uses: "hashicorp/setup-terraform@a1502cd9e758c50496cc9ac5308c4843bcd56d36"  # ref: `tags/v3.0.0`
+      # see https://github.com/snyk/actions/releases/tag/0.4.0
+      - name: Lint Code with Snyk
+        uses: "snyk/actions@b98d498629f1c368650224d6d212bf7dfa89e4bf"  # ref: `tags/0.4.0`
+        env:
+          SNYK_ORG: "${{ vars.SNYK_ORG }}"
+          SNYK_TOKEN: "${{ secrets.SNYK_TOKEN }}"
         with:
-          terraform_wrapper: false
+          # scan all code in the root of the repository
+          file: "./"
+          # see https://docs.snyk.io/products/snyk-infrastructure-as-code/snyk-cli-for-infrastructure-as-code/iac-ignores-using-the-.snyk-policy-file#policy-flags-and-policy-file-notes
+          args: "--policy-path='.snyk'"
+          sarif: true
 
-          # `TERRAFORM_VERSION` is a GitHub Actions Organization variable
-          # see https://github.com/organizations/workloads/settings/variables/actions
-          terraform_version: "${{ vars.TERRAFORM_VERSION }}"
-
-      - name: Initialize Terraform
-        run: terraform init
-        env:
-          working-dir: "./"
-
-      - name: Format Terraform Code
-        run: terraform fmt -check -recursive
-        env:
-          working-dir: "./"
+      # see https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.15.3
+      - name: Upload Snyk IaC results to GitHub Code Scanning
+        uses: "github/codeql-action@4b6aa0b07da05d6e43d0e5f9c8596a6532ce1c85"  # ref: `tags/codeql-bundle-v2.15.3`
+        with:
+          sarif_file: "snyk.sarif"
 
   workflow-inactive:
     # only run if workflows are disabled
