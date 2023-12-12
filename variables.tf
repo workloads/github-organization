@@ -65,13 +65,6 @@ variable "actions_config" {
       version    = "v2.6.0"
     }
 
-    # see https://github.com/gaurav-nelson/github-action-markdown-link-check/releases
-    markdown = {
-      owner      = "gaurav-nelson"
-      repository = "github-action-markdown-link-check"
-      version    = "1.0.15"
-    }
-
     # see https://github.com/hashicorp/setup-packer/releases
     packer = {
       owner      = "hashicorp"
@@ -888,26 +881,12 @@ locals {
   # list of files to manage for ALL GitHub Repositories.
   repository_files = [
     {
-      file = ".github/workflows/markdown.yml",
-      content = templatefile("./templates/workflows/markdown.tftpl.yml", {
-        checkout = local.actions_config["checkout"]
-        markdown = local.actions_config["markdown"]
-      })
-
-      overwrite_on_create = true
-    },
-    {
       file = ".github/workflows/superlinter.yml"
       content = templatefile("./templates/workflows/superlinter.tftpl.yml", {
         checkout    = local.actions_config["checkout"]
         superlinter = local.actions_config["superlinter"]
       })
 
-      overwrite_on_create = true
-    },
-    {
-      file                = ".markdown-link-check.json"
-      content             = file("./templates/.markdown-link-check.json")
       overwrite_on_create = true
     },
     {
