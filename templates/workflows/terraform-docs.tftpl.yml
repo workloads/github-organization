@@ -34,14 +34,14 @@ jobs:
     steps:
       # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}" # ref: `${checkout.ref}`
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}"  # ref: `${checkout.ref}`
         with:
           ref: "$${{ github.event.pull_request.head.ref }}"
           fetch-depth: 1
 
       # see https://github.com/${terraform_docs.owner}/${terraform_docs.repository}/releases/tag/${terraform_docs.version}
       - name: Render documentation for repository and push changes back to branch
-        uses: "${terraform_docs.owner}/${terraform_docs.repository}@${terraform_docs.sha}" # ref: `${terraform_docs.ref}`
+        uses: "${terraform_docs.owner}/${terraform_docs.repository}@${terraform_docs.sha}"  # ref: `${terraform_docs.ref}`
         with:
           config-file: ".terraform-docs.yml"
           output-file: "README.md"

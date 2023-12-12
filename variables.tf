@@ -834,7 +834,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "website-deployment"
-      description  = "Website Deployment for @workloads."
+      description  = "Website Deployment for @workloads"
       homepage_url = "https://github.com/workloads/website"
       visibility   = "public"
       has_issues   = false

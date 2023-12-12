@@ -37,13 +37,13 @@ jobs:
     steps:
       # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}" # ref: `${checkout.ref}`
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}"  # ref: `${checkout.ref}`
         with:
           fetch-depth: 1
 
       # see https://github.com/${scorecard.owner}/${scorecard.repository}/releases/tag/${scorecard.version}
       - name: Lint Code with Snyk
-        uses: "${scorecard.owner}/${scorecard.repository}@${scorecard.sha}" # ref: `${scorecard.ref}`
+        uses: "${scorecard.owner}/${scorecard.repository}@${scorecard.sha}"  # ref: `${scorecard.ref}`
         with:
           publish_results: true
           result_file: "scorecard.sarif"
@@ -51,7 +51,7 @@ jobs:
 
       # see https://github.com/${codeql_upload.owner}/${codeql_upload.repository}/releases/tag/${codeql_upload.version}
       - name: Upload OpenSSF Scorecard results to GitHub Code Scanning
-        uses: "${codeql_upload.owner}/${codeql_upload.repository}@${codeql_upload.sha}" # ref: `${codeql_upload.ref}`
+        uses: "${codeql_upload.owner}/${codeql_upload.repository}@${codeql_upload.sha}"  # ref: `${codeql_upload.ref}`
         with:
           sarif_file: "scorecard.sarif"
 

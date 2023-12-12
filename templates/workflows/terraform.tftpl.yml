@@ -29,13 +29,13 @@ jobs:
     steps:
       # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}" # ref: `${checkout.ref}`
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}"  # ref: `${checkout.ref}`
         with:
           fetch-depth: 1
 
       # see https://github.com/${terraform.owner}/${terraform.repository}/releases/tag/${terraform.version}
       - name: Set up Terraform
-        uses: "${terraform.owner}/${terraform.repository}@${terraform.sha}" # ref: `${terraform.ref}`
+        uses: "${terraform.owner}/${terraform.repository}@${terraform.sha}"  # ref: `${terraform.ref}`
         with:
           terraform_wrapper: false
 

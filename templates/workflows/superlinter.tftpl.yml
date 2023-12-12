@@ -34,14 +34,14 @@ jobs:
     steps:
       # see https://github.com/${checkout.owner}/${checkout.repository}/releases/tag/${checkout.version}
       - name: Checkout Repository
-        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}" # ref: `${checkout.ref}`
+        uses: "${checkout.owner}/${checkout.repository}@${checkout.sha}"  # ref: `${checkout.ref}`
         with:
           # full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
 
       # see https://github.com/${superlinter.owner}/${superlinter.repository}/releases/tag/${superlinter.version}
       - name: Lint Code with Super-Linter
-        uses: "${superlinter.owner}/${superlinter.repository}@${superlinter.sha}" # ref: `${superlinter.ref}`
+        uses: "${superlinter.owner}/${superlinter.repository}@${superlinter.sha}"  # ref: `${superlinter.ref}`
         env:
           # see https://github.com/github/super-linter#environment-variables
           CSS_FILE_NAME: ".stylelintrc.json"
