@@ -34,21 +34,21 @@ variable "actions_config" {
     actionlint = {
       owner      = "reviewdog"
       repository = "action-actionlint"
-      version    = "v1.37.1"
+      version    = "v1.39.1"
+    }
+
+    # see https://github.com/aws-actions/configure-aws-credentials/releases
+    aws_credentials = {
+      owner      = "aws-actions"
+      repository = "configure-aws-credentials"
+      version    = "v4.0.1"
     }
 
     # see https://github.com/actions/checkout/releases
     checkout = {
       owner      = "actions"
       repository = "checkout"
-      version    = "v3.6.0"
-    }
-
-    # see https://github.com/actions/upload-artifact/releases
-    upload_artifact = {
-      owner      = "actions"
-      repository = "upload-artifact"
-      version    = "v3.1.2"
+      version    = "v4.1.1"
     }
 
     # see https://github.com/github/codeql-action/releases
@@ -56,14 +56,27 @@ variable "actions_config" {
       owner      = "github"
       repository = "codeql-action"
       path       = "upload-sarif"
-      version    = "codeql-bundle-v2.14.3"
+      version    = "codeql-bundle-v2.15.3"
     }
 
-    # see https://github.com/gaurav-nelson/github-action-markdown-link-check/releases
-    markdown = {
-      owner      = "gaurav-nelson"
-      repository = "github-action-markdown-link-check"
-      version    = "1.0.15"
+    hugo = {
+      owner      = "peaceiris"
+      repository = "actions-hugo"
+      version    = "v2.6.0"
+    }
+
+    # see https://github.com/hashicorp/setup-packer/releases
+    packer = {
+      owner      = "hashicorp"
+      repository = "setup-packer"
+      version    = "v2.0.1"
+    }
+
+    # see https://github.com/ossf/scorecard-action/releases
+    scorecard = {
+      owner      = "ossf"
+      repository = "scorecard-action"
+      version    = "v2.3.1"
     }
 
     # see # https://github.com/snyk/actions/releases
@@ -74,33 +87,18 @@ variable "actions_config" {
       version    = "0.4.0"
     }
 
-    # see https://github.com/hashicorp/setup-packer/releases
-    packer = {
-      owner      = "hashicorp"
-      repository = "setup-packer"
-      version    = "v2.0.0"
-    }
-
-    # see https://github.com/ossf/scorecard-action/releases
-    scorecard = {
-      owner      = "ossf"
-      repository = "scorecard-action"
-      version    = "v2.2.0"
-    }
-
     # see https://github.com/super-linter/super-linter/releases
     superlinter = {
       owner      = "super-linter"
       repository = "super-linter"
-      path       = "slim"
-      version    = "v5.2.1"
+      version    = "v5.7.2"
     }
 
     # see https://github.com/hashicorp/setup-terraform/releases
     terraform = {
       owner      = "hashicorp"
       repository = "setup-terraform"
-      version    = "v2.0.3"
+      version    = "v3.0.0"
     }
 
     # see https://github.com/terraform-docs/gh-actions/releases
@@ -109,7 +107,66 @@ variable "actions_config" {
       repository = "gh-actions"
       version    = "v1.0.0"
     }
+
+    # see https://github.com/actions/upload-artifact/releases
+    upload_artifact = {
+      owner      = "actions"
+      repository = "upload-artifact"
+      version    = "v3.1.3"
+    }
   }
+}
+
+variable "hugo_version" {
+  type        = string
+  description = "Hugo Version."
+  default     = "0.120.0"
+}
+
+variable "issue_labels_hashicorp" {
+  type = list(object({
+    color       = string
+    description = optional(string)
+    name        = string
+  }))
+
+  description = "HashiCorp Product-specific Issue Labels."
+
+  default = [
+    {
+      color       = "EC585D"
+      description = "Issues related to HashiCorp Boundary"
+      name        = "boundary"
+    }, {
+      color       = "DC477D"
+      description = "Issues related to HashiCorp Consul"
+      name        = "consul"
+    }, {
+      color       = "000000"
+      description = "Issues related to HashiCorp Cloud Platform"
+      name        = "hashicorp-cloud-platform"
+    }, {
+      color       = "60DEA9"
+      description = "Issues related to HashiCorp Nomad"
+      name        = "nomad"
+    }, {
+      color       = "63D0FF"
+      description = "Issues related to HashiCorp Packer"
+      name        = "packer"
+    }, {
+      color       = "844FBA"
+      description = "Issues related to HashiCorp Terraform"
+      name        = "terraform"
+    }, {
+      color       = "FFEC6E"
+      description = "Issues related to HashiCorp Vault"
+      name        = "vault"
+    }, {
+      color       = "62D4DC"
+      description = "Issues related to HashiCorp Waypoint"
+      name        = "waypoint"
+    }
+  ]
 }
 
 variable "organization_owners" {
@@ -123,25 +180,91 @@ variable "organization_owners" {
 }
 
 variable "organization_members" {
-  type        = list(string)
-  description = "User Names of GitHub Organization Members."
+  type = list(object({
+    username = string
+    teams    = list(string)
+  }))
+
+  description = "User Names and Team Associations of GitHub Organization Members."
 
   default = [
-    #"davemay99",     # Dave May (HashiCorp)
-    "DerekStrickland", # Derek Strickland (Aquia)
-    "drewmullen",      # Drew Mullen (AWS)
-    "ericreeves",      # Eric Reeves (HashiCorp)
-    "devopswithcobra", # Greg Thomas (HashiCorp)
-    "im2nguyen",       # Tu Nguyen (HashiCorp)
-    "joatmon08",       # Rosemary Wang (HashiCorp)
-    "justinretzolk",   # Justin Retzolk (HashiCorp)
-    "lhaig",           # Lance Haig (HashiCorp)
-    "lomar92",         # Amar Lojo (HashiCorp)
-    "rizkybiz",        # Justin DeFrank (HashiCorp)
-    "sofixa",          # Adrian Todorov (HashiCorp)
-    "straubt1",        # Tom Straub (HashiCorp)
-    "timothymamo",     # Timothy Mamo (DigitalOcean)
+    {
+      # Derek Strickland (Aquia)
+      username : "DerekStrickland",
+      teams : []
+    }, {
+      # Drew Mullen (River Point Technology)
+      username : "drewmullen",
+      teams : []
+    }, {
+      # Eric Reeves (HashiCorp)
+      username : "ericreeves",
+      teams : []
+    }, {
+      # Greg Thomas (HashiCorp)
+      username : "devopswithcobra",
+      teams : []
+    }, {
+      # Tu Nguyen (HashiCorp)
+      username : "im2nguyen",
+      teams : []
+    }, {
+      # Rosemary Wang (HashiCorp)
+      username : "joatmon08",
+      teams : []
+    }, {
+      # Justin Retzolk (HashiCorp)
+      username : "justinretzolk",
+      teams : [
+        "terraform",
+      ]
+    }, {
+      # Lance Haig (HashiCorp)
+      username : "lhaig",
+      teams : [
+        "nomad",
+      ]
+    }, {
+      # Amar Lojo (HashiCorp)
+      username : "lomar92",
+      teams : []
+    }, {
+      # Justin DeFrank (HashiCorp)
+      username : "rizkybiz",
+      teams : [
+        "terraform",
+        "boundary",
+      ]
+    }, {
+      # Adrian Todorov (HashiCorp)
+      username : "sofixa",
+      teams : [
+        "terraform",
+        "nomad",
+      ]
+    }, {
+      # Tom Straub (HashiCorp)
+      username : "straubt1",
+      teams : [
+        "terraform",
+      ]
+    }, {
+      # Timothy Mamo (DigitalOcean)
+      username : "timothymamo",
+      teams : []
+    }
   ]
+}
+
+variable "outside_collaborators" {
+  type        = map(list(string))
+  description = "Map of Outside Collaborators."
+
+  default = {
+    "minecraft-bot" : [
+      "LetsChill", # Tahar Ali
+    ]
+  }
 }
 
 variable "repositories" {
@@ -252,6 +375,44 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "hugo-theme-workloads"
+      description  = "Hugo Theme for @workloads Website"
+      homepage_url = "https://workloads.io"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "hugo",
+        "hugo-theme"
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
+      name         = "minecraft-bot"
+      description  = "Mineflayer-based Excavation Assistant"
+      homepage_url = "https://github.com/workloads/minecraft-bot"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "minecraft",
+        "minecraft-bot",
+        "mineflayer",
+        "mineflayer-bot",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "nomad-pack-registry"
       description  = "Nomad Pack Registry"
       homepage_url = "https://github.com/workloads/nomad-pack-registry"
@@ -307,6 +468,53 @@ variable "repositories" {
       allow_rebase_merge     = false
       delete_branch_on_merge = true
     },
+    {
+      name         = "website"
+      description  = "Hugo-powered Website"
+      homepage_url = "https://workloads.io"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "aws",
+        "hugo",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+  ]
+}
+
+variable "reviewer_teams" {
+  type = list(object({
+    name_suffix = string
+    description = string
+    privacy     = optional(string, "closed")
+  }))
+
+  description = "List of Reviewer Teams."
+
+  default = [
+    {
+      name_suffix = "boundary"
+      description = "Boundary"
+    },
+    {
+      name_suffix = "nomad"
+      description = "Nomad (incl. Nomad Packs)"
+    },
+    {
+      name_suffix = "terraform"
+      description = "Terraform (incl. Modules)"
+    },
+    {
+      name_suffix = "vault"
+      description = "Vault (incl. HCP Vault Secrets)"
+    }
   ]
 }
 
@@ -533,6 +741,25 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "terraform-aws-regional-cidrs"
+      description  = "Terraform Module: Regional CIDRs for AWS"
+      homepage_url = "https://registry.terraform.io/modules/workloads/regional-cidrs/aws/latest"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "aws",
+        "terraform",
+        "terraform-module",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "users"
       description  = "Terraform-managed User Directory Management"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/users"
@@ -570,6 +797,24 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "web-assets-sync"
+      description  = "Terraform-managed Public Assets Sync"
+      homepage_url = "https://assets.workloads.io"
+      visibility   = "public"
+      has_issues   = false
+      has_wiki     = false
+
+      topics = [
+        "aws",
+        "terraform",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "web-redirects"
       description  = "URL Redirects."
       homepage_url = "https://go.workloads.io"
@@ -588,16 +833,15 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
     {
-      name         = "website"
-      description  = "Terraform-rendered, GitHub-infused Project Website"
-      homepage_url = "https://workloads.io"
+      name         = "website-deployment"
+      description  = "Website Deployment for @workloads"
+      homepage_url = "https://github.com/workloads/website"
       visibility   = "public"
-      has_issues   = true
+      has_issues   = false
       has_wiki     = false
 
       topics = [
         "aws",
-        "html5",
         "terraform",
       ]
 
@@ -605,8 +849,7 @@ variable "terraform_repositories" {
       allow_squash_merge     = true
       allow_rebase_merge     = false
       delete_branch_on_merge = true
-    },
-    {
+    }, {
       name         = "workspaces"
       description  = "Terraform-managed Terraform Cloud Workspaces"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces"
@@ -638,26 +881,12 @@ locals {
   # list of files to manage for ALL GitHub Repositories.
   repository_files = [
     {
-      file = ".github/workflows/markdown.yml",
-      content = templatefile("./templates/workflows/markdown.tftpl.yml", {
-        checkout = local.actions_config["checkout"]
-        markdown = local.actions_config["markdown"]
-      })
-
-      overwrite_on_create = true
-    },
-    {
       file = ".github/workflows/superlinter.yml"
       content = templatefile("./templates/workflows/superlinter.tftpl.yml", {
         checkout    = local.actions_config["checkout"]
         superlinter = local.actions_config["superlinter"]
       })
 
-      overwrite_on_create = true
-    },
-    {
-      file                = ".markdown-link-check.json"
-      content             = file("./templates/.markdown-link-check.json")
       overwrite_on_create = true
     },
     {
