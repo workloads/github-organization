@@ -11,6 +11,6 @@ resource "github_repository_collaborators" "minecraft_bot" {
   }
 
   team {
-    team_id = github_team.maintainers.id
+    team_id = github_team.maintainers.slug
   }
 }
