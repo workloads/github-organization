@@ -14,10 +14,12 @@ resource "github_actions_variable" "enable_workflows" {
 # set Hugo version as GitHub Organization Variable to allow
 # for easier re-use and maintainability across GitHub Actions Workflows
 # see https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_variable
-resource "github_actions_organization_variable" "hugo_version" {
-  variable_name = "hugo_version"
+resource "github_actions_organization_variable" "versions" {
+  for_each = var.tool_versions_config
+
+  variable_name = each.key
   visibility    = "all"
-  value         = var.hugo_version
+  value         = each.value.version
 }
 
 # get GitHub Release Tag Identifiers by polling the Releases Data Source:

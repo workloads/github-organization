@@ -114,13 +114,14 @@ variable "actions_config" {
       repository = "upload-artifact"
       version    = "v3.1.3"
     }
-  }
-}
 
-variable "hugo_version" {
-  type        = string
-  description = "Hugo Version."
-  default     = "0.120.0"
+    # see https://github.com/errata-ai/vale-action/releases
+    vale = {
+      owner      = "errata-ai"
+      repository = "vale-action"
+      version    = "v2.0.1"
+    }
+  }
 }
 
 variable "issue_labels_hashicorp" {
@@ -875,6 +876,26 @@ variable "scorecard_checks" {
 
   # see https://github.com/ossf/scorecard/blob/main/docs/checks.md
   default = "Binary-Artifacts,Branch-Protection,Code-Review,Dangerous-Workflow,Dependency-Update-Tool,License,Maintained,Pinned-Dependencies,SAST,Security-Policy,Token-Permissions,Vulnerabilities"
+}
+
+variable "tool_versions_config" {
+  type = map(object({
+    version = string
+  }))
+
+  description = "List of Tool Versions."
+
+  default = {
+    hugo = {
+      # see https://github.com/gohugoio/hugo/releases
+      version = "v0.121.0"
+    },
+
+    vale = {
+      # see https://github.com/errata-ai/vale/releases
+      version = "2.30.0"
+    },
+  }
 }
 
 locals {

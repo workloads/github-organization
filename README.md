@@ -39,11 +39,13 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | reviewer_teams | List of Reviewer Teams. | <pre>list(object({<br>    name_suffix = string<br>    description = string<br>    privacy     = optional(string, "closed")<br>  }))</pre> | no |
 | scorecard_checks | OpenSSF Scorecard Checks. | `string` | no |
 | terraform_repositories | List of GitHub Repositories. | <pre>list(object({<br>    name                   = string<br>    description            = string<br>    homepage_url           = string<br>    visibility             = string<br>    topics                 = list(string)<br>    has_issues             = optional(bool)<br>    has_wiki               = optional(bool)<br>    allow_merge_commit     = bool<br>    allow_rebase_merge     = bool<br>    delete_branch_on_merge = bool<br>  }))</pre> | no |
+| tool_versions_config | List of Tool Versions. | <pre>map(object({<br>    version = string<br>  }))</pre> | no |
 
 ### Outputs
 
 | Name | Description |
 |------|-------------|
+| github_actions_organization_tool_versions | GitHub Actions Organization Tool Versions. |
 | github_actions_releases | GitHub Actions Releases. |
 | github_repository_slugs | GitHub Repository slugs. |
 | github_urls | GitHub URLs. |

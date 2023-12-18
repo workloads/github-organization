@@ -22,6 +22,13 @@ output "github_actions_releases" {
   }
 }
 
+output "github_actions_organization_tool_versions" {
+  description = "GitHub Actions Organization Tool Versions."
+
+  # iterate over GitHub Actions Organization Variable Objects and assign `name` as value
+  value = github_actions_organization_variable.versions
+}
+
 output "github_repository_slugs" {
   description = "GitHub Repository slugs."
 
