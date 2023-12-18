@@ -226,10 +226,6 @@ variable "organization_members" {
         "nomad",
       ]
       }, {
-      # Amar Lojo (HashiCorp)
-      username : "lomar92",
-      teams : []
-      }, {
       # Justin DeFrank (HashiCorp)
       username : "rizkybiz",
       teams : [
