@@ -1,6 +1,6 @@
 # Terraform Cloud Workspace `repositories`
 
-> This directory manages GitHub Configuration for [@workloads](https://github.com/workloads).
+> This repository manages GitHub Configuration for [@workloads](https://github.com/workloads).
 
 ## Table of Contents
 
