@@ -8,8 +8,8 @@ GITHUB_ACTIONS_CONCLUSION = failure
 GITHUB_ORG = ${github_org}
 
 # local directories (= GitHub Repositories) to consider
-GITHUB_TERRAFORM_REPOSITORIES = ${github_terraform_repositories}
-GITHUB_REPOSITORIES           = ${github_repositories}
+GITHUB_TERRAFORM_REPOSITORIES = $(shell gh repo list $(GITHUB_ORG) --topic=terraform --json=name --template '{{range .}}{{ .name}} {{end}}')
+GITHUB_REPOSITORIES           = $(shell gh repo list $(GITHUB_ORG) --json=name --template '{{range .}}{{ .name}} {{end}}')
 
 # OpenSSF Scorecard Checks to execute
 SCORECARD_CHECKS = ${scorecard_checks}
