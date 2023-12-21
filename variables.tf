@@ -552,7 +552,7 @@ variable "terraform_repositories" {
     },
     {
       name         = "dns"
-      description  = "Terraform-managed DNS Resources"
+      description  = "Terraform-managed DNS resources"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/dns"
       visibility   = "public"
       has_issues   = true
