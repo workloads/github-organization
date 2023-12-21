@@ -34,7 +34,7 @@ variable "actions_config" {
     actionlint = {
       owner      = "reviewdog"
       repository = "action-actionlint"
-      version    = "v1.39.1"
+      version    = "v1.40.0"
     }
 
     # see https://github.com/aws-actions/configure-aws-credentials/releases
@@ -56,9 +56,10 @@ variable "actions_config" {
       owner      = "github"
       repository = "codeql-action"
       path       = "upload-sarif"
-      version    = "codeql-bundle-v2.15.3"
+      version    = "codeql-bundle-v2.15.5"
     }
 
+    # see https://github.com/peaceiris/actions-hugo/releases
     hugo = {
       owner      = "peaceiris"
       repository = "actions-hugo"
@@ -112,7 +113,7 @@ variable "actions_config" {
     upload_artifact = {
       owner      = "actions"
       repository = "upload-artifact"
-      version    = "v3.1.3"
+      version    = "v4.0.0"
     }
 
     # see https://github.com/errata-ai/vale-action/releases
