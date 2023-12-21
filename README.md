@@ -7,14 +7,26 @@
 <!-- TOC -->
 * [Terraform Cloud Workspace `repositories`](#terraform-cloud-workspace-repositories)
   * [Table of Contents](#table-of-contents)
+  * [Requirements](#requirements)
+    * [Development](#development)
   * [Usage](#usage)
     * [Inputs](#inputs)
     * [Outputs](#outputs)
   * [Notes](#notes)
     * [API Rate Limits](#api-rate-limits)
-  * [Author Information](#author-information)
+  * [Contributors](#contributors)
   * [License](#license)
 <!-- TOC -->
+
+## Requirements
+
+- HashiCorp Terraform `1.6.x` or [newer](https://developer.hashicorp.com/packer/downloads)
+
+### Development
+
+For development and testing of this repository:
+
+- `terraform-docs` `0.17.0` or [newer](https://terraform-docs.io/user-guide/installation/)
 
 ## Usage
 
@@ -64,16 +76,14 @@ The large number of resources in the `@workloads/github-organization` repository
 > **Note**
 > For `@workloads/maintainers`: The [Makefile](https://github.com/workloads/assets/blob/main/scripts/Makefile) in `workloads/assets` provides a target to retrieve the current API usage with `make get-gh-rate-limits`
 
-## Author Information
+## Contributors
 
-This repository is maintained by the contributors listed on [GitHub](https://github.com/workloads/github-organization/graphs/contributors).
+For a list of current (and past) contributors to this repository, see [GitHub](https://github.com/workloads/github-organization/graphs/contributors).
 
 ## License
 
 Licensed under the Apache License, Version 2.0 (the "License").
 
-You may obtain a copy of the License at [apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an _"AS IS"_ basis, without WARRANTIES or conditions of any kind, either express or implied.
+You may download a copy of the License at [apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 See the License for the specific language governing permissions and limitations under the License.
