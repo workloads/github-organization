@@ -887,6 +887,11 @@ variable "tool_versions_config" {
       version = "v0.121.0"
     },
 
+    terraform_docs = {
+      # see https://github.com/terraform-docs/terraform-docs/releases
+      version = "v0.17.0"
+    },
+
     vale = {
       # see https://github.com/errata-ai/vale/releases
       version = "2.30.0"
