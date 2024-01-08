@@ -315,6 +315,26 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "badge-compute"
+      description  = "Nomad-orchestrated B{ae}dge Computing"
+      homepage_url = "https://github.com/workloads/badge-compute"
+      visibility   = "private"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "raspberry-pi",
+        "hashicorp-nomad",
+        "seeedstudio",
+        "waveshare",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "container-images"
       description  = "Packer Templates for commonly used Container Images"
       homepage_url = "https://github.com/orgs/workloads/packages?repo_name=container-images"
