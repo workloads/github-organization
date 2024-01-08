@@ -26,7 +26,9 @@ resource "github_organization_settings" "main" {
   members_can_create_public_repositories   = true
   members_can_create_repositories          = true
   members_can_fork_private_repositories    = false
-  web_commit_signoff_required              = true
+
+  # TODO: re-enable when repository module supports this
+  web_commit_signoff_required = false
 
   # GitHub Security settings:
   advanced_security_enabled_for_new_repositories               = false
