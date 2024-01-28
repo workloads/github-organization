@@ -335,6 +335,46 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "baedge-server"
+      description  = "B{ae}dge Computing Server"
+      homepage_url = "https://github.com/workloads/badge-compute"
+      visibility   = "private"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "raspberry-pi",
+        "seeedstudio",
+        "waveshare",
+        "eink",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
+      name         = "baedge-client-heartbeat"
+      description  = "B{ae}dge Computing Client: Heartbeat"
+      homepage_url = "https://github.com/workloads/badge-compute"
+      visibility   = "private"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "raspberry-pi",
+        "seeedstudio",
+        "waveshare",
+        "heartbeat",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "container-images"
       description  = "Packer Templates for commonly used Container Images"
       homepage_url = "https://github.com/orgs/workloads/packages?repo_name=container-images"
