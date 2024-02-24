@@ -315,26 +315,6 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
-      name         = "badge-compute"
-      description  = "Nomad-orchestrated B{ae}dge Computing"
-      homepage_url = "https://github.com/workloads/badge-compute"
-      visibility   = "private"
-      has_issues   = true
-      has_wiki     = false
-
-      topics = [
-        "raspberry-pi",
-        "hashicorp-nomad",
-        "seeedstudio",
-        "waveshare",
-      ]
-
-      allow_merge_commit     = false
-      allow_squash_merge     = true
-      allow_rebase_merge     = false
-      delete_branch_on_merge = true
-    },
-    {
       name         = "baedge"
       description  = "B{ae}dge Computing Server"
       homepage_url = "https://github.com/workloads/baedge"
@@ -343,10 +323,11 @@ variable "repositories" {
       has_wiki     = false
 
       topics = [
+        "eink",
+        "nomad",
         "raspberry-pi",
         "seeedstudio",
         "waveshare",
-        "eink",
       ]
 
       allow_merge_commit     = false
@@ -422,7 +403,7 @@ variable "repositories" {
 
       topics = [
         "hugo",
-        "hugo-theme"
+        "hugo-theme",
       ]
 
       allow_merge_commit     = false
@@ -460,7 +441,7 @@ variable "repositories" {
 
       topics = [
         "nomad",
-        "nomad-packs"
+        "nomad-packs",
       ]
 
       allow_merge_commit     = false
