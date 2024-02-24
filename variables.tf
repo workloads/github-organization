@@ -34,14 +34,14 @@ variable "actions_config" {
     actionlint = {
       owner      = "reviewdog"
       repository = "action-actionlint"
-      version    = "v1.40.0"
+      version    = "v1.42.0"
     }
 
     # see https://github.com/aws-actions/configure-aws-credentials/releases
     aws_credentials = {
       owner      = "aws-actions"
       repository = "configure-aws-credentials"
-      version    = "v4.0.1"
+      version    = "v4.0.2"
     }
 
     # see https://github.com/actions/checkout/releases
@@ -56,7 +56,7 @@ variable "actions_config" {
       owner      = "github"
       repository = "codeql-action"
       path       = "upload-sarif"
-      version    = "codeql-bundle-v2.15.5"
+      version    = "codeql-bundle-v2.16.3"
     }
 
     # see https://github.com/peaceiris/actions-hugo/releases
@@ -70,7 +70,7 @@ variable "actions_config" {
     packer = {
       owner      = "hashicorp"
       repository = "setup-packer"
-      version    = "v2.0.1"
+      version    = "v3.0.0"
     }
 
     # see https://github.com/ossf/scorecard-action/releases
@@ -92,7 +92,7 @@ variable "actions_config" {
     superlinter = {
       owner      = "super-linter"
       repository = "super-linter"
-      version    = "v5.7.2"
+      version    = "v6.2.0"
     }
 
     # see https://github.com/hashicorp/setup-terraform/releases
@@ -113,14 +113,14 @@ variable "actions_config" {
     upload_artifact = {
       owner      = "actions"
       repository = "upload-artifact"
-      version    = "v4.0.0"
+      version    = "v4.3.1"
     }
 
     # see https://github.com/errata-ai/vale-action/releases
     vale = {
       owner      = "errata-ai"
       repository = "vale-action"
-      version    = "v2.0.1"
+      version    = "v2.1.0"
     }
   }
 }
