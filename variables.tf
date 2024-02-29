@@ -412,6 +412,24 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "mapper"
+      description  = "Event Mapping Tool for HashiCorp Nomad"
+      homepage_url = "https://github.com/workloads/mapper"
+      visibility   = "private"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "eventstream",
+        "nomad",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "minecraft-bot"
       description  = "Mineflayer-based Excavation Assistant"
       homepage_url = "https://github.com/workloads/minecraft-bot"
