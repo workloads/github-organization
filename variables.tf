@@ -191,9 +191,11 @@ variable "organization_members" {
 
   default = [
     {
-      # Derek Strickland (Aquia)
-      username : "DerekStrickland",
-      teams : []
+      # Charlie Voiselle (HashiCorp)
+      username : "angrycub",
+      teams : [
+        "nomad",
+      ]
       }, {
       # Drew Mullen (River Point Technology)
       username : "drewmullen",
