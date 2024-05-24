@@ -205,10 +205,6 @@ variable "organization_members" {
       username : "ericreeves",
       teams : []
       }, {
-      # Greg Thomas (HashiCorp)
-      username : "devopswithcobra",
-      teams : []
-      }, {
       # Tu Nguyen (HashiCorp)
       username : "im2nguyen",
       teams : []
@@ -252,6 +248,13 @@ variable "organization_members" {
       # Timothy Mamo (DigitalOcean)
       username : "timothymamo",
       teams : []
+      }, {
+      # Yash Khemani (HashiCorp)
+      username : "ykhemani",
+      teams : [
+        "terraform",
+        "vault",
+      ]
     }
   ]
 }
@@ -262,7 +265,6 @@ variable "outside_collaborators" {
 
   default = {
     "minecraft-bot" : [
-      "LetsChill", # Tahar Ali
     ]
   }
 }
