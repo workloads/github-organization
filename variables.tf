@@ -472,6 +472,27 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "nomad-smart-dial"
+      description  = "Smart Dial for HashiCorp Nomad"
+      homepage_url = "https://github.com/workloads/nomad-smart-dial"
+      visibility   = "private"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "arduino",
+        "esp32",
+        "m5stack",
+        "m5dial",
+        "nomad",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "packer-templates"
       description  = "Packer Templates for commonly used Providers"
       homepage_url = "https://app.terraform.io/app/workloads/workspaces/packer-images"
