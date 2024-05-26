@@ -34,7 +34,7 @@ variable "actions_config" {
     actionlint = {
       owner      = "reviewdog"
       repository = "action-actionlint"
-      version    = "v1.42.0"
+      version    = "v1.46.0"
     }
 
     # see https://github.com/aws-actions/configure-aws-credentials/releases
@@ -48,7 +48,7 @@ variable "actions_config" {
     checkout = {
       owner      = "actions"
       repository = "checkout"
-      version    = "v4.1.1"
+      version    = "v4.1.6"
     }
 
     # see https://github.com/github/codeql-action/releases
@@ -56,28 +56,28 @@ variable "actions_config" {
       owner      = "github"
       repository = "codeql-action"
       path       = "upload-sarif"
-      version    = "codeql-bundle-v2.16.3"
+      version    = "codeql-bundle-v2.17.3"
     }
 
     # see https://github.com/peaceiris/actions-hugo/releases
     hugo = {
       owner      = "peaceiris"
       repository = "actions-hugo"
-      version    = "v2.6.0"
+      version    = "v3.0.0"
     }
 
     # see https://github.com/hashicorp/setup-packer/releases
     packer = {
       owner      = "hashicorp"
       repository = "setup-packer"
-      version    = "v3.0.0"
+      version    = "v3.1.0"
     }
 
     # see https://github.com/ossf/scorecard-action/releases
     scorecard = {
       owner      = "ossf"
       repository = "scorecard-action"
-      version    = "v2.3.1"
+      version    = "v2.3.3"
     }
 
     # see # https://github.com/snyk/actions/releases
@@ -92,28 +92,28 @@ variable "actions_config" {
     superlinter = {
       owner      = "super-linter"
       repository = "super-linter"
-      version    = "v6.2.0"
+      version    = "v6.5.1"
     }
 
     # see https://github.com/hashicorp/setup-terraform/releases
     terraform = {
       owner      = "hashicorp"
       repository = "setup-terraform"
-      version    = "v3.0.0"
+      version    = "v3.1.1"
     }
 
     # see https://github.com/terraform-docs/gh-actions/releases
     terraform_docs = {
       owner      = "terraform-docs"
       repository = "gh-actions"
-      version    = "v1.0.0"
+      version    = "v1.1.0"
     }
 
     # see https://github.com/actions/upload-artifact/releases
     upload_artifact = {
       owner      = "actions"
       repository = "upload-artifact"
-      version    = "v4.3.1"
+      version    = "v4.3.3"
     }
 
     # see https://github.com/errata-ai/vale-action/releases
