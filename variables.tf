@@ -148,23 +148,23 @@ variable "issue_labels_hashicorp" {
       description = "Issues related to HashiCorp Cloud Platform"
       name        = "hashicorp-cloud-platform"
       }, {
-      color       = "60DEA9"
+      color       = "00CA8E"
       description = "Issues related to HashiCorp Nomad"
       name        = "nomad"
       }, {
-      color       = "63D0FF"
+      color       = "02A8EF"
       description = "Issues related to HashiCorp Packer"
       name        = "packer"
       }, {
-      color       = "844FBA"
+      color       = "7B42BC"
       description = "Issues related to HashiCorp Terraform"
       name        = "terraform"
       }, {
-      color       = "FFEC6E"
+      color       = "FFCF25"
       description = "Issues related to HashiCorp Vault"
       name        = "vault"
       }, {
-      color       = "62D4DC"
+      color       = "14C6CB"
       description = "Issues related to HashiCorp Waypoint"
       name        = "waypoint"
     }
