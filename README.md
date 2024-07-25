@@ -1,4 +1,4 @@
-# Terraform Cloud Workspace `repositories`
+# HCP Terraform Workspace `repositories`
 
 > This repository manages GitHub Configuration for [@workloads](https://github.com/workloads).
 
@@ -42,6 +42,7 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | github_owner | This is the target GitHub organization or individual user account to manage. | `string` | yes |
 | github_token | A GitHub OAuth / Personal Access Token. | `string` | yes |
 | actions_config | Complex Object of GitHub Actions Configuration. | <pre>map(object({<br>    owner      = string<br>    repository = string<br><br>    # support GitHub Actions that share a repository and are stored in a sub-directory<br>    # value is optional and must be supplied without leading slash<br>    path = optional(string)<br><br>    version = string<br>  }))</pre> | no |
+| config | (optional) describe your variable | `map(any)` | no |
 | github_organization_email | E-mail address to use for GitHub Organization. | `string` | no |
 | issue_labels_hashicorp | HashiCorp Product-specific Issue Labels. | <pre>list(object({<br>    color       = string<br>    description = optional(string)<br>    name        = string<br>  }))</pre> | no |
 | organization_members | User Names and Team Associations of GitHub Organization Members. | <pre>list(object({<br>    username = string<br>    teams    = list(string)<br>  }))</pre> | no |
@@ -62,7 +63,7 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | github_repository_slugs | GitHub Repository slugs. |
 | github_urls | GitHub URLs. |
 | nomad_pack_registry_commands | Nomad Pack CLI Commands for Registry operations. |
-| workspace_url | Terraform Cloud Workspace URL. |
+| workspace_url | HCP Terraform Workspace URL. |
 <!-- END_TF_DOCS -->
 
 ## Notes

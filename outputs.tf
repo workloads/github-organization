@@ -56,7 +56,7 @@ output "github_urls" {
 }
 
 output "workspace_url" {
-  description = "Terraform Cloud Workspace URL."
+  description = "HCP Terraform Workspace URL."
   value       = "https://app.terraform.io/app/${var.github_owner}/workspaces/repositories"
 }
 
