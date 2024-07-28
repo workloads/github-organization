@@ -5,7 +5,7 @@
 ## Table of Contents
 
 <!-- TOC -->
-* [Terraform Cloud Workspace `repositories`](#terraform-cloud-workspace-repositories)
+* [HCP Terraform Workspace `repositories`](#hcp-terraform-workspace-repositories)
   * [Table of Contents](#table-of-contents)
   * [Requirements](#requirements)
     * [Development](#development)
