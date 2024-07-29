@@ -191,7 +191,7 @@ variable "organization_members" {
 
   default = [
     {
-      # Charlie Voiselle (HashiCorp)
+      # Charlie Voiselle (n/a)
       username : "angrycub",
       teams : [
         "nomad",
@@ -219,7 +219,7 @@ variable "organization_members" {
         "terraform",
       ]
       }, {
-      # Lance Haig (HashiCorp)
+      # Lance Haig (n/a)
       username : "lhaig",
       teams : [
         "nomad",
@@ -245,7 +245,7 @@ variable "organization_members" {
         "terraform",
       ]
       }, {
-      # Timothy Mamo (DigitalOcean)
+      # Timothy Mamo (n/a)
       username : "timothymamo",
       teams : []
       }, {
@@ -931,12 +931,10 @@ variable "terraform_repositories" {
   ]
 }
 
-variable "scorecard_checks" {
+variable "tfe_team_token_viewers" {
   type        = string
-  description = "OpenSSF Scorecard Checks."
-
-  # see https://github.com/ossf/scorecard/blob/main/docs/checks.md
-  default = "Binary-Artifacts,Branch-Protection,Code-Review,Dangerous-Workflow,Dependency-Update-Tool,License,Maintained,Pinned-Dependencies,SAST,Security-Policy,Token-Permissions,Vulnerabilities"
+  description = "HCP Terraform `viewers` Team Token."
+  sensitive   = true
 }
 
 variable "tool_versions_config" {
@@ -949,17 +947,17 @@ variable "tool_versions_config" {
   default = {
     hugo = {
       # see https://github.com/gohugoio/hugo/releases
-      version = "v0.121.0"
+      version = "v0.129.0"
     },
 
     terraform_docs = {
       # see https://github.com/terraform-docs/terraform-docs/releases
-      version = "v0.17.0"
+      version = "v0.18.0"
     },
 
     vale = {
       # see https://github.com/errata-ai/vale/releases
-      version = "2.30.0"
+      version = "3.7.0"
     },
   }
 }

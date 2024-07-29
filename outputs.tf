@@ -55,15 +55,20 @@ output "github_urls" {
   ]
 }
 
-output "workspace_url" {
-  description = "HCP Terraform Workspace URL."
-  value       = "https://app.terraform.io/app/${var.github_owner}/workspaces/repositories"
-}
-
 output "nomad_pack_registry_commands" {
   description = "Nomad Pack CLI Commands for Registry operations."
 
   value = {
     add_registry = "nomad-pack registry add ${var.github_owner} ${local.pack_registry_repository_url}"
   }
+}
+
+output "tfe_workspace_terraform_version" {
+  description = "Terraform version identifier of current HCP Terraform Workspace."
+  value       = data.tfe_workspace.main.terraform_version
+}
+
+output "workspace_url" {
+  description = "HCP Terraform Workspace URL."
+  value       = "https://app.terraform.io/app/${var.github_owner}/workspaces/repositories"
 }
