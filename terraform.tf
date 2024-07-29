@@ -6,7 +6,7 @@ terraform {
 
     # see https://developer.hashicorp.com/terraform/cli/cloud/settings#workspaces
     workspaces {
-      name = "repositories"
+      name = "github-organization"
     }
   }
 
