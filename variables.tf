@@ -523,17 +523,32 @@ variable "terraform_repositories" {
       allow_squash_merge     = true
       allow_rebase_merge     = false
       delete_branch_on_merge = true
-    },
-    {
-      name         = "github-organization"
-      description  = "Terraform-managed GitHub Resources"
-      homepage_url = "https://app.terraform.io/app/workloads/workspaces/repositories"
+    }, {
+      name         = "github-files"
+      description  = "Terraform-managed GitHub Repository Files"
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/github-files"
       visibility   = "public"
       has_issues   = true
       has_wiki     = false
 
       topics = [
-        "1password-cli",
+        "github",
+        "terraform",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    }, {
+      name         = "github-organization"
+      description  = "Terraform-managed GitHub Resources"
+      homepage_url = "https://app.terraform.io/app/workloads/workspaces/github-organization"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
         "github",
         "terraform",
       ]
@@ -810,6 +825,7 @@ variable "terraform_repositories" {
       has_wiki     = false
 
       topics = [
+        "1password-cli",
         "terraform",
       ]
 
