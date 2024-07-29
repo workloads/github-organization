@@ -11,7 +11,6 @@ module "repositories" {
 
   name         = each.value.name
   description  = each.value.description
-  files        = local.repository_files
   homepage_url = each.value.homepage_url
   visibility   = each.value.visibility
   topics       = each.value.topics
@@ -43,7 +42,6 @@ module "terraform_repositories" {
 
   name         = each.value.name
   description  = each.value.description
-  files        = local.terraform_repository_files
   homepage_url = each.value.homepage_url
   visibility   = each.value.visibility
   topics       = each.value.topics

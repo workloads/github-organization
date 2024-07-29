@@ -9,33 +9,11 @@ locals {
   )
 }
 
-output "github_actions_releases" {
-  description = "GitHub Actions Releases."
-
-  # iterate over GitHub Actions Release Objects and assign `full_name` as value
-  value = {
-    for identifier, action in local.actions_config : identifier => {
-      repository = "${action.owner}/${action.repository}"
-      version    = action.version
-      sha        = action.sha
-    }
-  }
-}
-
 output "github_actions_organization_tool_versions" {
   description = "GitHub Actions Organization Tool Versions."
 
   # iterate over GitHub Actions Organization Variable Objects and assign `name` as value
   value = github_actions_organization_variable.versions
-}
-
-output "github_repository_slugs" {
-  description = "GitHub Repository slugs."
-
-  # iterate over Repository Objects and assign `full_name` as value
-  value = {
-    for identifier, repository in local.github_repository_slugs : identifier => repository.github_repository.full_name
-  }
 }
 
 output "github_urls" {

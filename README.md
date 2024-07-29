@@ -41,8 +41,7 @@ For more information, including detailed usage guidelines, see the [Terraform do
 |------|-------------|------|:--------:|
 | github_owner | This is the target GitHub organization or individual user account to manage. | `string` | yes |
 | github_token | A GitHub OAuth / Personal Access Token. | `string` | yes |
-| actions_config | Complex Object of GitHub Actions Configuration. | <pre>map(object({<br>    owner      = string<br>    repository = string<br><br>    # support GitHub Actions that share a repository and are stored in a sub-directory<br>    # value is optional and must be supplied without leading slash<br>    path = optional(string)<br><br>    version = string<br>  }))</pre> | no |
-| config | (optional) describe your variable | `map(any)` | no |
+| tfe_team_token_viewers | HCP Terraform `viewers` Team Token. | `string` | yes |
 | github_organization_email | E-mail address to use for GitHub Organization. | `string` | no |
 | issue_labels_hashicorp | HashiCorp Product-specific Issue Labels. | <pre>list(object({<br>    color       = string<br>    description = optional(string)<br>    name        = string<br>  }))</pre> | no |
 | organization_members | User Names and Team Associations of GitHub Organization Members. | <pre>list(object({<br>    username = string<br>    teams    = list(string)<br>  }))</pre> | no |
@@ -50,7 +49,6 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | outside_collaborators | Map of Outside Collaborators. | `map(list(string))` | no |
 | repositories | List of GitHub Repositories. | <pre>list(object({<br>    name                   = string<br>    description            = string<br>    homepage_url           = string<br>    visibility             = string<br>    topics                 = list(string)<br>    has_issues             = bool # TODO: mark as optional<br>    has_wiki               = bool # TODO: mark as optional<br>    allow_merge_commit     = bool<br>    allow_rebase_merge     = bool<br>    delete_branch_on_merge = bool<br>  }))</pre> | no |
 | reviewer_teams | List of Reviewer Teams. | <pre>list(object({<br>    name_suffix = string<br>    description = string<br>    privacy     = optional(string, "closed")<br>  }))</pre> | no |
-| scorecard_checks | OpenSSF Scorecard Checks. | `string` | no |
 | terraform_repositories | List of GitHub Repositories. | <pre>list(object({<br>    name                   = string<br>    description            = string<br>    homepage_url           = string<br>    visibility             = string<br>    topics                 = list(string)<br>    has_issues             = optional(bool)<br>    has_wiki               = optional(bool)<br>    allow_merge_commit     = bool<br>    allow_rebase_merge     = bool<br>    delete_branch_on_merge = bool<br>  }))</pre> | no |
 | tool_versions_config | List of Tool Versions. | <pre>map(object({<br>    version = string<br>  }))</pre> | no |
 
@@ -59,10 +57,9 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | Name | Description |
 |------|-------------|
 | github_actions_organization_tool_versions | GitHub Actions Organization Tool Versions. |
-| github_actions_releases | GitHub Actions Releases. |
-| github_repository_slugs | GitHub Repository slugs. |
 | github_urls | GitHub URLs. |
 | nomad_pack_registry_commands | Nomad Pack CLI Commands for Registry operations. |
+| tfe_workspace_terraform_version | Terraform version identifier of current HCP Terraform Workspace. |
 | workspace_url | HCP Terraform Workspace URL. |
 <!-- END_TF_DOCS -->
 
