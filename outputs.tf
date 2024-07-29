@@ -16,6 +16,15 @@ output "github_actions_organization_tool_versions" {
   value = github_actions_organization_variable.versions
 }
 
+output "github_repository_slugs" {
+  description = "GitHub Repository slugs."
+
+  # iterate over Repository Objects and assign `full_name` as value
+  value = {
+    for identifier, repository in local.github_repository_slugs : identifier => repository.github_repository.full_name
+  }
+}
+
 output "github_urls" {
   description = "GitHub URLs."
 
