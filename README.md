@@ -57,6 +57,8 @@ For more information, including detailed usage guidelines, see the [Terraform do
 | Name | Description |
 |------|-------------|
 | github_actions_organization_tool_versions | GitHub Actions Organization Tool Versions. |
+| github_repository_slugs | GitHub Repository slugs. |
+| github_terraform_repository_slugs | GitHub Terraform Repository slugs. |
 | github_urls | GitHub URLs. |
 | nomad_pack_registry_commands | Nomad Pack CLI Commands for Registry operations. |
 | tfe_workspace_terraform_version | Terraform version identifier of current HCP Terraform Workspace. |

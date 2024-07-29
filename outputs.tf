@@ -25,6 +25,15 @@ output "github_repository_slugs" {
   }
 }
 
+output "github_terraform_repository_slugs" {
+  description = "GitHub Terraform Repository slugs."
+
+  # iterate over Repository Objects and assign `full_name` as value
+  value = {
+    for identifier, repository in module.terraform_repositories : identifier => repository.github_repository.full_name
+  }
+}
+
 output "github_urls" {
   description = "GitHub URLs."
 
