@@ -3,5 +3,5 @@ data "tfe_workspace" "main" {
   provider = tfe.viewer
 
   name         = "github-organization"
-  organization = "workloads"
+  organization = var.tfe_organization
 }
