@@ -194,6 +194,65 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "arduino-filesystem"
+      description  = "Arduino Filesystem Module"
+      homepage_url = "https://github.com/workloads/arduino-filesystem"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "arduino",
+        "esp32",
+        "filesystem",
+        "littlefs",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
+      name         = "arduino-httpserver"
+      description  = "Arduino HTTP Server with OAS3 support"
+      homepage_url = "https://github.com/workloads/arduino-httpserver"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "arduino",
+        "esp32",
+        "httpserver",
+        "openapi",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
+      name         = "arduino-logger"
+      description  = "Arduino Logging Module"
+      homepage_url = "https://github.com/workloads/arduino-logger"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "arduino",
+        "esp32",
+        "logging",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "assets"
       description  = "🔒 (non-public) Design and Content Assets"
       homepage_url = "https://github.com/workloads"
@@ -835,6 +894,11 @@ variable "terraform_repositories" {
       delete_branch_on_merge = true
     },
   ]
+}
+
+variable "tfe_organization" {
+  type        = string
+  description = "Name of HCP Terraform Organization."
 }
 
 variable "tfe_team_token_viewers" {

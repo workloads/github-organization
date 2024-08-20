@@ -41,6 +41,7 @@ For more information, including detailed usage guidelines, see the [Terraform do
 |------|-------------|------|:--------:|
 | github_owner | This is the target GitHub organization or individual user account to manage. | `string` | yes |
 | github_token | A GitHub OAuth / Personal Access Token. | `string` | yes |
+| tfe_organization | Name of HCP Terraform Organization. | `string` | yes |
 | tfe_team_token_viewers | HCP Terraform `viewers` Team Token. | `string` | yes |
 | github_organization_email | E-mail address to use for GitHub Organization. | `string` | no |
 | issue_labels_hashicorp | HashiCorp Product-specific Issue Labels. | <pre>list(object({<br>    color       = string<br>    description = optional(string)<br>    name        = string<br>  }))</pre> | no |

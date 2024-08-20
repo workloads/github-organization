@@ -1,7 +1,7 @@
 # TODO: enable when https://github.com/integrations/terraform-provider-github/pull/2052 is merged
 ## HashiCorp Product-specific Issue Labels are assigned to all Terraform repositories
 ## This can be solved by either using a nested `for_each`, or by modularizing the code
-#module "hashicorp_issue_labels" {
+# module "hashicorp_issue_labels" {
 #  source = "./modules/github-issue-labels"
 #
 #  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
@@ -15,4 +15,4 @@
 #
 #  issue_labels = var.issue_labels_hashicorp
 #  repository   = each.value.repository.github_repository.name
-#}
+# }
