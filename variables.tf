@@ -463,6 +463,25 @@ variable "repositories" {
       delete_branch_on_merge = true
     },
     {
+      name         = "pathfinder-openapi-specs"
+      description  = "OpenAPI Specs for Pathfinder"
+      homepage_url = "https://github.com/workloads/pathfinder-openapi-specs"
+      visibility   = "public"
+      has_issues   = true
+      has_wiki     = false
+
+      topics = [
+        "arduino",
+        "esp32",
+        "openapi",
+      ]
+
+      allow_merge_commit     = false
+      allow_squash_merge     = true
+      allow_rebase_merge     = false
+      delete_branch_on_merge = true
+    },
+    {
       name         = "tooling"
       description  = "Common Tooling for @workloads Projects"
       homepage_url = "https://github.com/workloads/tooling"
