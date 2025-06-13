@@ -13,7 +13,7 @@ resource "github_organization_settings" "main" {
   # GitHub Pages settings:
   members_can_create_pages         = false
   members_can_create_private_pages = false
-  members_can_create_public_pages  = false
+  members_can_create_public_pages  = true
 
   # GitHub Projects settings:
   has_organization_projects = true

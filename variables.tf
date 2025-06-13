@@ -50,6 +50,10 @@ variable "issue_labels_hashicorp" {
       description = "Issues related to HashiCorp Terraform"
       name        = "terraform"
       }, {
+      color       = "2E71E5"
+      description = "Issues related to HashiCorp Vagrant"
+      name        = "vagrant"
+      }, {
       color       = "FFCF25"
       description = "Issues related to HashiCorp Vault"
       name        = "vault"
@@ -87,7 +91,7 @@ variable "organization_members" {
         "nomad",
       ]
       }, {
-      # Drew Mullen (River Point Technology)
+      # Drew Mullen (HashiCorp)
       username : "drewmullen",
       teams : []
       }, {
@@ -350,7 +354,7 @@ variable "repositories" {
       name         = "hugo-theme-workloads"
       description  = "Hugo Theme for @workloads Website"
       homepage_url = "https://workloads.io"
-      visibility   = "public"
+      visibility   = "private"
       has_issues   = true
       has_wiki     = false
 
@@ -469,6 +473,11 @@ variable "repositories" {
       visibility   = "public"
       has_issues   = true
       has_wiki     = false
+
+      pages = {
+        branch = "main",
+        path   = "/"
+      }
 
       topics = [
         "arduino",

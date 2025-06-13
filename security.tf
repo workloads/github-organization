@@ -53,9 +53,11 @@ resource "github_branch_protection" "main" {
   #  }
 
   # only allow maintainers to push to `main`
-  push_restrictions = [
-    "${var.github_owner}/${github_team.maintainers.slug}"
-  ]
+  restrict_pushes {
+    push_allowances = [
+      "${var.github_owner}/${github_team.maintainers.slug}"
+    ]
+  }
 
   # disallow deletion of the `main` branch
   allows_deletions = false
